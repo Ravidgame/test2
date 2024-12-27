@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بازی سنگ، کاغذ، قیچی</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #8e44ad;
+            color: #fff;
+            flex-direction: column;
+            text-align: center;
+        }
+        .button {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            border: 2px solid #fff;
+            border-radius: 20px;
+            background-color: transparent;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-size: 18px;
+        }
+        .button:hover {
+            background-color: #9b59b6;
+            transform: scale(1.1);
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.2);
+            width: 80%;
+            max-width: 400px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>بازی سنگ، کاغذ، قیچی</h1>
+<div>
+    <button class="button" onclick="playGame('سنگ')">سنگ</button>
+    <button class="button" onclick="playGame('کاغذ')">کاغذ</button>
+    <button class="button" onclick="playGame('قیچی')">قیچی</button>
+</div>
+
+<div id="result">آماده بازی هستید؟</div>
+
+<script>
+function playGame(userChoice) {
+    const choices = ['سنگ', 'کاغذ', 'قیچی'];
+    const randomIndex = Math.floor(Math.random() * 3);
+    const computerChoice = choices[randomIndex];
+
+    let result = "";
+
+    if (userChoice === computerChoice) {
+        result = "مساوی شد!";
+    } else if ((userChoice === "سنگ" && computerChoice === "قیچی") ||
+               (userChoice === "کاغذ" && computerChoice === "سنگ") ||
+               (userChoice === "قیچی" && computerChoice === "کاغذ")) {
+        result = "شما برنده شدید!";
+    } else {
+        result = "رایانه برنده شد!";
+    }
+
+    document.getElementById("result").innerHTML = `انتخاب شما: ${userChoice}<br>انتخاب رایانه: ${computerChoice}<br><strong>${result}</strong>`;
+}
+</script>
+
+</body>
+</html>
