@@ -1,80 +1,543 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بازی سنگ، کاغذ، قیچی</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #8e44ad;
-            color: #fff;
-            flex-direction: column;
-            text-align: center;
-        }
-        .button {
-            display: inline-block;
-            margin: 10px;
-            padding: 10px 20px;
-            border: 2px solid #fff;
-            border-radius: 20px;
-            background-color: transparent;
-            color: #fff;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            font-size: 18px;
-        }
-        .button:hover {
-            background-color: #9b59b6;
-            transform: scale(1.1);
-        }
-        #result {
-            margin-top: 20px;
-            font-size: 20px;
-            padding: 20px;
-            border-radius: 10px;
-            background-color: rgba(255, 255, 255, 0.2);
-            width: 80%;
-            max-width: 400px;
-        }
-    </style>
-</head>
-<body>
-
-<h1>بازی سنگ، کاغذ، قیچی</h1>
-<div>
-    <button class="button" onclick="playGame('سنگ')">سنگ</button>
-    <button class="button" onclick="playGame('کاغذ')">کاغذ</button>
-    <button class="button" onclick="playGame('قیچی')">قیچی</button>
-</div>
-
-<div id="result">آماده بازی هستید؟</div>
-
-<script>
-function playGame(userChoice) {
-    const choices = ['سنگ', 'کاغذ', 'قیچی'];
-    const randomIndex = Math.floor(Math.random() * 3);
-    const computerChoice = choices[randomIndex];
-
-    let result = "";
-
-    if (userChoice === computerChoice) {
-        result = "مساوی شد!";
-    } else if ((userChoice === "سنگ" && computerChoice === "قیچی") ||
-               (userChoice === "کاغذ" && computerChoice === "سنگ") ||
-               (userChoice === "قیچی" && computerChoice === "کاغذ")) {
-        result = "شما برنده شدید!";
-    } else {
-        result = "رایانه برنده شد!";
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="هامووی - مرجع دانلود فیلم و سریال با بهترین کیفیت و بدون سانسور">
+  <meta name="theme-color" content="#e50914">
+  <title>هامووی 🎬 | دانلود فیلم و سریال</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700&family=Vazirmatn:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #e50914;
+      --secondary-color: #f05053;
+      --dark-background: #141414;
+      --light-background: #f5f5f5;
+      --transition-speed: 0.3s;
+      --border-radius: 25px;
+      --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
-    document.getElementById("result").innerHTML = `انتخاب شما: ${userChoice}<br>انتخاب رایانه: ${computerChoice}<br><strong>${result}</strong>`;
-}
-</script>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
+    body {
+      background-color: var(--dark-background);
+      color: #fff;
+      font-family: 'Vazirmatn', 'Montserrat', sans-serif;
+      margin: 0;
+      transition: background-color var(--transition-speed) ease;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    body.dark-mode {
+      background-color: var(--light-background);
+      color: var(--dark-background);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      width: 100%;
+    }
+
+    header {
+      background-color: rgba(20, 20, 20, 0.95);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+
+    .logo {
+      width: 120px;
+      height: auto;
+      transition: transform var(--transition-speed) ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.1);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 600;
+      font-size: 1.1rem;
+      padding: 0.8rem 1.5rem;
+      border-radius: var(--border-radius);
+      transition: all var(--transition-speed) ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    nav a::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+      opacity: 0;
+      transition: opacity var(--transition-speed) ease;
+      z-index: -1;
+      border-radius: var(--border-radius);
+    }
+
+    nav a:hover::before {
+      opacity: 1;
+    }
+
+    .search-container {
+      position: relative;
+    }
+
+    .search-input {
+      position: absolute;
+      right: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      padding: 0.8rem;
+      border: none;
+      border-radius: var(--border-radius);
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      transition: all var(--transition-speed) ease;
+      opacity: 0;
+    }
+
+    .search-input.active {
+      width: 250px;
+      opacity: 1;
+      margin-right: 1rem;
+    }
+
+    .search-input::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .search-icon {
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: transform var(--transition-speed) ease;
+      color: #fff;
+    }
+
+    .search-icon:hover {
+      transform: scale(1.1);
+    }
+
+    .intro {
+      position: relative;
+      padding: 4rem 0;
+      text-align: center;
+      background: linear-gradient(rgba(20, 20, 20, 0.8), rgba(20, 20, 20, 0.8)),
+                  url('background.jpg') center/cover no-repeat fixed;
+      border-radius: 20px;
+      margin: 2rem 0;
+    }
+
+    .intro h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin-bottom: 2rem;
+      background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientFlow 3s ease infinite;
+    }
+
+    @keyframes gradientFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .platform {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    .platform-item {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      padding: 2rem;
+      transition: transform var(--transition-speed) ease,
+                  box-shadow var(--transition-speed) ease;
+      animation: fadeInUp 0.8s ease backwards;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .platform-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .platform-item i {
+      font-size: 3rem;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+      transition: transform var(--transition-speed) ease;
+    }
+
+    .platform-item:hover i {
+      transform: scale(1.1);
+    }
+
+    .platform-item h2 {
+      font-size: 1.8rem;
+      margin: 1rem 0;
+      color: var(--primary-color);
+    }
+
+    .platform-item a {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: bold;
+      transition: color var(--transition-speed) ease;
+      display: inline-block;
+      margin-top: 1rem;
+    }
+
+    .platform-item a:hover {
+      color: var(--secondary-color);
+    }
+
+    footer {
+      background-color: #181818;
+      color: #fff;
+      text-align: center;
+      padding: 2rem;
+      margin-top: auto;
+    }
+
+    .controls {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      z-index: 1000;
+    }
+
+    .control-button {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      border: none;
+      background: var(--primary-color);
+      color: #fff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--transition-speed) ease;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .control-button.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .control-button:hover {
+      transform: scale(1.1);
+      background: var(--secondary-color);
+    }
+
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      nav {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      nav ul {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+      }
+
+      .search-input.active {
+        position: relative;
+        right: 0;
+        width: 100%;
+        margin: 1rem 0;
+      }
+
+      .platform {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <img src="logo.png" alt="لوگو هامووی" class="logo">
+        <nav>
+          <ul>
+            <li><a href="animation.html">انیمیشن</a></li>
+            <li><a href="movies.html">فیلم</a></li>
+            <li><a href="series.html">سریال</a></li>
+            <li><a href="account.html">حساب کاربری</a></li>
+          </ul>
+          <div class="search-container">
+            <input type="search" class="search-input" placeholder="جستجو...">
+            <i class="fas fa-search search-icon"></i>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="intro">
+      <h1>به دنیای فیلم و سریال خوش آمدید! 🎉</h1>
+      <p>با هامووی، مرجع دانلود فیلم و سریال با بهترین کیفیت و بدون سانسور، همراه باشید. 🚀</p>
+
+      <div class="platform">
+        <div class="platform-item">
+          <i class="fab fa-instagram"></i>
+          <h2>اینستاگرام</h2>
+          <p>ما را در اینستاگرام دنبال کنید تا از جدیدترین فیلم‌ها و سریال‌ها، نقد و بررسی‌ها، اخبار و حواشی دنیای سینما باخبر شوید.</p>
+          <a href="https://www.instagram.com/hamvimoe/profilecard/?igsh=MTQ2dmdpNndsam51bw==" target="_blank" rel="noopener noreferrer">
+            اینستاگرام هامووی <i class="fas fa-external-link-alt"></i>
+          </a>
+        </div>
+
+        <div class="platform-item">
+          <i class="fab fa-telegram"></i>
+          <h2>تلگرام</h2>
+          <p>به کانال تلگرام ما بپیوندید تا به راحتی و بدون سانسور، فیلم‌ها و سریال‌های معرفی شده در پیج اینستاگرام را دانلود کنید.</p>
+          <a href="https://t.me/Hamoviefilmdo" target="_blank" rel="noopener noreferrer">
+            کانال تلگرام هامووی <i class="fas fa-external-link-alt"></i>
+          </a>
+        </div>
+
+        <div class="platform-item">
+          <i class="fab fa-youtube"></i>
+          <h2>یوتوب</h2>
+          <p>کانال یوتوب ما به زودی افتتاح می‌شود. در این کانال می‌توانید بررسی‌های کامل، پوشش اخبار سینما به صورت هفتگی یا ماهانه را تماشا کنید.</p>
+          <a href="#" class="coming-soon">
+            به زودی <i class="fas fa-clock"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; ۲۰۲۴ هامووی - تمامی حقوق محفوظ است</p>
+  </footer>
+
+  <div class="controls">
+    <button class="control-button theme-toggle" title="تغییر حالت شب/روز">
+      <i class="fas fa-moon"></i>
+    </button>
+    <button class="control-button scroll-top" title="بازگشت به بالا">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const controls = {
+        themeToggle: document.querySelector('.theme-toggle'),
+        scrollTop: document.querySelector('.scroll-top'),
+        searchIcon: document.querySelector('.search-icon'),
+        searchInput: document.querySelector('.search-input')
+      };
+
+      // Theme Toggle
+      controls.themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        const icon = controls.themeToggle.querySelector('i');
+        icon.className = document.body.classList.contains('dark-mode') 
+          ? 'fas fa-sun'
+          : 'fas fa-moon';
+        
+        // Save theme preference
+        localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+      });
+
+      // Load saved theme
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+        controls.themeToggle.querySelector('i').className = 'fas fa-sun';
+      }
+
+      // Scroll to Top
+      window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+          controls.scrollTop.classList.add('visible');
+        } else {
+          controls.scrollTop.classList.remove('visible');
+        }
+      });
+
+      controls.scrollTop.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+
+      // Search functionality
+      controls.searchIcon.addEventListener('click', () => {
+        controls.searchInput.classList.toggle('active');
+        if (controls.searchInput.classList.contains('active')) {
+          controls.searchInput.focus();
+        }
+      });
+
+      // Close search on escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && controls.searchInput.classList.contains('active')) {
+          controls.searchInput.classList.remove('active');
+        }
+      });
+
+      // Close search when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.search-container') && controls.searchInput.classList.contains('active')) {
+          controls.searchInput.classList.remove('active');
+        }
+      });
+
+      // Platform items animation
+      const platformItems = document.querySelectorAll('.platform-item');
+      const observerOptions = {
+        threshold: 0.2,
+        rootMargin: '0px'
+      };
+
+      const platformObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+            platformObserver.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      platformItems.forEach((item, index) => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(30px)';
+        item.style.transitionDelay = `${index * 0.2}s`;
+        platformObserver.observe(item);
+      });
+
+      // Lazy loading for images
+      const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+      const imageObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            img.src = img.dataset.src;
+            img.removeAttribute('data-src');
+            imageObserver.unobserve(img);
+          }
+        });
+      });
+
+      lazyImages.forEach((img) => imageObserver.observe(img));
+
+      // Add smooth scrolling to all anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = anchor.getAttribute('href');
+          if (targetId !== '#') {
+            document.querySelector(targetId).scrollIntoView({
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+
+      // Performance optimization: Debounce scroll event
+      function debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+          const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+          };
+          clearTimeout(timeout);
+          timeout = setTimeout(later, wait);
+        };
+      }
+
+      // Debounced scroll handler
+      const debouncedScroll = debounce(() => {
+        if (window.pageYOffset > 300) {
+          controls.scrollTop.classList.add('visible');
+        } else {
+          controls.scrollTop.classList.remove('visible');
+        }
+      }, 150);
+
+      window.addEventListener('scroll', debouncedScroll);
+    });
+  </script>
 </body>
 </html>
