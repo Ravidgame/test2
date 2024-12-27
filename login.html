@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ورود و ثبت نام در هامووی - مرجع دانلود فیلم و سریال با بهترین کیفیت و بدون سانسور">
+    <title>هامووی 🎬 | ورود / ثبت نام</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700&family=Vazirmatn:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #e50914;
+            --secondary-color: #f05053;
+            --dark-background: #141414;
+            --light-background: #f5f5f5;
+            --transition-speed: 0.3s;
+            --border-radius: 25px;
+            --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--dark-background);
+            color: #fff;
+            font-family: 'Vazirmatn', 'Montserrat', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: rgba(20, 20, 20, 0.95);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            width: 450px;
+            max-width: 90%;
+            box-shadow: var(--box-shadow);
+            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+        }
+        .container:hover{
+            transform: scale(1.02);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        input[type="email"],
+        input[type="password"],
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: var(--border-radius);
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-family: inherit;
+            padding-right: 35px;
+        }
+
+        .form-group i {
+            position: absolute;
+            right: 15px;
+            top: 40px;
+            color: #aaa;
+            pointer-events: none;
+        }
+
+        .form-group .toggle-password {
+            position: absolute;
+            right: 15px;
+            top: 40px;
+            cursor: pointer;
+        }
+
+        input[type="submit"] {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all var(--transition-speed) ease;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        input[type="submit"]:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .form-toggle {
+            text-align: center;
+            margin-top: 20px;
+            color: #aaa;
+            transition: color var(--transition-speed) ease;
+        }
+
+        .form-toggle a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color var(--transition-speed) ease;
+        }
+        .form-toggle a:hover{
+            color: var(--secondary-color);
+        }
+
+        .error-message {
+            color: var(--secondary-color);
+            margin: 5px 0;
+            text-align: center;
+            font-size: 0.9rem;
+            height: 20px;
+            opacity: 0;
+            transition: opacity var(--transition-speed) ease;
+        }
+        .error-message.show{
+            opacity: 1;
+        }
+        .logo {
+            display: block;
+            width: 150px;
+            margin: 0 auto 20px;
+            transition: transform var(--transition-speed) ease;
+        }
+        .logo:hover{
+            transform: scale(1.1);
+        }
+
+        .form-group.error input {
+            border: 2px solid var(--secondary-color);
+        }
+
+        .form-group.success input {
+            border: 2px solid var(--primary-color);
+        }
+
+        @media (max-width: 400px) {
+            .container {
+                padding: 30px;
+            }
+
+            .form-group i {
+                right: 10px;
+                top: 35px;
+            }
+
+            .form-group .toggle-password {
+                right: 10px;
+                top: 35px;
+            }
+
+            input[type="email"],
+            input[type="password"],
+            input[type="text"] {
+                padding: 10px;
+                padding-right: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="logo.png" alt="لوگو هامووی" class="logo">
+        <h2 id="form-title">ورود</h2>
+        <form id="login-form" action="#" method="post">
+            <div class="form-group">
+                <label for="email">ایمیل:</label>
+                <input type="email" id="email" name="email" required>
+                <i class="fas fa-envelope"></i>
+                <p class="error-message" id="email-error"></p>
+            </div>
+            <div class="form-group">
+                <label for="password">رمز عبور:</label>
+                <input type="password" id="password" name="password" required>
+                <i class="fas fa-lock"></i>
+                <i class="fas fa-eye toggle-password" id="toggle-password"></i>
+                <p class="error-message" id="password-error"></p>
+            </div>
+            <input type="submit" value="ورود">
+            <p class="error-message" id="login-error"></p>
+        </form>
+
+        <form id="signup-form" action="#" method="post" style="display: none;">
+            <div class="form-group">
+                <label for="signup-name">نام:</label>
+                <input type="text" id="signup-name" name="name" required>
+                <i class="fas fa-user"></i>
+                <p class="error-message" id="name-error"></p>
+            </div>
+            <div class="form-group">
+                <label for="signup-email">ایمیل:</label>
+                <input type="email" id="signup-email" name="email" required>
+                <i class="fas fa-envelope"></i>
+                <p class="error-message" id="signup-email-error"></p>
+            </div>
+            <div class="form-group">
+                <label for="signup-password">رمز عبور:</label>
+                <input type="password" id="signup-password" name="password" required>
+                <i class="fas fa-lock"></i>
+                <i class="fas fa-eye toggle-password" id="signup-toggle-password"></i>
+                <p class="error-message" id="signup-password-error"></p>
+            </div>
+            <input type="submit" value="ثبت نام">
+            <p class="error-message" id="signup-error"></p>
+        </form>
+
+        <p class="form-toggle">
+            <a href="#" id="toggle-link">ثبت نام</a>
+        </p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const loginForm = document.getElementById('login-form');
+            const signupForm = document.getElementById('signup-form');
+            const toggleLink = document.getElementById('toggle-link');
+            const formTitle = document.getElementById('form-title');
+            const loginError = document.getElementById('login-error');
+            const signupError = document.getElementById('signup-error');
+
+            // Toggle between login and signup forms
+            toggleLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (loginForm.style.display !== 'none') {
+                    loginForm.style.display = 'none';
+                    signupForm.style.display = 'block';
+                    formTitle.textContent = 'ثبت نام';
+                    toggleLink.textContent = 'ورود';
+                } else {
+                    loginForm.style.display = 'block';
+                    signupForm.style.display = 'none';
+                    formTitle.textContent = 'ورود';
+                    toggleLink.textContent = 'ثبت نام';
+                }
+                clearErrors();
+            });
+
+            // Toggle password visibility
+            document.querySelectorAll('.toggle-password').forEach(button => {
+                button.addEventListener('click', () => {
+                    const passwordInput = button.previousElementSibling.previousElementSibling;
+                    if (passwordInput.type === 'password') {
+                        passwordInput.type = 'text';
+                        button.classList.remove('fa-eye');
+                        button.classList.add('fa-eye-slash');
+                    } else {
+                        passwordInput.type = 'password';
+                        button.classList.remove('fa-eye-slash');
+                        button.classList.add('fa-eye');
+                    }
+                });
+            });
+
+            // Real-time validation for login form
+            loginForm.querySelectorAll('input').forEach(input => {
+                input.addEventListener('input', () => {
+                    validateLoginForm();
+                });
+            });
+
+            // Real-time validation for signup form
+            signupForm.querySelectorAll('input').forEach(input => {
+                input.addEventListener('input', () => {
+                    validateSignupForm();
+                });
+            });
+
+            // Signup form submission
+            signupForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                if (validateSignupForm()) {
+                    const name = document.getElementById('signup-name').value;
+                    const email = document.getElementById('signup-email').value;
+                    const password = document.getElementById('signup-password').value;
+
+                    // Send data to the server using fetch API
+                    fetch('register.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        body: `name=<span class="math-inline">\{name\}&email\=</span>{email}&password=${password}`,
+                    })
+                    .then(response => response.text())
+                    .then(data => {
+                        if (data === 'success') {
+                            alert('ثبت نام با موفقیت انجام شد!');
+                            // Switch to login form
+                            loginForm.style.display = 'block';
+                            signupForm.style.display = 'none';
+                            formTitle.textContent = 'ورود';
+                            toggleLink.textContent = 'ثبت نام';
+                            clearErrors();
+                        } else {
+                            signupError.textContent = 'خطا در ثبت نام: ' + data;
+                            signupError.classList.add('show');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        signupError.textContent = 'خطا در برقراری ارتباط با سرور.';
+                        signupError.classList.add('show');
+                    });
+                }
+            });
+
+            // Login form submission
+            loginForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                if (validateLoginForm()) {
+                    const email = document.getElementById('email').value;
+                    const password = document.getElementById('password').value;
+
+                    // Send data to the server using fetch API
+                    fetch('login.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        body: `email=<span class="math-inline">\{email\}&password\=</span>{password}`,
+                    })
+                    .then(response => response.text())
+                    .then(data => {
+                        if (data === 'success') {
+                            // ورود موفق
+                            alert('ورود با موفقیت انجام شد!');
+                            window.location.href = 'index.html'; // Redirect to the main page (replace with your desired page)
+                        } else {
+                            loginError.textContent = 'خطا در ورود: ' + data;
+                            loginError.classList.add('show');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        loginError.textContent = 'خطا در برقراری ارتباط با سرور.';
+                        loginError.classList.add('show');
+                    });
+                }
+            });
+
+            // Validation functions
+            function validateLoginForm() {
+                let isValid = true;
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+
+                if (!validateEmail(email)) {
+                    document.getElementById('email-error').textContent = 'ایمیل معتبر نیست.';
+                    document.getElementById('email-error').classList.add('show');
+                    document.getElementById('email').parentElement.classList.add('error');
+                    isValid = false;
+                } else {
+                    document.getElementById('email-error').textContent = '';
+                    document.getElementById('email-error').classList.remove('show');
+                    document.getElementById('email').parentElement.classList.remove('error');
+                }
+
+                if (password.length < 6) {
+                    document.getElementById('password-error').textContent = 'رمز عبور باید حداقل ۶ کاراکتر باشد.';
+                    document.getElementById('password-error').classList.add('show');
+                    document.getElementById('password').parentElement.classList.add('error');
+                    isValid = false;
+                } else {
+                    document.getElementById('password-error').textContent = '';
+                    document.getElementById('password-error').classList.remove('show');
+                    document.getElementById('password').parentElement.classList.remove('error');
+                }
+
+                return isValid;
+            }
+
+            function validateSignupForm() {
+                let isValid = true;
+                const name = document.getElementById('signup-name').value;
+                const email = document.getElementById('signup-email').value;
+                const password = document.getElementById('signup-password').value;
+
+                if (name.trim() === '') {
+                    document.getElementById('name-error').textContent = 'نام الزامی است.';
+                    document.getElementById('name-error').classList.add('show');
+                    document.getElementById('signup-name').parentElement.classList.add('error');
+                    isValid = false;
+                } else {
+                    document.getElementById('name-error').textContent = '';
+                    document.getElementById('name-error').classList.remove('show');
+                    document.getElementById('signup-name').parentElement.classList.remove('error');
+                }
+
+                if (!validateEmail(email)) {
+                    document.getElementById('signup-email-error').textContent = 'ایمیل معتبر نیست.';
+                    document.getElementById('signup-email-error').classList.add('show');
+                    document.getElementById('signup-email').parentElement.classList.add('error');
+                    isValid = false;
+                } else {
+                    document.getElementById('signup-email-error').textContent = '';
+                    document.getElementById('signup-email-error').classList.remove('show');
+                    document.getElementById('signup-email').parentElement.classList.remove('error');
+                }
+                if (password.length < 6) {
+                    document.getElementById('signup-password-error').textContent = 'رمز عبور باید حداقل ۶ کاراکتر باشد.';
+                    document.getElementById('signup-password-error').classList.add('show');
+                    document.getElementById('signup-password').parentElement.classList.add('error');
+                    isValid = false;
+                } else {
+                    document.getElementById('signup-password-error').textContent = '';
+                    document.getElementById('signup-password-error').classList.remove('show');
+                    document.getElementById('signup-password').parentElement.classList.remove('error');
+                }
+
+                return isValid;
+            }
+
+            // Email validation helper function
+            function validateEmail(email) {
+                const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return re.test(email);
+            }
+
+            // Clear error messages
+            function clearErrors() {
+                document.querySelectorAll('.error-message').forEach(error => {
+                    error.textContent = '';
+                    error.classList.remove('show');
+                });
+                document.querySelectorAll('.form-group').forEach(group => {
+                    group.classList.remove('error');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
