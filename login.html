@@ -200,38 +200,7 @@
             color: var(--secondary-color);
             text-decoration: underline;
         }
-        .loading-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-        }
 
-        .loading-spinner {
-            border: 8px solid #f3f3f3;
-            border-top: 8px solid var(--primary-color);
-            border-radius: 50%;
-            width: 80px;
-            height: 80px;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .loading-message {
-            color: white;
-            font-size: 1.5rem;
-            margin-top: 20px;
-        }
         .remember-me {
             display: flex;
             align-items: center;
@@ -340,7 +309,7 @@
     <div class="container">
         <img src="logo.png" alt="لوگو هامووی" class="logo">
         <h2 id="form-title">ورود</h2>
-        <form id="login-form" action="login.php" method="post">
+        <form id="login-form" method="post">
             <div class="form-group">
                 <label for="email">ایمیل:</label>
                 <input type="email" id="email" name="email" required>
@@ -364,7 +333,7 @@
             <p class="error-message" id="login-error"></p>
         </form>
 
-        <form id="signup-form" action="register.php" method="post" style="display: none;">
+        <form id="signup-form" method="post" style="display: none;">
             <div class="form-group">
                 <label for="signup-name">نام:</label>
                 <input type="text" id="signup-name" name="name" required>
@@ -393,10 +362,6 @@
         <p class="form-toggle">
             حساب کاربری ندارید؟ <a href="#" id="toggle-link">ثبت نام</a>
         </p>
-        <div class="loading-overlay" id="loading-overlay">
-            <div class="loading-spinner"></div>
-            <p class="loading-message">در حال بارگذاری...</p>
-        </div>
     </div>
 
     <script>
@@ -407,7 +372,6 @@
             const formTitle = document.getElementById('form-title');
             const loginError = document.getElementById('login-error');
             const signupError = document.getElementById('signup-error');
-            const loadingOverlay = document.getElementById('loading-overlay');
 
             // Focus on email input on page load
             document.getElementById('email').focus();
@@ -459,57 +423,47 @@
                 });
             });
 
-            // Handle form submissions with fetch and async/await
-            async function handleFormSubmission(form, url, successMessage) {
-                const formData = new FormData(form);
-                const rememberEmail = document.getElementById('remember')?.checked;
-
-                if (rememberEmail) {
-                  localStorage.setItem('rememberedEmail', document.getElementById('email').value);
+            // Load and display user data in the profile page
+            function loadUserProfile() {
+                const storedUser = JSON.parse(sessionStorage.getItem('user'));
+                if (storedUser) {
+                    document.getElementById('profile-name').textContent = storedUser.name;
+                    document.getElementById('profile-email').textContent = storedUser.email;
                 } else {
-                  localStorage.removeItem('rememberedEmail');
-                }
-
-                try {
-                    loadingOverlay.style.display = 'flex';
-                    const response = await fetch(url, {
-                        method: 'POST',
-                        body: formData
-                    });
-
-                    const data = await response.text();
-
-                    if (data.trim() === 'success') {
-                        if (successMessage) {
-                            alert(successMessage);
-                        }
-                        if (url.includes('login.php')) {
-                          window.location.href = 'profile.html';
-                        } else {
-                          loginForm.style.display = 'block';
-                          signupForm.style.display = 'none';
-                          formTitle.textContent = 'ورود';
-                          toggleLink.textContent = 'ثبت نام';
-                          clearErrors();
-                        }
-                    } else {
-                        const errorElement = url.includes('login.php') ? loginError : signupError;
-                        displayError(errorElement, data.trim().startsWith('error:') ? data.trim().substring(6) : 'خطا در پردازش درخواست.');
-                    }
-                } catch (error) {
-                    console.error('Error:', error);
-                    const errorElement = url.includes('login.php') ? loginError : signupError;
-                    displayError(errorElement, 'خطا در برقراری ارتباط با سرور.');
-                } finally {
-                    loadingOverlay.style.display = 'none';
+                    // Redirect to login if no user data found
+                    window.location.href = 'login.html';
                 }
             }
 
-            // Login form submission
+            // Check if the current page is the profile page and load user data
+            if (window.location.pathname.endsWith('profile.html')) {
+                loadUserProfile();
+            }
+
+            // Handle login form submission
             loginForm.addEventListener('submit', (e) => {
                 e.preventDefault();
                 if (validateLoginForm()) {
-                    handleFormSubmission(loginForm, 'login.php', null);
+                    const email = document.getElementById('email').value;
+                    const password = document.getElementById('password').value;
+                    const remember = document.getElementById('remember').checked;
+
+                    const storedUsers = JSON.parse(sessionStorage.getItem('users')) || [];
+                    const user = storedUsers.find(u => u.email === email);
+
+                    if (user && user.password === password) {
+                        sessionStorage.setItem('user', JSON.stringify({ name: user.name, email: user.email }));
+
+                        if (remember) {
+                            localStorage.setItem('rememberedEmail', email);
+                        } else {
+                            localStorage.removeItem('rememberedEmail');
+                        }
+
+                        window.location.href = 'profile.html';
+                    } else {
+                        displayError(loginError, 'ایمیل یا رمز عبور اشتباه است.');
+                    }
                 }
             });
 
@@ -517,7 +471,25 @@
             signupForm.addEventListener('submit', (e) => {
                 e.preventDefault();
                 if (validateSignupForm()) {
-                    handleFormSubmission(signupForm, 'register.php', 'ثبت نام با موفقیت انجام شد!');
+                    const name = document.getElementById('signup-name').value;
+                    const email = document.getElementById('signup-email').value;
+                    const password = document.getElementById('signup-password').value;
+
+                    const storedUsers = JSON.parse(sessionStorage.getItem('users')) || [];
+                    if (storedUsers.some(u => u.email === email)) {
+                        displayError(signupError, 'این ایمیل قبلاً ثبت شده است.');
+                        return;
+                    }
+
+                    storedUsers.push({ name, email, password });
+                    sessionStorage.setItem('users', JSON.stringify(storedUsers));
+
+                    alert('ثبت نام با موفقیت انجام شد!');
+                    loginForm.style.display = 'block';
+                    signupForm.style.display = 'none';
+                    formTitle.textContent = 'ورود';
+                    toggleLink.textContent = 'ثبت نام';
+                    clearErrors();
                 }
             });
 
