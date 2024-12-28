@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="ورود و ثبت نام در هامووی - مرجع دانلود فیلم و سریال با بهترین کیفیت و بدون سانسور">
-    <title>هامووی 🎬 | ورود / ثبت نام</title>
+    <meta name="description" content="ورود به هامووی - مرجع دانلود فیلم و سریال با بهترین کیفیت و بدون سانسور">
+    <title>هامووی 🎬 | ورود</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,8 +17,8 @@
             --dark-background: #141414;
             --light-background: #f5f5f5;
             --transition-speed: 0.3s;
-            --border-radius: 25px;
-            --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            --border-radius: 30px;
+            --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
         }
 
         * {
@@ -28,7 +28,7 @@
         }
 
         body {
-            background-color: var(--dark-background);
+            background: linear-gradient(to bottom, var(--dark-background), #000);
             color: #fff;
             font-family: 'Vazirmatn', 'Montserrat', sans-serif;
             display: flex;
@@ -38,89 +38,155 @@
         }
 
         .container {
-            background-color: rgba(20, 20, 20, 0.95);
+            background-color: rgba(255, 255, 255, 0.1);
             border-radius: var(--border-radius);
-            padding: 40px;
-            width: 450px;
-            max-width: 90%;
+            padding: 60px 50px;
             box-shadow: var(--box-shadow);
-            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+            text-align: center;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            animation: fadeInUp 0.8s ease-out;
+            max-width: 500px;
+            width: 100%;
+            border: 2px solid;
+            border-image: linear-gradient(to right, var(--primary-color), var(--secondary-color)) 1;
         }
-        .container:hover{
-            transform: scale(1.02);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+
+        .container:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+        }
+
+        .logo {
+            display: block;
+            width: 180px;
+            margin: 0 auto 30px;
+            transition: transform var(--transition-speed) ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
         }
 
         h2 {
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 2rem;
             color: var(--primary-color);
+            margin-bottom: 30px;
+            font-size: 2.8rem;
+            text-shadow: 3px 3px 4px rgba(0,0,0,0.6);
+            letter-spacing: 1px;
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             position: relative;
         }
 
         label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             font-weight: 600;
+            text-align: right;
+            font-size: 1.2rem;
         }
 
         input[type="email"],
         input[type="password"],
         input[type="text"] {
             width: 100%;
-            padding: 12px;
+            padding: 15px 40px 15px 20px;
             border: none;
             border-radius: var(--border-radius);
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(0, 0, 0, 0.5);
             color: #fff;
             font-family: inherit;
-            padding-right: 35px;
+            font-size: 1.2rem;
+            transition: box-shadow var(--transition-speed) ease;
+        }
+
+        input[type="email"]:focus,
+        input[type="password"]:focus,
+        input[type="text"]:focus {
+            outline: none;
+            box-shadow: 0 0 5px var(--primary-color);
         }
 
         .form-group i {
             position: absolute;
             right: 15px;
-            top: 40px;
+            top: 50%;
+            transform: translateY(-50%);
             color: #aaa;
-            pointer-events: none;
+            font-size: 1.4rem;
+            z-index: 1;
+            transition: color var(--transition-speed) ease;
         }
 
         .form-group .toggle-password {
             position: absolute;
-            right: 15px;
-            top: 40px;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
             cursor: pointer;
+            color: #aaa;
+            font-size: 1.4rem;
+            z-index: 1;
+            transition: color var(--transition-speed) ease;
+        }
+
+        .form-group .toggle-password:hover {
+            color: var(--primary-color);
+        }
+
+        .form-group.error i {
+            color: var(--secondary-color);
+        }
+
+        .error-message {
+            color: var(--secondary-color);
+            margin-top: 5px;
+            text-align: right;
+            font-size: 1rem;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .form-group.error input {
+            border: 2px solid var(--secondary-color);
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
         }
 
         input[type="submit"] {
-            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            background: linear-gradient(to right, var(--primary-color) 20%, var(--secondary-color));
             color: #fff;
-            padding: 12px 20px;
+            padding: 15px 35px;
             border: none;
             border-radius: var(--border-radius);
             cursor: pointer;
             font-family: inherit;
-            font-size: 1rem;
+            font-size: 1.3rem;
             transition: all var(--transition-speed) ease;
-            width: 100%;
-            margin-top: 20px;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.4);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            flex-grow: 1;
         }
 
         input[type="submit"]:hover {
-            opacity: 0.9;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.6);
         }
 
         .form-toggle {
             text-align: center;
-            margin-top: 20px;
-            color: #aaa;
-            transition: color var(--transition-speed) ease;
+            margin-top: 30px;
+            font-size: 1.1rem;
         }
 
         .form-toggle a {
@@ -129,60 +195,143 @@
             font-weight: 600;
             transition: color var(--transition-speed) ease;
         }
-        .form-toggle a:hover{
+
+        .form-toggle a:hover {
             color: var(--secondary-color);
+            text-decoration: underline;
+        }
+        .loading-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
         }
 
-        .error-message {
-            color: var(--secondary-color);
-            margin: 5px 0;
-            text-align: center;
-            font-size: 0.9rem;
+        .loading-spinner {
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid var(--primary-color);
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loading-message {
+            color: white;
+            font-size: 1.5rem;
+            margin-top: 20px;
+        }
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 15px;
+            font-size: 1.1rem;
+            color: #ccc;
+        }
+
+        .remember-me input[type="checkbox"] {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 20px;
             height: 20px;
-            opacity: 0;
-            transition: opacity var(--transition-speed) ease;
-        }
-        .error-message.show{
-            opacity: 1;
-        }
-        .logo {
-            display: block;
-            width: 150px;
-            margin: 0 auto 20px;
-            transition: transform var(--transition-speed) ease;
-        }
-        .logo:hover{
-            transform: scale(1.1);
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            background-color: transparent;
+            cursor: pointer;
+            position: relative;
+            transition: background-color var(--transition-speed) ease, border-color var(--transition-speed) ease;
         }
 
-        .form-group.error input {
-            border: 2px solid var(--secondary-color);
+        .remember-me input[type="checkbox"]:checked {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
         }
 
-        .form-group.success input {
-            border: 2px solid var(--primary-color);
+        .remember-me input[type="checkbox"]:checked::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 14px;
         }
 
-        @media (max-width: 400px) {
+        .remember-me label {
+            cursor: pointer;
+            user-select: none;
+        }
+
+        @media (max-width: 480px) {
             .container {
-                padding: 30px;
+                padding: 40px 30px;
             }
 
-            .form-group i {
-                right: 10px;
-                top: 35px;
+            .logo {
+                width: 150px;
+                margin-bottom: 20px;
             }
 
-            .form-group .toggle-password {
-                right: 10px;
-                top: 35px;
+            h2 {
+                font-size: 2.4rem;
+            }
+
+            .form-group {
+                margin-bottom: 20px;
+            }
+
+            label {
+                font-size: 1.1rem;
             }
 
             input[type="email"],
             input[type="password"],
             input[type="text"] {
-                padding: 10px;
-                padding-right: 30px;
+                padding: 12px 35px 12px 15px;
+                font-size: 1.1rem;
+            }
+
+            .form-group i,
+            .form-group .toggle-password {
+                font-size: 1.3rem;
+            }
+
+            .button-container {
+                margin-top: 25px;
+            }
+
+            input[type="submit"] {
+                padding: 12px 30px;
+                font-size: 1.2rem;
+            }
+
+            .form-toggle {
+                font-size: 1rem;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
     </style>
@@ -191,7 +340,7 @@
     <div class="container">
         <img src="logo.png" alt="لوگو هامووی" class="logo">
         <h2 id="form-title">ورود</h2>
-        <form id="login-form" action="#" method="post">
+        <form id="login-form" action="login.php" method="post">
             <div class="form-group">
                 <label for="email">ایمیل:</label>
                 <input type="email" id="email" name="email" required>
@@ -202,14 +351,20 @@
                 <label for="password">رمز عبور:</label>
                 <input type="password" id="password" name="password" required>
                 <i class="fas fa-lock"></i>
-                <i class="fas fa-eye toggle-password" id="toggle-password"></i>
+                <i class="fas fa-eye toggle-password" id="toggle-login-password"></i>
                 <p class="error-message" id="password-error"></p>
             </div>
-            <input type="submit" value="ورود">
+            <div class="remember-me">
+                <input type="checkbox" id="remember" name="remember">
+                <label for="remember">مرا به خاطر بسپار</label>
+            </div>
+            <div class="button-container">
+                <input type="submit" value="ورود">
+            </div>
             <p class="error-message" id="login-error"></p>
         </form>
 
-        <form id="signup-form" action="#" method="post" style="display: none;">
+        <form id="signup-form" action="register.php" method="post" style="display: none;">
             <div class="form-group">
                 <label for="signup-name">نام:</label>
                 <input type="text" id="signup-name" name="name" required>
@@ -226,16 +381,22 @@
                 <label for="signup-password">رمز عبور:</label>
                 <input type="password" id="signup-password" name="password" required>
                 <i class="fas fa-lock"></i>
-                <i class="fas fa-eye toggle-password" id="signup-toggle-password"></i>
+                <i class="fas fa-eye toggle-password" id="toggle-signup-password"></i>
                 <p class="error-message" id="signup-password-error"></p>
             </div>
-            <input type="submit" value="ثبت نام">
+            <div class="button-container">
+                <input type="submit" value="ثبت نام">
+            </div>
             <p class="error-message" id="signup-error"></p>
         </form>
 
         <p class="form-toggle">
-            <a href="#" id="toggle-link">ثبت نام</a>
+            حساب کاربری ندارید؟ <a href="#" id="toggle-link">ثبت نام</a>
         </p>
+        <div class="loading-overlay" id="loading-overlay">
+            <div class="loading-spinner"></div>
+            <p class="loading-message">در حال بارگذاری...</p>
+        </div>
     </div>
 
     <script>
@@ -246,6 +407,10 @@
             const formTitle = document.getElementById('form-title');
             const loginError = document.getElementById('login-error');
             const signupError = document.getElementById('signup-error');
+            const loadingOverlay = document.getElementById('loading-overlay');
+
+            // Focus on email input on page load
+            document.getElementById('email').focus();
 
             // Toggle between login and signup forms
             toggleLink.addEventListener('click', (e) => {
@@ -267,7 +432,7 @@
             // Toggle password visibility
             document.querySelectorAll('.toggle-password').forEach(button => {
                 button.addEventListener('click', () => {
-                    const passwordInput = button.previousElementSibling.previousElementSibling;
+                    const passwordInput = button.parentElement.querySelector('input[type="password"]');
                     if (passwordInput.type === 'password') {
                         passwordInput.type = 'text';
                         button.classList.remove('fa-eye');
@@ -294,76 +459,65 @@
                 });
             });
 
-            // Signup form submission
-            signupForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                if (validateSignupForm()) {
-                    const name = document.getElementById('signup-name').value;
-                    const email = document.getElementById('signup-email').value;
-                    const password = document.getElementById('signup-password').value;
+            // Handle form submissions with fetch and async/await
+            async function handleFormSubmission(form, url, successMessage) {
+                const formData = new FormData(form);
+                const rememberEmail = document.getElementById('remember')?.checked;
 
-                    // Send data to the server using fetch API
-                    fetch('register.php', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded',
-                        },
-                        body: `name=<span class="math-inline">\{name\}&email\=</span>{email}&password=${password}`,
-                    })
-                    .then(response => response.text())
-                    .then(data => {
-                        if (data === 'success') {
-                            alert('ثبت نام با موفقیت انجام شد!');
-                            // Switch to login form
-                            loginForm.style.display = 'block';
-                            signupForm.style.display = 'none';
-                            formTitle.textContent = 'ورود';
-                            toggleLink.textContent = 'ثبت نام';
-                            clearErrors();
-                        } else {
-                            signupError.textContent = 'خطا در ثبت نام: ' + data;
-                            signupError.classList.add('show');
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        signupError.textContent = 'خطا در برقراری ارتباط با سرور.';
-                        signupError.classList.add('show');
-                    });
+                if (rememberEmail) {
+                  localStorage.setItem('rememberedEmail', document.getElementById('email').value);
+                } else {
+                  localStorage.removeItem('rememberedEmail');
                 }
-            });
+
+                try {
+                    loadingOverlay.style.display = 'flex';
+                    const response = await fetch(url, {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    const data = await response.text();
+
+                    if (data.trim() === 'success') {
+                        if (successMessage) {
+                            alert(successMessage);
+                        }
+                        if (url.includes('login.php')) {
+                          window.location.href = 'profile.html';
+                        } else {
+                          loginForm.style.display = 'block';
+                          signupForm.style.display = 'none';
+                          formTitle.textContent = 'ورود';
+                          toggleLink.textContent = 'ثبت نام';
+                          clearErrors();
+                        }
+                    } else {
+                        const errorElement = url.includes('login.php') ? loginError : signupError;
+                        displayError(errorElement, data.trim().startsWith('error:') ? data.trim().substring(6) : 'خطا در پردازش درخواست.');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    const errorElement = url.includes('login.php') ? loginError : signupError;
+                    displayError(errorElement, 'خطا در برقراری ارتباط با سرور.');
+                } finally {
+                    loadingOverlay.style.display = 'none';
+                }
+            }
 
             // Login form submission
             loginForm.addEventListener('submit', (e) => {
                 e.preventDefault();
                 if (validateLoginForm()) {
-                    const email = document.getElementById('email').value;
-                    const password = document.getElementById('password').value;
+                    handleFormSubmission(loginForm, 'login.php', null);
+                }
+            });
 
-                    // Send data to the server using fetch API
-                    fetch('login.php', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded',
-                        },
-                        body: `email=<span class="math-inline">\{email\}&password\=</span>{password}`,
-                    })
-                    .then(response => response.text())
-                    .then(data => {
-                        if (data === 'success') {
-                            // ورود موفق
-                            alert('ورود با موفقیت انجام شد!');
-                            window.location.href = 'index.html'; // Redirect to the main page (replace with your desired page)
-                        } else {
-                            loginError.textContent = 'خطا در ورود: ' + data;
-                            loginError.classList.add('show');
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        loginError.textContent = 'خطا در برقراری ارتباط با سرور.';
-                        loginError.classList.add('show');
-                    });
+            // Signup form submission
+            signupForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                if (validateSignupForm()) {
+                    handleFormSubmission(signupForm, 'register.php', 'ثبت نام با موفقیت انجام شد!');
                 }
             });
 
@@ -374,24 +528,20 @@
                 const password = document.getElementById('password').value;
 
                 if (!validateEmail(email)) {
-                    document.getElementById('email-error').textContent = 'ایمیل معتبر نیست.';
-                    document.getElementById('email-error').classList.add('show');
+                    displayError(document.getElementById('email-error'), 'ایمیل معتبر نیست.');
                     document.getElementById('email').parentElement.classList.add('error');
                     isValid = false;
                 } else {
-                    document.getElementById('email-error').textContent = '';
-                    document.getElementById('email-error').classList.remove('show');
+                    clearError(document.getElementById('email-error'));
                     document.getElementById('email').parentElement.classList.remove('error');
                 }
 
                 if (password.length < 6) {
-                    document.getElementById('password-error').textContent = 'رمز عبور باید حداقل ۶ کاراکتر باشد.';
-                    document.getElementById('password-error').classList.add('show');
+                    displayError(document.getElementById('password-error'), 'رمز عبور باید حداقل ۶ کاراکتر باشد.');
                     document.getElementById('password').parentElement.classList.add('error');
                     isValid = false;
                 } else {
-                    document.getElementById('password-error').textContent = '';
-                    document.getElementById('password-error').classList.remove('show');
+                    clearError(document.getElementById('password-error'));
                     document.getElementById('password').parentElement.classList.remove('error');
                 }
 
@@ -405,34 +555,29 @@
                 const password = document.getElementById('signup-password').value;
 
                 if (name.trim() === '') {
-                    document.getElementById('name-error').textContent = 'نام الزامی است.';
-                    document.getElementById('name-error').classList.add('show');
+                    displayError(document.getElementById('name-error'), 'نام الزامی است.');
                     document.getElementById('signup-name').parentElement.classList.add('error');
                     isValid = false;
                 } else {
-                    document.getElementById('name-error').textContent = '';
-                    document.getElementById('name-error').classList.remove('show');
+                    clearError(document.getElementById('name-error'));
                     document.getElementById('signup-name').parentElement.classList.remove('error');
                 }
 
                 if (!validateEmail(email)) {
-                    document.getElementById('signup-email-error').textContent = 'ایمیل معتبر نیست.';
-                    document.getElementById('signup-email-error').classList.add('show');
+                    displayError(document.getElementById('signup-email-error'), 'ایمیل معتبر نیست.');
                     document.getElementById('signup-email').parentElement.classList.add('error');
                     isValid = false;
                 } else {
-                    document.getElementById('signup-email-error').textContent = '';
-                    document.getElementById('signup-email-error').classList.remove('show');
+                    clearError(document.getElementById('signup-email-error'));
                     document.getElementById('signup-email').parentElement.classList.remove('error');
                 }
+
                 if (password.length < 6) {
-                    document.getElementById('signup-password-error').textContent = 'رمز عبور باید حداقل ۶ کاراکتر باشد.';
-                    document.getElementById('signup-password-error').classList.add('show');
+                    displayError(document.getElementById('signup-password-error'), 'رمز عبور باید حداقل ۶ کاراکتر باشد.');
                     document.getElementById('signup-password').parentElement.classList.add('error');
                     isValid = false;
                 } else {
-                    document.getElementById('signup-password-error').textContent = '';
-                    document.getElementById('signup-password-error').classList.remove('show');
+                    clearError(document.getElementById('signup-password-error'));
                     document.getElementById('signup-password').parentElement.classList.remove('error');
                 }
 
@@ -445,15 +590,44 @@
                 return re.test(email);
             }
 
-            // Clear error messages
+            // Display error message
+            function displayError(element, message) {
+                element.textContent = message;
+                element.style.display = 'block';
+            }
+
+            // Clear error message
+            function clearError(element) {
+                element.textContent = '';
+                element.style.display = 'none';
+            }
+
+            // Clear all error messages
             function clearErrors() {
                 document.querySelectorAll('.error-message').forEach(error => {
-                    error.textContent = '';
-                    error.classList.remove('show');
+                    clearError(error);
                 });
                 document.querySelectorAll('.form-group').forEach(group => {
                     group.classList.remove('error');
                 });
+            }
+
+            // Submit form on pressing Enter key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    if (loginForm.style.display !== 'none') {
+                        loginForm.dispatchEvent(new Event('submit'));
+                    } else if (signupForm.style.display !== 'none') {
+                        signupForm.dispatchEvent(new Event('submit'));
+                    }
+                }
+            });
+
+            // Check for remembered email
+            const rememberedEmail = localStorage.getItem('rememberedEmail');
+            if (rememberedEmail) {
+                document.getElementById('email').value = rememberedEmail;
+                document.getElementById('remember').checked = true;
             }
         });
     </script>
