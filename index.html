@@ -316,6 +316,56 @@
       opacity: 1;
     }
 
+    .hamburger-menu {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger-menu div {
+      width: 25px;
+      height: 3px;
+      background-color: #fff;
+      margin: 5px 0;
+      transition: all 0.3s ease;
+    }
+
+    .hamburger-menu.active .line1 {
+      transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .hamburger-menu.active .line2 {
+      opacity: 0;
+    }
+
+    .hamburger-menu.active .line3 {
+      transform: rotate(45deg) translate(-5px, -6px);
+    }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      width: 100%;
+      background-color: rgba(20, 20, 20, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      z-index: 999;
+    }
+
+    .mobile-menu a {
+      padding: 1rem;
+      text-align: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .mobile-menu a:hover {
+      background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+      color: #fff;
+    }
+
     @media (max-width: 768px) {
       .header-content {
         flex-direction: column;
@@ -323,14 +373,11 @@
       }
 
       nav {
-        flex-direction: column;
-        width: 100%;
+        display: none;
       }
 
-      nav ul {
-        flex-direction: column;
-        width: 100%;
-        text-align: center;
+      .hamburger-menu {
+        display: flex;
       }
 
       .search-input.active {
@@ -342,6 +389,10 @@
 
       .platform {
         grid-template-columns: 1fr;
+      }
+
+      .mobile-menu {
+        display: flex;
       }
     }
 
@@ -376,6 +427,18 @@
           </div>
           <a href="login.html" class="login-button">ورود/ثبت نام</a>
         </nav>
+        <div class="hamburger-menu">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+        </div>
+        <div class="mobile-menu">
+          <a href="animation.html">انیمیشن</a>
+          <a href="movies.html">فیلم</a>
+          <a href="series.html">سریال</a>
+          <a href="account.html">حساب کاربری</a>
+          <a href="login.html" class="login-button">ورود/ثبت نام</a>
+        </div>
       </div>
     </div>
   </header>
@@ -434,7 +497,9 @@
         themeToggle: document.querySelector('.theme-toggle'),
         scrollTop: document.querySelector('.scroll-top'),
         searchIcon: document.querySelector('.search-icon'),
-        searchInput: document.querySelector('.search-input')
+        searchInput: document.querySelector('.search-input'),
+        hamburgerMenu: document.querySelector('.hamburger-menu'),
+        mobileMenu: document.querySelector('.mobile-menu')
       };
 
       // Theme Toggle
@@ -492,6 +557,12 @@
         if (!e.target.closest('.search-container') && controls.searchInput.classList.contains('active')) {
           controls.searchInput.classList.remove('active');
         }
+      });
+
+      // Hamburger menu toggle
+      controls.hamburgerMenu.addEventListener('click', () => {
+        controls.hamburgerMenu.classList.toggle('active');
+        controls.mobileMenu.classList.toggle('active');
       });
 
       // Platform items animation
