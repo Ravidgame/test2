@@ -380,41 +380,22 @@
 
     <script>
         function logout() {
-            fetch('logout.php')
-                .then(response => {
-                    if (response.ok) {
-                        window.location.href = 'login.html';
-                    } else {
-                        console.error('Logout failed');
-                    }
-                })
-                .catch(error => console.error('Error:', error));
+            sessionStorage.removeItem('user');
+            localStorage.removeItem('rememberedEmail');
+            window.location.href = 'login.html';
         }
 
         document.addEventListener('DOMContentLoaded', () => {
             const profileName = document.getElementById('profile-name');
             const profileEmail = document.getElementById('profile-email');
 
-            fetch('get_user_info.php')
-                .then(response => {
-                    if (response.ok) {
-                        return response.json();
-                    } else {
-                        throw new Error('Failed to retrieve user information');
-                    }
-                })
-                .then(data => {
-                    if (data.error) {
-                        console.error(data.error);
-                    } else {
-                        profileName.textContent = data.name;
-                        profileEmail.textContent = data.email;
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    window.location.href = 'login.html';
-                });
+            const storedUser = JSON.parse(sessionStorage.getItem('user'));
+            if (storedUser) {
+                profileName.textContent = storedUser.name;
+                profileEmail.textContent = storedUser.email;
+            } else {
+                window.location.href = 'login.html';
+            }
         });
     </script>
 </body>
