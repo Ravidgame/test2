@@ -1,607 +1,681 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="ورود به هامووی - مرجع دانلود فیلم و سریال با بهترین کیفیت و بدون سانسور">
-    <title>هامووی 🎬 | ورود</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700&family=Vazirmatn:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        :root {
-            --primary-color: #e50914;
-            --secondary-color: #f05053;
-            --dark-background: #141414;
-            --light-background: #f5f5f5;
-            --transition-speed: 0.3s;
-            --border-radius: 30px;
-            --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ورود به هامووی - مرجع دانلود فیلم و سریال با بهترین کیفیت و بدون سانسور">
+  <title>هامووی 🎬 | ورود</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700&family=Vazirmatn:wght@400;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #e50914;
+      --secondary-color: #f05053;
+      --dark-background: #141414;
+      --light-background: #f5f5f5;
+      --transition-speed: 0.3s;
+      --border-radius: 30px;
+      --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            background: linear-gradient(to bottom, var(--dark-background), #000);
-            color: #fff;
-            font-family: 'Vazirmatn', 'Montserrat', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
+    body {
+      background: linear-gradient(to bottom, var(--dark-background), #000);
+      color: #fff;
+      font-family: 'Vazirmatn', 'Montserrat', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
 
-        .container {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: var(--border-radius);
-            padding: 60px 50px;
-            box-shadow: var(--box-shadow);
-            text-align: center;
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            animation: fadeInUp 0.8s ease-out;
-            max-width: 500px;
-            width: 100%;
-            border: 2px solid;
-            border-image: linear-gradient(to right, var(--primary-color), var(--secondary-color)) 1;
-        }
+    .container {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: var(--border-radius);
+      padding: 60px 50px;
+      box-shadow: var(--box-shadow);
+      text-align: center;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      animation: fadeInUp 0.8s ease-out;
+      max-width: 500px;
+      width: 100%;
+      border: 2px solid;
+      border-image: linear-gradient(to right, var(--primary-color), var(--secondary-color)) 1;
+    }
 
-        .container:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
-        }
+    .container:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+    }
 
-        .logo {
-            display: block;
-            width: 180px;
-            margin: 0 auto 30px;
-            transition: transform var(--transition-speed) ease;
-        }
+    .logo {
+      display: block;
+      width: 180px;
+      margin: 0 auto 30px;
+      transition: transform var(--transition-speed) ease;
+    }
 
-        .logo:hover {
-            transform: scale(1.1);
-        }
+    .logo:hover {
+      transform: scale(1.1);
+    }
 
-        h2 {
-            color: var(--primary-color);
-            margin-bottom: 30px;
-            font-size: 2.8rem;
-            text-shadow: 3px 3px 4px rgba(0,0,0,0.6);
-            letter-spacing: 1px;
-        }
+    h2 {
+      color: var(--primary-color);
+      margin-bottom: 30px;
+      font-size: 2.8rem;
+      text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.6);
+      letter-spacing: 1px;
+    }
 
-        .form-group {
-            margin-bottom: 25px;
-            position: relative;
-        }
+    .form-group {
+      margin-bottom: 25px;
+      position: relative;
+    }
 
-        label {
-            display: block;
-            margin-bottom: 10px;
-            font-weight: 600;
-            text-align: right;
-            font-size: 1.2rem;
-        }
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: 600;
+      text-align: right;
+      font-size: 1.2rem;
+    }
 
-        input[type="email"],
-        input[type="password"],
-        input[type="text"] {
-            width: 100%;
-            padding: 15px 40px 15px 20px;
-            border: none;
-            border-radius: var(--border-radius);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: #fff;
-            font-family: inherit;
-            font-size: 1.2rem;
-            transition: box-shadow var(--transition-speed) ease;
-        }
+    input[type="email"],
+    input[type="password"],
+    input[type="text"] {
+      width: 100%;
+      padding: 15px 40px 15px 20px;
+      border: none;
+      border-radius: var(--border-radius);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      font-family: inherit;
+      font-size: 1.2rem;
+      transition: box-shadow var(--transition-speed) ease;
+    }
 
-        input[type="email"]:focus,
-        input[type="password"]:focus,
-        input[type="text"]:focus {
-            outline: none;
-            box-shadow: 0 0 5px var(--primary-color);
-        }
+    input[type="email"]:focus,
+    input[type="password"]:focus,
+    input[type="text"]:focus {
+      outline: none;
+      box-shadow: 0 0 5px var(--primary-color);
+    }
 
-        .form-group i {
-            position: absolute;
-            right: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #aaa;
-            font-size: 1.4rem;
-            z-index: 1;
-            transition: color var(--transition-speed) ease;
-        }
+    .form-group i {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #aaa;
+      font-size: 1.4rem;
+      z-index: 1;
+      transition: color var(--transition-speed) ease;
+    }
 
-        .form-group .toggle-password {
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            cursor: pointer;
-            color: #aaa;
-            font-size: 1.4rem;
-            z-index: 1;
-            transition: color var(--transition-speed) ease;
-        }
+    .form-group .toggle-password {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      color: #aaa;
+      font-size: 1.4rem;
+      z-index: 1;
+      transition: color var(--transition-speed) ease;
+    }
 
-        .form-group .toggle-password:hover {
-            color: var(--primary-color);
-        }
+    .form-group .toggle-password:hover {
+      color: var(--primary-color);
+    }
 
-        .form-group.error i {
-            color: var(--secondary-color);
-        }
+    .form-group.error i {
+      color: var(--secondary-color);
+    }
 
-        .error-message {
-            color: var(--secondary-color);
-            margin-top: 5px;
-            text-align: right;
-            font-size: 1rem;
-            display: none;
-        }
+    .error-message {
+      color: var(--secondary-color);
+      margin-top: 5px;
+      text-align: right;
+      font-size: 1rem;
+      display: none;
+    }
 
-        .error-message.show {
-            display: block;
-        }
+    .error-message.show {
+      display: block;
+    }
 
-        .form-group.error input {
-            border: 2px solid var(--secondary-color);
-        }
+    .form-group.error input {
+      border: 2px solid var(--secondary-color);
+    }
 
-        .button-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 30px;
-        }
+    .button-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 30px;
+    }
 
-        input[type="submit"] {
-            background: linear-gradient(to right, var(--primary-color) 20%, var(--secondary-color));
-            color: #fff;
-            padding: 15px 35px;
-            border: none;
-            border-radius: var(--border-radius);
-            cursor: pointer;
-            font-family: inherit;
-            font-size: 1.3rem;
-            transition: all var(--transition-speed) ease;
-            box-shadow: 0 3px 6px rgba(0,0,0,0.4);
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-            flex-grow: 1;
-        }
+    input[type="submit"] {
+      background: linear-gradient(to right, var(--primary-color) 20%, var(--secondary-color));
+      color: #fff;
+      padding: 15px 35px;
+      border: none;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 1.3rem;
+      transition: all var(--transition-speed) ease;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+      flex-grow: 1;
+    }
 
-        input[type="submit"]:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.6);
-        }
+    input[type="submit"]:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
+    }
 
-        .form-toggle {
-            text-align: center;
-            margin-top: 30px;
-            font-size: 1.1rem;
-        }
+    .form-toggle {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 1.1rem;
+    }
 
-        .form-toggle a {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color var(--transition-speed) ease;
-        }
+    .form-toggle a {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color var(--transition-speed) ease;
+    }
 
-        .form-toggle a:hover {
-            color: var(--secondary-color);
-            text-decoration: underline;
-        }
+    .form-toggle a:hover {
+      color: var(--secondary-color);
+      text-decoration: underline;
+    }
 
-        .remember-me {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 15px;
-            font-size: 1.1rem;
-            color: #ccc;
-        }
+    .remember-me {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 15px;
+      font-size: 1.1rem;
+      color: #ccc;
+    }
 
-        .remember-me input[type="checkbox"] {
-            appearance: none;
-            -webkit-appearance: none;
-            width: 20px;
-            height: 20px;
-            border: 2px solid #ccc;
-            border-radius: 5px;
-            background-color: transparent;
-            cursor: pointer;
-            position: relative;
-            transition: background-color var(--transition-speed) ease, border-color var(--transition-speed) ease;
-        }
+    .remember-me input[type="checkbox"] {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+      background-color: transparent;
+      cursor: pointer;
+      position: relative;
+      transition: background-color var(--transition-speed) ease, border-color var(--transition-speed) ease;
+    }
 
-        .remember-me input[type="checkbox"]:checked {
-            background-color: var(--primary-color);
-            border-color: var(--primary-color);
-        }
+    .remember-me input[type="checkbox"]:checked {
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+    }
 
-        .remember-me input[type="checkbox"]:checked::before {
-            content: '\f00c';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            font-size: 14px;
-        }
+    .remember-me input[type="checkbox"]:checked::before {
+      content: '\f00c';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 14px;
+    }
 
-        .remember-me label {
-            cursor: pointer;
-            user-select: none;
-        }
+    .remember-me label {
+      cursor: pointer;
+      user-select: none;
+    }
 
-        @media (max-width: 480px) {
-            .container {
-                padding: 40px 30px;
-            }
+    @media (max-width: 480px) {
+      .container {
+        padding: 40px 30px;
+      }
 
-            .logo {
-                width: 150px;
-                margin-bottom: 20px;
-            }
+      .logo {
+        width: 150px;
+        margin-bottom: 20px;
+      }
 
-            h2 {
-                font-size: 2.4rem;
-            }
+      h2 {
+        font-size: 2.4rem;
+      }
 
-            .form-group {
-                margin-bottom: 20px;
-            }
+      .form-group {
+        margin-bottom: 20px;
+      }
 
-            label {
-                font-size: 1.1rem;
-            }
+      label {
+        font-size: 1.1rem;
+      }
 
-            input[type="email"],
-            input[type="password"],
-            input[type="text"] {
-                padding: 12px 35px 12px 15px;
-                font-size: 1.1rem;
-            }
+      input[type="email"],
+      input[type="password"],
+      input[type="text"] {
+        padding: 12px 35px 12px 15px;
+        font-size: 1.1rem;
+      }
 
-            .form-group i,
-            .form-group .toggle-password {
-                font-size: 1.3rem;
-            }
+      .form-group i,
+      .form-group .toggle-password {
+        font-size: 1.3rem;
+      }
 
-            .button-container {
-                margin-top: 25px;
-            }
+      .button-container {
+        margin-top: 25px;
+      }
 
-            input[type="submit"] {
-                padding: 12px 30px;
-                font-size: 1.2rem;
-            }
+      input[type="submit"] {
+        padding: 12px 30px;
+        font-size: 1.2rem;
+      }
 
-            .form-toggle {
-                font-size: 1rem;
-            }
-        }
+      .form-toggle {
+        font-size: 1rem;
+      }
+    }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* استایل برای تصاویر پروفایل */
+    .profile-images {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .profile-images label {
+      display: block;
+      cursor: pointer;
+    }
+
+    .profile-images img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 2px solid #ccc;
+    }
+
+    .profile-images input[type="radio"] {
+      display: none;
+    }
+
+    .profile-images input[type="radio"]:checked+img {
+      border-color: var(--primary-color);
+    }
+  </style>
 </head>
+
 <body>
-    <div class="container">
-        <img src="logo.png" alt="لوگو هامووی" class="logo">
-        <h2 id="form-title">ورود</h2>
-        <form id="login-form" method="post">
-            <div class="form-group">
-                <label for="email">ایمیل:</label>
-                <input type="email" id="email" name="email" required>
-                <i class="fas fa-envelope"></i>
-                <p class="error-message" id="email-error"></p>
-            </div>
-            <div class="form-group">
-                <label for="password">رمز عبور:</label>
-                <input type="password" id="password" name="password" required>
-                <i class="fas fa-lock"></i>
-                <i class="fas fa-eye toggle-password" id="toggle-login-password"></i>
-                <p class="error-message" id="password-error"></p>
-            </div>
-            <div class="remember-me">
-                <input type="checkbox" id="remember" name="remember">
-                <label for="remember">مرا به خاطر بسپار</label>
-            </div>
-            <div class="button-container">
-                <input type="submit" value="ورود">
-            </div>
-            <p class="error-message" id="login-error"></p>
-        </form>
+  <div class="container">
+    <img src="logo.png" alt="لوگو هامووی" class="logo">
+    <h2 id="form-title">ورود</h2>
+    <form id="login-form" method="post">
+      <div class="form-group">
+        <label for="email">ایمیل:</label>
+        <input type="email" id="email" name="email" required>
+        <i class="fas fa-envelope"></i>
+        <p class="error-message" id="email-error"></p>
+      </div>
+      <div class="form-group">
+        <label for="password">رمز عبور:</label>
+        <input type="password" id="password" name="password" required>
+        <i class="fas fa-lock"></i>
+        <i class="fas fa-eye toggle-password" id="toggle-login-password"></i>
+        <p class="error-message" id="password-error"></p>
+      </div>
+      <div class="remember-me">
+        <input type="checkbox" id="remember" name="remember">
+        <label for="remember">مرا به خاطر بسپار</label>
+      </div>
+      <div class="button-container">
+        <input type="submit" value="ورود">
+      </div>
+      <p class="error-message" id="login-error"></p>
+    </form>
 
-        <form id="signup-form" method="post" style="display: none;">
-            <div class="form-group">
-                <label for="signup-name">نام:</label>
-                <input type="text" id="signup-name" name="name" required>
-                <i class="fas fa-user"></i>
-                <p class="error-message" id="name-error"></p>
-            </div>
-            <div class="form-group">
-                <label for="signup-email">ایمیل:</label>
-                <input type="email" id="signup-email" name="email" required>
-                <i class="fas fa-envelope"></i>
-                <p class="error-message" id="signup-email-error"></p>
-            </div>
-            <div class="form-group">
-                <label for="signup-password">رمز عبور:</label>
-                <input type="password" id="signup-password" name="password" required>
-                <i class="fas fa-lock"></i>
-                <i class="fas fa-eye toggle-password" id="toggle-signup-password"></i>
-                <p class="error-message" id="signup-password-error"></p>
-            </div>
-            <div class="button-container">
-                <input type="submit" value="ثبت نام">
-            </div>
-            <p class="error-message" id="signup-error"></p>
-        </form>
+    <form id="signup-form" method="post" style="display: none;">
+      <div class="form-group">
+        <label for="signup-name">نام:</label>
+        <input type="text" id="signup-name" name="name" required>
+        <i class="fas fa-user"></i>
+        <p class="error-message" id="name-error"></p>
+      </div>
+      <div class="form-group">
+        <label for="signup-email">ایمیل:</label>
+        <input type="email" id="signup-email" name="email" required>
+        <i class="fas fa-envelope"></i>
+        <p class="error-message" id="signup-email-error"></p>
+      </div>
+      <div class="form-group">
+        <label for="signup-password">رمز عبور:</label>
+        <input type="password" id="signup-password" name="password" required>
+        <i class="fas fa-lock"></i>
+        <i class="fas fa-eye toggle-password" id="toggle-signup-password"></i>
+        <p class="error-message" id="signup-password-error"></p>
+      </div>
+      <div class="form-group">
+        <label for="signup-profile">عکس پروفایل:</label>
+        <div class="profile-images">
+          <label>
+            <input type="radio" name="profile" value="rabin.jpg" checked>
+            <img src="rabin.jpg" alt="rabin">
+          </label>
+          <label>
+            <input type="radio" name="profile" value="batman.jpg">
+            <img src="batman.jpg" alt="batman">
+          </label>
+          <label>
+            <input type="radio" name="profile" value="joker.jpg">
+            <img src="joker.jpg" alt="joker">
+          </label>
+          <label>
+            <input type="radio" name="profile" value="jac.jpg">
+            <img src="jac.jpg" alt="jac">
+          </label>
+          <label>
+            <input type="radio" name="profile" value="Darth Vader.jpg">
+            <img src="Darth Vader.jpg" alt="Darth Vader">
+          </label>
+          <label>
+            <input type="radio" name="profile" value="Gandalf.jpg">
+            <img src="Gandalf.jpg" alt="Gandalf">
+          </label>
+        </div>
+        <p class="error-message" id="signup-profile-error"></p>
+      </div>
+      <div class="button-container">
+        <input type="submit" value="ثبت نام">
+      </div>
+      <p class="error-message" id="signup-error"></p>
+    </form>
 
-        <p class="form-toggle">
-            حساب کاربری ندارید؟ <a href="#" id="toggle-link">ثبت نام</a>
-        </p>
-    </div>
+    <p class="form-toggle">
+      حساب کاربری ندارید؟ <a href="#" id="toggle-link">ثبت نام</a>
+    </p>
+  </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const loginForm = document.getElementById('login-form');
-            const signupForm = document.getElementById('signup-form');
-            const toggleLink = document.getElementById('toggle-link');
-            const formTitle = document.getElementById('form-title');
-            const loginError = document.getElementById('login-error');
-            const signupError = document.getElementById('signup-error');
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const loginForm = document.getElementById('login-form');
+      const signupForm = document.getElementById('signup-form');
+      const toggleLink = document.getElementById('toggle-link');
+      const formTitle = document.getElementById('form-title');
+      const loginError = document.getElementById('login-error');
+      const signupError = document.getElementById('signup-error');
 
-            // Focus on email input on page load
-            document.getElementById('email').focus();
+      // Focus on email input on page load
+      document.getElementById('email').focus();
 
-            // Toggle between login and signup forms
-            toggleLink.addEventListener('click', (e) => {
-                e.preventDefault();
-                if (loginForm.style.display !== 'none') {
-                    loginForm.style.display = 'none';
-                    signupForm.style.display = 'block';
-                    formTitle.textContent = 'ثبت نام';
-                    toggleLink.textContent = 'ورود';
-                } else {
-                    loginForm.style.display = 'block';
-                    signupForm.style.display = 'none';
-                    formTitle.textContent = 'ورود';
-                    toggleLink.textContent = 'ثبت نام';
-                }
-                clearErrors();
-            });
+      // Toggle between login and signup forms
+      toggleLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (loginForm.style.display !== 'none') {
+          loginForm.style.display = 'none';
+          signupForm.style.display = 'block';
+          formTitle.textContent = 'ثبت نام';
+          toggleLink.textContent = 'ورود';
+        } else {
+          loginForm.style.display = 'block';
+          signupForm.style.display = 'none';
+          formTitle.textContent = 'ورود';
+          toggleLink.textContent = 'ثبت نام';
+        }
+        clearErrors();
+      });
 
-            // Toggle password visibility
-            document.querySelectorAll('.toggle-password').forEach(button => {
-                button.addEventListener('click', () => {
-                    const passwordInput = button.parentElement.querySelector('input[type="password"]');
-                    if (passwordInput.type === 'password') {
-                        passwordInput.type = 'text';
-                        button.classList.remove('fa-eye');
-                        button.classList.add('fa-eye-slash');
-                    } else {
-                        passwordInput.type = 'password';
-                        button.classList.remove('fa-eye-slash');
-                        button.classList.add('fa-eye');
-                    }
-                });
-            });
-
-            // Real-time validation for login form
-            loginForm.querySelectorAll('input').forEach(input => {
-                input.addEventListener('input', () => {
-                    validateLoginForm();
-                });
-            });
-
-            // Real-time validation for signup form
-            signupForm.querySelectorAll('input').forEach(input => {
-                input.addEventListener('input', () => {
-                    validateSignupForm();
-                });
-            });
-
-            // Load and display user data in the profile page
-            function loadUserProfile() {
-                const storedUser = JSON.parse(sessionStorage.getItem('user'));
-                if (storedUser) {
-                    document.getElementById('profile-name').textContent = storedUser.name;
-                    document.getElementById('profile-email').textContent = storedUser.email;
-                } else {
-                    // Redirect to login if no user data found
-                    window.location.href = 'login.html';
-                }
-            }
-
-            // Check if the current page is the profile page and load user data
-            if (window.location.pathname.endsWith('profile.html')) {
-                loadUserProfile();
-            }
-
-            // Handle login form submission
-            loginForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                if (validateLoginForm()) {
-                    const email = document.getElementById('email').value;
-                    const password = document.getElementById('password').value;
-                    const remember = document.getElementById('remember').checked;
-
-                    const storedUsers = JSON.parse(sessionStorage.getItem('users')) || [];
-                    const user = storedUsers.find(u => u.email === email);
-
-                    if (user && user.password === password) {
-                        sessionStorage.setItem('user', JSON.stringify({ name: user.name, email: user.email }));
-
-                        if (remember) {
-                            localStorage.setItem('rememberedEmail', email);
-                        } else {
-                            localStorage.removeItem('rememberedEmail');
-                        }
-
-                        window.location.href = 'profile.html';
-                    } else {
-                        displayError(loginError, 'ایمیل یا رمز عبور اشتباه است.');
-                    }
-                }
-            });
-
-            // Signup form submission
-            signupForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                if (validateSignupForm()) {
-                    const name = document.getElementById('signup-name').value;
-                    const email = document.getElementById('signup-email').value;
-                    const password = document.getElementById('signup-password').value;
-
-                    const storedUsers = JSON.parse(sessionStorage.getItem('users')) || [];
-                    if (storedUsers.some(u => u.email === email)) {
-                        displayError(signupError, 'این ایمیل قبلاً ثبت شده است.');
-                        return;
-                    }
-
-                    storedUsers.push({ name, email, password });
-                    sessionStorage.setItem('users', JSON.stringify(storedUsers));
-
-                    alert('ثبت نام با موفقیت انجام شد!');
-                    loginForm.style.display = 'block';
-                    signupForm.style.display = 'none';
-                    formTitle.textContent = 'ورود';
-                    toggleLink.textContent = 'ثبت نام';
-                    clearErrors();
-                }
-            });
-
-            // Validation functions
-            function validateLoginForm() {
-                let isValid = true;
-                const email = document.getElementById('email').value;
-                const password = document.getElementById('password').value;
-
-                if (!validateEmail(email)) {
-                    displayError(document.getElementById('email-error'), 'ایمیل معتبر نیست.');
-                    document.getElementById('email').parentElement.classList.add('error');
-                    isValid = false;
-                } else {
-                    clearError(document.getElementById('email-error'));
-                    document.getElementById('email').parentElement.classList.remove('error');
-                }
-
-                if (password.length < 6) {
-                    displayError(document.getElementById('password-error'), 'رمز عبور باید حداقل ۶ کاراکتر باشد.');
-                    document.getElementById('password').parentElement.classList.add('error');
-                    isValid = false;
-                } else {
-                    clearError(document.getElementById('password-error'));
-                    document.getElementById('password').parentElement.classList.remove('error');
-                }
-
-                return isValid;
-            }
-
-            function validateSignupForm() {
-                let isValid = true;
-                const name = document.getElementById('signup-name').value;
-                const email = document.getElementById('signup-email').value;
-                const password = document.getElementById('signup-password').value;
-
-                if (name.trim() === '') {
-                    displayError(document.getElementById('name-error'), 'نام الزامی است.');
-                    document.getElementById('signup-name').parentElement.classList.add('error');
-                    isValid = false;
-                } else {
-                    clearError(document.getElementById('name-error'));
-                    document.getElementById('signup-name').parentElement.classList.remove('error');
-                }
-
-                if (!validateEmail(email)) {
-                    displayError(document.getElementById('signup-email-error'), 'ایمیل معتبر نیست.');
-                    document.getElementById('signup-email').parentElement.classList.add('error');
-                    isValid = false;
-                } else {
-                    clearError(document.getElementById('signup-email-error'));
-                    document.getElementById('signup-email').parentElement.classList.remove('error');
-                }
-
-                if (password.length < 6) {
-                    displayError(document.getElementById('signup-password-error'), 'رمز عبور باید حداقل ۶ کاراکتر باشد.');
-                    document.getElementById('signup-password').parentElement.classList.add('error');
-                    isValid = false;
-                } else {
-                    clearError(document.getElementById('signup-password-error'));
-                    document.getElementById('signup-password').parentElement.classList.remove('error');
-                }
-
-                return isValid;
-            }
-
-            // Email validation helper function
-            function validateEmail(email) {
-                const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                return re.test(email);
-            }
-
-            // Display error message
-            function displayError(element, message) {
-                element.textContent = message;
-                element.style.display = 'block';
-            }
-
-            // Clear error message
-            function clearError(element) {
-                element.textContent = '';
-                element.style.display = 'none';
-            }
-
-            // Clear all error messages
-            function clearErrors() {
-                document.querySelectorAll('.error-message').forEach(error => {
-                    clearError(error);
-                });
-                document.querySelectorAll('.form-group').forEach(group => {
-                    group.classList.remove('error');
-                });
-            }
-
-            // Submit form on pressing Enter key
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter') {
-                    if (loginForm.style.display !== 'none') {
-                        loginForm.dispatchEvent(new Event('submit'));
-                    } else if (signupForm.style.display !== 'none') {
-                        signupForm.dispatchEvent(new Event('submit'));
-                    }
-                }
-            });
-
-            // Check for remembered email
-            const rememberedEmail = localStorage.getItem('rememberedEmail');
-            if (rememberedEmail) {
-                document.getElementById('email').value = rememberedEmail;
-                document.getElementById('remember').checked = true;
-            }
+      // Toggle password visibility
+      document.querySelectorAll('.toggle-password').forEach(button => {
+        button.addEventListener('click', () => {
+          const passwordInput = button.parentElement.querySelector('input[type="password"]');
+          if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            button.classList.remove('fa-eye');
+            button.classList.add('fa-eye-slash');
+          } else {
+            passwordInput.type = 'password';
+            button.classList.remove('fa-eye-slash');
+            button.classList.add('fa-eye');
+          }
         });
-    </script>
+      });
+
+      // Real-time validation for login form
+      loginForm.querySelectorAll('input').forEach(input => {
+        input.addEventListener('input', () => {
+          validateLoginForm();
+        });
+      });
+
+      // Real-time validation for signup form
+      signupForm.querySelectorAll('input:not([type="radio"])').forEach(input => { 
+        //  فقط inputهایی که از نوع radio  نیستند را انتخاب می‌کنیم
+        input.addEventListener('input', () => {
+          validateSignupForm();
+        });
+      });
+
+      // Load and display user data in the profile page
+      function loadUserProfile() {
+        const storedUser = JSON.parse(localStorage.getItem('user'));
+        if (storedUser) {
+          document.getElementById('profile-name').textContent = storedUser.name;
+          document.getElementById('profile-email').textContent = storedUser.email;
+          // در اینجا می‌توانید عکس پروفایل کاربر را نیز نمایش دهید
+          // به عنوان مثال:
+          // document.getElementById('profile-image').src = storedUser.profile; 
+        } else {
+          // Redirect to login if no user data found
+          window.location.href = 'login.html';
+        }
+      }
+
+      // Check if the current page is the profile page and load user data
+      if (window.location.pathname.endsWith('profile.html')) {
+        loadUserProfile();
+      }
+
+     
+      // Handle login form submission
+      loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        if (validateLoginForm()) {
+          const email = document.getElementById('email').value;
+          const password = document.getElementById('password').value;
+          const remember = document.getElementById('remember').checked;
+
+          const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
+          const user = storedUsers.find(u => u.email === email);
+
+          if (user && user.password === password) {
+            localStorage.setItem('user', JSON.stringify({ name: user.name, email: user.email, profile: user.profile })); 
+
+
+            if (remember) {
+              localStorage.setItem('rememberedEmail', email);
+            } else {
+              localStorage.removeItem('rememberedEmail');
+            }
+
+            window.open('profile.html', '_blank');
+          } else {
+            displayError(loginError, 'ایمیل یا رمز عبور اشتباه است.');
+          }
+        }
+      });
+
+      // Signup form submission
+      signupForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        if (validateSignupForm()) {
+          const name = document.getElementById('signup-name').value;
+          const email = document.getElementById('signup-email').value;
+          const password = document.getElementById('signup-password').value;
+          const profile = document.querySelector('input[name="profile"]:checked').value; // دریافت عکس پروفایل انتخاب شده
+
+          const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
+          if (storedUsers.some(u => u.email === email)) {
+            displayError(signupError, 'این ایمیل قبلاً ثبت شده است.');
+            return;
+          }
+
+          storedUsers.push({ name, email, password, profile }); // ذخیره عکس پروفایل
+          localStorage.setItem('users', JSON.stringify(storedUsers));
+
+          alert('ثبت نام با موفقیت انجام شد!');
+          loginForm.style.display = 'block';
+          signupForm.style.display = 'none';
+          formTitle.textContent = 'ورود';
+          toggleLink.textContent = 'ثبت نام';
+          clearErrors();
+        }
+      });
+
+      // Validation functions
+    function validateLoginForm() {
+      let isValid = true;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      if (!validateEmail(email)) {
+        displayError(document.getElementById('email-error'), 'ایمیل معتبر نیست.');
+        document.getElementById('email').parentElement.classList.add('error');
+        isValid = false;
+      } else {
+        clearError(document.getElementById('email-error'));
+        document.getElementById('email').parentElement.classList.remove('error');
+      }
+
+      if (password.length < 6) {
+        displayError(document.getElementById('password-error'), 'رمز عبور باید حداقل ۶ کاراکتر باشد.');
+        document.getElementById('password').parentElement.classList.add('error');
+        isValid = false;
+      } else {
+        clearError(document.getElementById('password-error'));
+        document.getElementById('password').parentElement.classList.remove('error');
+      }
+
+      return isValid;
+    }
+
+    function validateSignupForm() {
+      let isValid = true;
+      const name = document.getElementById('signup-name').value;
+      const email = document.getElementById('signup-email').value;
+      const password = document.getElementById('signup-password').value;
+
+      if (name.trim() === '') {
+        displayError(document.getElementById('name-error'), 'نام الزامی است.');
+        document.getElementById('signup-name').parentElement.classList.add('error');
+        isValid = false;
+      } else {
+        clearError(document.getElementById('name-error'));
+        document.getElementById('signup-name').parentElement.classList.remove('error');
+      }
+
+      if (!validateEmail(email)) {
+        displayError(document.getElementById('signup-email-error'), 'ایمیل معتبر نیست.');
+        document.getElementById('signup-email').parentElement.classList.add('error');
+        isValid = false;
+      } else {
+        clearError(document.getElementById('signup-email-error'));
+        document.getElementById('signup-email').parentElement.classList.remove('error');
+      }
+
+      if (password.length < 6) {
+        displayError(document.getElementById('signup-password-error'), 'رمز عبور باید حداقل ۶ کاراکتر باشد.');
+        document.getElementById('signup-password').parentElement.classList.add('error');
+        isValid = false;
+      } else {
+        clearError(document.getElementById('signup-password-error'));
+        document.getElementById('signup-password').parentElement.classList.remove('error');
+      }
+
+      return isValid;
+    }
+
+    // Email validation helper function
+    function validateEmail(email) {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(email);
+    }
+
+    // Display error message
+    function displayError(element, message) {
+      element.textContent = message;
+      element.style.display = 'block';
+    }
+
+    // Clear error message
+    function clearError(element) {
+      element.textContent = '';
+      element.style.display = 'none';
+    }
+
+    // Clear all error messages
+    function clearErrors() {
+      document.querySelectorAll('.error-message').forEach(error => {
+        clearError(error);
+      });
+      document.querySelectorAll('.form-group').forEach(group => {
+        group.classList.remove('error');
+      });
+    }
+      // Submit form on pressing Enter key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          if (loginForm.style.display !== 'none') {
+            loginForm.dispatchEvent(new Event('submit'));
+          } else if (signupForm.style.display !== 'none') {
+            signupForm.dispatchEvent(new Event('submit'));
+          }
+        }
+      });
+
+      // Check for remembered email and auto-login
+      const rememberedEmail = localStorage.getItem('rememberedEmail');
+      if (rememberedEmail) {
+        const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
+        const user = storedUsers.find(u => u.email === rememberedEmail);
+        if (user) {
+          localStorage.setItem('user', JSON.stringify({ name: user.name, email: user.email, profile: user.profile }));
+          window.location.href = 'profile.html'; // هدایت خودکار به صفحه profile.html
+        }
+      }
+    });
+  </script>
 </body>
+
 </html>
