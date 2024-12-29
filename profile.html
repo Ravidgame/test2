@@ -1,386 +1,290 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="پروفایل کاربری در هامووی - مرجع دانلود فیلم و سریال با بهترین کیفیت و بدون سانسور">
-    <title>هامووی 🎬 | پروفایل کاربری</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700&family=Vazirmatn:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        :root {
-            --primary-color: #e50914;
-            --secondary-color: #f05053;
-            --dark-background: #141414;
-            --light-background: #f5f5f5;
-            --transition-speed: 0.3s;
-            --border-radius: 30px;
-            --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>هامووی 🎬 | پروفایل کاربری</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700&family=Vazirmatn:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #e50914;
+      --secondary-color: #f05053;
+      --dark-background: #141414;
+      --light-background: #f5f5f5;
+      --transition-speed: 0.3s;
+      --border-radius: 30px;
+      --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            background: linear-gradient(to bottom, var(--dark-background), #000);
-            color: #fff;
-            font-family: 'Vazirmatn', 'Montserrat', sans-serif;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
+    body {
+      background: linear-gradient(to bottom, var(--dark-background), #000);
+      color: #fff;
+      font-family: 'Vazirmatn', 'Montserrat', sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
 
-        .header {
-            background-color: rgba(0, 0, 0, 0.8);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(15px);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-            width: 100%;
-        }
+    .header {
+      background-color: rgba(0, 0, 0, 0.8);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(15px);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+      width: 100%;
+    }
 
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            width: 100%;
-        }
+    .logo {
+      width: 130px;
+      height: auto;
+      transition: transform var(--transition-speed) ease;
+    }
 
-        .logo {
-            width: 130px;
-            height: auto;
-            transition: transform var(--transition-speed) ease;
-        }
+    .logo:hover {
+      transform: scale(1.1);
+    }
 
-        .logo:hover {
-            transform: scale(1.1);
-        }
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
 
-        nav {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-        }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      margin: 0;
+      padding: 0;
+    }
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 1rem;
-            margin: 0;
-            padding: 0;
-        }
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.2rem;
+      padding: 0.8rem 1.5rem;
+      border-radius: var(--border-radius);
+      transition: all var(--transition-speed) ease;
+      position: relative;
+      overflow: hidden;
+    }
 
-        nav a {
-            text-decoration: none;
-            color: #fff;
-            font-weight: 700;
-            font-size: 1.2rem;
-            padding: 0.8rem 1.5rem;
-            border-radius: var(--border-radius);
-            transition: all var(--transition-speed) ease;
-            position: relative;
-            overflow: hidden;
-        }
+    nav a::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+      opacity: 0;
+      transition: opacity var(--transition-speed) ease;
+      z-index: -1;
+      border-radius: var(--border-radius);
+    }
 
-        nav a::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-            opacity: 0;
-            transition: opacity var(--transition-speed) ease;
-            z-index: -1;
-            border-radius: var(--border-radius);
-        }
+    nav a:hover::before {
+      opacity: 1;
+    }
 
-        nav a:hover::before {
-            opacity: 1;
-        }
+    nav a.active {
+      background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    }
 
-        nav a.active {
-            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-        }
+    .main-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 20px;
+      min-height: calc(100vh - 130px); 
+      /*  فضای خالی برای header و footer  */
+    }
 
-        .profile-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: calc(100vh - 230px); /* Adjusted for dynamic header and footer height */
-        }
+    .sidebar {
+      width: 250px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: var(--border-radius);
+      padding: 20px;
+      box-shadow: var(--box-shadow);
+    }
 
-        .profile-card {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: var(--border-radius);
-            padding: 60px 50px;
-            box-shadow: var(--box-shadow);
-            text-align: center;
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            animation: fadeInUp 0.8s ease-out;
-            max-width: 700px;
-            width: 100%;
-            border: 2px solid;
-            border-image: linear-gradient(to right, var(--primary-color), var(--secondary-color)) 1;
-        }
+    .sidebar h3 {
+      color: var(--primary-color);
+      margin-bottom: 20px;
+    }
 
-        .profile-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
-        }
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
 
-        .profile-card h2 {
-            color: var(--primary-color);
-            margin-bottom: 30px;
-            font-size: 2.8rem;
-            text-shadow: 3px 3px 4px rgba(0,0,0,0.6);
-            letter-spacing: 1px;
-        }
+    .sidebar li {
+      margin-bottom: 15px;
+    }
 
-        .profile-info {
-            margin-bottom: 50px;
-        }
+    .sidebar a {
+      text-decoration: none;
+      color: #fff;
+      display: block;
+      padding: 10px;
+      border-radius: 10px;
+      transition: all var(--transition-speed) ease; /*  transition برای همه  */
+      background-color: rgba(255, 255, 255, 0.1); /*  رنگ پس زمینه  */
+    }
 
-        .profile-info p {
-            margin: 25px 0;
-            font-size: 1.3rem;
-            line-height: 1.7;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-        }
+    .sidebar a:hover {
+      background-color: rgba(255, 255, 255, 0.3); /*  رنگ پس زمینه در هنگام hover  */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /*  اضافه کردن سایه  */
+      transform: translateY(-3px); /*  کمی بالا بردن  */
+    }
 
-        .profile-info p i {
-            color: var(--primary-color);
-            margin-right: 20px;
-            width: 30px;
-            text-align: center;
-            font-size: 1.8rem;
-        }
+    .content {
+      flex-grow: 1;
+      margin-right: 20px;
+      text-align: center; /*  متن را در وسط قرار دهید  */
+    }
 
-        .profile-info p strong {
-            margin-right: 20px;
-            min-width: 80px;
-            text-align: right;
-        }
+    .content h2 {
+      color: var(--primary-color);
+      margin-bottom: 20px;
+    }
 
-        .profile-info p span {
-            flex-grow: 1;
-            text-align: left;
-            border-bottom: 2px solid rgba(255,255,255,0.3);
-            padding-bottom: 10px;
-            font-size: 1.4rem;
-        }
+    .profile-info {
+      margin-bottom: 30px;
+      display: inline-block; /*  برای اینکه margin-bottom  عمل کند  */
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: var(--border-radius);
+      padding: 30px;
+      box-shadow: var(--box-shadow);
+    }
 
-        .button-container {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
+    .profile-info p {
+      margin: 15px 0;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center; /*  وسط چین کردن  */
+    }
 
-        .edit-profile-btn,
-        .logout-btn {
-            background: linear-gradient(to right, var(--primary-color) 20%, var(--secondary-color));
-            color: #fff;
-            padding: 15px 35px;
-            border: none;
-            border-radius: var(--border-radius);
-            cursor: pointer;
-            font-family: inherit;
-            font-size: 1.3rem;
-            transition: all var(--transition-speed) ease;
-            box-shadow: 0 3px 6px rgba(0,0,0,0.4);
-            margin-top: 10px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-        }
+    .profile-info i {
+      color: var(--primary-color);
+      margin-right: 10px;
+      width: 25px;
+      text-align: center;
+    }
 
-        .edit-profile-btn:hover,
-        .logout-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.6);
-        }
+    .profile-info strong {
+      margin-right: 10px;
+    }
 
-        .logout-btn {
-            background: linear-gradient(to right, #700000, #990000);
-        }
+    .profile-info img {
+      width: 150px; /*  تنظیم اندازه عکس پروفایل  */
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+      border: 4px solid var(--primary-color); /*  اضافه کردن border  */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /*  اضافه کردن سایه  */
+    }
 
-        footer {
-            background-color: rgba(0, 0, 0, 0.8);
-            color: #fff;
-            text-align: center;
-            padding: 2rem;
-            margin-top: auto;
-            width: 100%;
-            font-size: 1.1rem;
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
-        }
+    .logout-btn {
+      background: linear-gradient(to right, #700000, #990000);
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 1.1rem;
+      transition: all var(--transition-speed) ease;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
 
-        footer p {
-            margin: 0;
-        }
+    .logout-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
+    }
 
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                gap: 1rem;
-            }
+    footer {
+      background-color: rgba(0, 0, 0, 0.8);
+      color: #fff;
+      text-align: center;
+      padding: 2rem;
+      margin-top: auto;
+      width: 100%;
+      font-size: 1.1rem;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+    }
 
-            nav {
-                flex-direction: column;
-                width: 100%;
-            }
+    footer p {
+      margin: 0;
+    }
 
-            nav ul {
-                flex-direction: column;
-                width: 100%;
-                text-align: center;
-            }
-
-            .profile-card {
-                padding: 30px 20px;
-            }
-
-            .profile-info p {
-                font-size: 1.2rem;
-            }
-
-            .profile-card h2 {
-                font-size: 2.5rem;
-            }
-
-            .button-container {
-                flex-direction: column;
-                align-items: center;
-                gap: 20px;
-            }
-
-            .profile-info p i {
-                margin-right: 15px;
-                font-size: 1.6rem;
-            }
-
-            .profile-info p strong {
-                margin-right: 15px;
-                min-width: 70px;
-            }
-
-            .profile-info p span {
-                font-size: 1.2rem;
-            }
-
-            .edit-profile-btn,
-            .logout-btn {
-                padding: 12px 25px;
-                font-size: 1.2rem;
-            }
-
-            footer {
-                font-size: 1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .profile-card {
-                padding: 20px 15px;
-            }
-
-            .profile-info p {
-                font-size: 1.1rem;
-            }
-
-            .profile-card h2 {
-                font-size: 2.2rem;
-            }
-
-            .profile-info p i {
-                margin-right: 10px;
-                font-size: 1.5rem;
-            }
-
-            .profile-info p strong {
-                margin-right: 10px;
-                min-width: 60px;
-            }
-
-            .profile-info p span {
-                font-size: 1.1rem;
-            }
-
-            .edit-profile-btn,
-            .logout-btn {
-                padding: 10px 20px;
-                font-size: 1.1rem;
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
+    /* ... کدهای CSS برای حالت responsive ... */
+  </style>
 </head>
 <body>
-    <header class="header">
-        <div class="header-content">
-            <img src="logo.png" alt="لوگو هامووی" class="logo">
-            <nav>
-                <ul>
-                    <li><a href="index.html" class="active">صفحه اصلی</a></li>
-                    <li><a href="movies.html">فیلم</a></li>
-                    <li><a href="series.html">سریال</a></li>
-                    <li><a href="animation.html">انیمیشن</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+  <header class="header">
+    <div class="header-content">
+      <img src="logo.png" alt="لوگو هامووی" class="logo">
+      <nav>
+        <ul>
+          <li><a href="index.html" class="active">صفحه اصلی</a></li>
+          <li><a href="movies.html">فیلم</a></li>
+          <li><a href="series.html">سریال</a></li>
+          <li><a href="animation.html">انیمیشن</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <main class="container">
-        <div class="profile-container">
-            <div class="profile-card">
-                <h2>پروفایل کاربری</h2>
-                <div class="profile-info">
-                    <p><i class="fas fa-user"></i> <strong>نام:</strong> <span id="profile-name"></span></p>
-                    <p><i class="fas fa-envelope"></i> <strong>ایمیل:</strong> <span id="profile-email"></span></p>
-                </div>
-                <div class="button-container">
-                    <button class="edit-profile-btn">ویرایش پروفایل</button>
-                    <button class="logout-btn" onclick="logout()">خروج</button>
-                </div>
-            </div>
-        </div>
-    </main>
+  <main class="main-content">
+    <aside class="sidebar">
+        <h3>پروفایل کاربری</h3>
+        <ul>
+            <li><a href="Watch Later.html"><i class="fas fa-clock"></i> تماشا در زمان دیگر</a></li>
+      </aside>
 
-    <footer>
-        <p>&copy; ۲۰۲۴ هامووی - تمامی حقوق محفوظ است</p>
-    </footer>
+    <div class="content">
+      <div class="profile-info">
+        <img id="profile-image" src="" alt="عکس پروفایل"> 
+        <p><i class="fas fa-user"></i> <strong>نام:</strong> <span id="profile-name"></span></p>
+        <p><i class="fas fa-envelope"></i> <strong>ایمیل:</strong> <span id="profile-email"></span></p>
+      </div>
+      <p id="welcome-message"></p> 
+      <button class="logout-btn" onclick="logout()">خروج</button>
+    </div>
+  </main>
 
-    <script>
-         function logout() {
-      localStorage.removeItem('user'); // تغییر در اینجا
+  <footer>
+    <p>&copy; ۲۰۲۴ هامووی - تمامی حقوق محفوظ است</p>
+  </footer>
+
+  <script>
+    function logout() {
+      localStorage.removeItem('user');
       localStorage.removeItem('rememberedEmail');
       window.location.href = 'login.html';
     }
@@ -388,15 +292,19 @@
     document.addEventListener('DOMContentLoaded', () => {
       const profileName = document.getElementById('profile-name');
       const profileEmail = document.getElementById('profile-email');
+      const profileImage = document.getElementById('profile-image'); 
+      const welcomeMessage = document.getElementById('welcome-message'); //  اضافه شده
 
-      const storedUser = JSON.parse(localStorage.getItem('user')); // تغییر در اینجا
+      const storedUser = JSON.parse(localStorage.getItem('user'));
       if (storedUser) {
         profileName.textContent = storedUser.name;
         profileEmail.textContent = storedUser.email;
+        profileImage.src = storedUser.profile; 
+        welcomeMessage.textContent = `سلام ${storedUser.name}، خوش آمدید!`; //  پیام خوشامدگویی
       } else {
         window.location.href = 'login.html';
-            }
-        });
-    </script>
+      }
+    });
+  </script>
 </body>
 </html>
