@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="هامووی - مرجع دانلود فیلم و سریال با بهترین کیفیت و بدون سانسور">
+  <meta name="theme-color" content="#e50914">
+  <title>هامووی 🎬 | دانلود فیلم و سریال</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700&family=Vazirmatn:wght@400;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #e50914;
+      --secondary-color: #f05053;
+      --dark-background: #141414;
+      --light-background: #f5f5f5;
+      --transition-speed: 0.3s;
+      --border-radius: 25px;
+      --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--dark-background);
+      color: #fff;
+      font-family: 'Vazirmatn', 'Montserrat', sans-serif;
+      margin: 0;
+      transition: background-color var(--transition-speed) ease;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    body.dark-mode {
+      background-color: var(--light-background);
+      color: var(--dark-background);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      width: 100%;
+    }
+
+    header {
+      background-color: rgba(20, 20, 20, 0.95);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+
+    .logo {
+      width: 120px;
+      height: auto;
+      transition: transform var(--transition-speed) ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.1);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 600;
+      font-size: 1.1rem;
+      padding: 0.8rem 1.5rem;
+      border-radius: var(--border-radius);
+      transition: all var(--transition-speed) ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    nav a::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+      opacity: 0;
+      transition: opacity var(--transition-speed) ease;
+      z-index: -1;
+      border-radius: var(--border-radius);
+    }
+
+    nav a:hover::before {
+      opacity: 1;
+    }
+
+    .search-container {
+      position: relative;
+    }
+
+    .search-input {
+      position: absolute;
+      right: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      padding: 0.8rem;
+      border: none;
+      border-radius: var(--border-radius);
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      transition: all var(--transition-speed) ease;
+      opacity: 0;
+    }
+
+    .search-input.active {
+      width: 250px;
+      opacity: 1;
+      margin-right: 1rem;
+    }
+
+    .search-input::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .search-icon {
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: transform var(--transition-speed) ease;
+      color: #fff;
+    }
+
+    .search-icon:hover {
+      transform: scale(1.1);
+    }
+
+
+    footer {
+      background-color: #181818;
+      color: #fff;
+      text-align: center;
+      padding: 2rem;
+      margin-top: auto;
+    }
+
+    .controls {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      z-index: 1000;
+    }
+
+    .control-button {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      border: none;
+      background: var(--primary-color);
+      color: #fff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--transition-speed) ease;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .control-button.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .control-button:hover {
+      transform: scale(1.1);
+      background: var(--secondary-color);
+    }
+
+    .login-button {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 600;
+      font-size: 1.1rem;
+      padding: 0.8rem 1.5rem;
+      border-radius: var(--border-radius);
+      transition: all var(--transition-speed) ease;
+      position: relative;
+      overflow: hidden;
+      margin-left: 1rem;
+    }
+
+    .login-button::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+      opacity: 0;
+      transition: opacity var(--transition-speed) ease;
+      z-index: -1;
+      border-radius: var(--border-radius);
+    }
+
+    .login-button:hover::before {
+      opacity: 1;
+    }
+
+    .hamburger-menu {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger-menu div {
+      width: 25px;
+      height: 3px;
+      background-color: #fff;
+      margin: 5px 0;
+      transition: all 0.3s ease;
+    }
+
+    .hamburger-menu.active .line1 {
+      transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .hamburger-menu.active .line2 {
+      opacity: 0;
+    }
+
+    .hamburger-menu.active .line3 {
+      transform: rotate(45deg) translate(-5px, -6px);
+    }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      width: 100%;
+      background-color: rgba(20, 20, 20, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      z-index: 999;
+    }
+
+    .mobile-menu a {
+      padding: 1rem;
+      text-align: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .mobile-menu a:hover {
+      background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+      color: #fff;
+    }
+
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .hamburger-menu {
+        display: flex;
+      }
+
+      .search-input.active {
+        position: relative;
+        right: 0;
+        width: 100%;
+        margin: 1rem 0;
+      }
+
+      .mobile-menu {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <img src="logo.png" alt="لوگو هامووی" class="logo">
+        <nav>
+          <ul>
+            <li><a href="index.html">صفحه اصلی</a></li>
+            <li><a href="animation.html">انیمیشن</a></li>
+            <li><a href="series.html">سریال</a></li>
+          </ul>
+          <div class="search-container">
+            <input type="search" class="search-input" placeholder="جستجو...">
+            <i class="fas fa-search search-icon"></i>
+          </div>
+          <a href="login.html" class="login-button">ورود/ثبت نام</a>
+        </nav>
+        <div class="hamburger-menu">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+        </div>
+        <div class="mobile-menu">
+          <a href="animation.html">انیمیشن</a>
+          <a href="movies.html">فیلم</a>
+          <a href="series.html">سریال</a>
+          <a href="account.html">حساب کاربری</a>
+          <a href="login.html" class="login-button">ورود/ثبت نام</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+
+  </main>
+
+  <footer>
+    <p>&copy; ۲۰۲۴ هامووی - تمامی حقوق محفوظ است</p>
+  </footer>
+
+  <div class="controls">
+    <button class="control-button theme-toggle" title="تغییر حالت شب/روز">
+      <i class="fas fa-moon"></i>
+    </button>
+    <button class="control-button scroll-top" title="بازگشت به بالا">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const controls = {
+        themeToggle: document.querySelector('.theme-toggle'),
+        scrollTop: document.querySelector('.scroll-top'),
+        searchIcon: document.querySelector('.search-icon'),
+        searchInput: document.querySelector('.search-input'),
+        hamburgerMenu: document.querySelector('.hamburger-menu'),
+        mobileMenu: document.querySelector('.mobile-menu')
+      };
+
+
+      controls.themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        const icon = controls.themeToggle.querySelector('i');
+        icon.className = document.body.classList.contains('dark-mode')
+          ? 'fas fa-sun'
+          : 'fas fa-moon';
+
+
+        localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+      });
+
+
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {س
+        document.body.classList.add('dark-mode');
+        controls.themeToggle.querySelector('i').className = 'fas fa-sun';
+      }
+
+
+      window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+          controls.scrollTop.classList.add('visible');
+        } else {
+          controls.scrollTop.classList.remove('visible');
+        }
+      });
+
+      controls.scrollTop.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+
+
+      controls.searchIcon.addEventListener('click', () => {
+        controls.searchInput.classList.toggle('active');
+        if (controls.searchInput.classList.contains('active')) {
+          controls.searchInput.focus();
+        }
+      });
+
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && controls.searchInput.classList.contains('active')) {
+          controls.searchInput.classList.remove('active');
+        }
+      });
+
+
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.search-container') && controls.searchInput.classList.contains('active')) {
+          controls.searchInput.classList.remove('active');
+        }
+      });
+
+
+      controls.hamburgerMenu.addEventListener('click', () => {
+        controls.hamburgerMenu.classList.toggle('active');
+        controls.mobileMenu.classList.toggle('active');
+      });
+
+
+      const platformItems = document.querySelectorAll('.platform-item');
+      const observerOptions = {
+        threshold: 0.2,
+        rootMargin: '0px'
+      };
+
+      const platformObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+            platformObserver.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      platformItems.forEach((item, index) => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(30px)';
+        item.style.transitionDelay = `${index * 0.2}s`;
+        platformObserver.observe(item);
+      });
+
+
+      const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+      const imageObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            img.src = img.dataset.src;
+            img.removeAttribute('data-src');
+            imageObserver.unobserve(img);
+          }
+        });
+      });
+
+      lazyImages.forEach((img) => imageObserver.observe(img));
+
+
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = anchor.getAttribute('href');
+          if (targetId !== '#') {
+            document.querySelector(targetId).scrollIntoView({
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+
+
+      function debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+          const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+          };
+          clearTimeout(timeout);
+          timeout = setTimeout(later, wait);
+        };
+      }
+
+      // Debounced scroll handler
+      const debouncedScroll = debounce(() => {
+        if (window.pageYOffset > 300) {
+          controls.scrollTop.classList.add('visible');
+        } else {
+          controls.scrollTop.classList.remove('visible');
+        }
+      }, 150);
+
+      window.addEventListener('scroll', debouncedScroll);
+    });
+  </script>
+</body>
+
+</html>
