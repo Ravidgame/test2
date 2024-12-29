@@ -379,22 +379,22 @@
     </footer>
 
     <script>
-        function logout() {
-            sessionStorage.removeItem('user');
-            localStorage.removeItem('rememberedEmail');
-            window.location.href = 'login.html';
-        }
+         function logout() {
+      localStorage.removeItem('user'); // تغییر در اینجا
+      localStorage.removeItem('rememberedEmail');
+      window.location.href = 'login.html';
+    }
 
-        document.addEventListener('DOMContentLoaded', () => {
-            const profileName = document.getElementById('profile-name');
-            const profileEmail = document.getElementById('profile-email');
+    document.addEventListener('DOMContentLoaded', () => {
+      const profileName = document.getElementById('profile-name');
+      const profileEmail = document.getElementById('profile-email');
 
-            const storedUser = JSON.parse(sessionStorage.getItem('user'));
-            if (storedUser) {
-                profileName.textContent = storedUser.name;
-                profileEmail.textContent = storedUser.email;
-            } else {
-                window.location.href = 'login.html';
+      const storedUser = JSON.parse(localStorage.getItem('user')); // تغییر در اینجا
+      if (storedUser) {
+        profileName.textContent = storedUser.name;
+        profileEmail.textContent = storedUser.email;
+      } else {
+        window.location.href = 'login.html';
             }
         });
     </script>
