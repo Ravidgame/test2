@@ -1,645 +1,1134 @@
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="هامووی - مرجع دانلود فیلم و سریال با بهترین کیفیت و بدون سانسور">
-  <meta name="theme-color" content="#e50914">
-  <title>هامووی 🎬 | دانلود فیلم و سریال</title>
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700&family=Vazirmatn:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <style>
-    :root {
-      --primary-color: #e50914;
-      --secondary-color: #f05053;
-      --dark-background: #141414;
-      --light-background: #f5f5f5;
-      --transition-speed: 0.3s;
-      --border-radius: 25px;
-      --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="هامووی - دانلود فیلم و سریال با کیفیت 4K و بدون سانسور. سینما، هر لحظه با شما.">
+    <meta name="theme-color" content="#e50914">
+    <title>هامووی 🎬 | دانلود فیلم و سریال با کیفیت عالی و دوبله فارسی - هامووی</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700&family=Vazirmatn:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* ========================= Root Variables ========================= */
+        :root {
+            --primary-color: #e50914;
+            --secondary-color: #ff7058; /* نارنجی زنده‌تر */
+            --dark-background: #050505; /* مشکی عمیق‌تر */
+            --light-background: #fdfdfd; /* سفید مایل به کرم */
+            --text-color-dark: #f2f2f2;
+            --text-color-light: #2e2e2e;
+            --accent-color: #ffd83d; /* زرد طلایی ملایم‌تر */
+            --transition-speed: 0.16s; /* انیمیشن سریع‌تر */
+            --border-radius: 20px; /* گوشه‌های گرد خیلی بیشتر */
+            --box-shadow-light: 0 2px 8px rgba(0, 0, 0, 0.06); /* سایه‌های خیلی ملایم‌تر */
+            --box-shadow-dark: 0 4px 12px rgba(0, 0, 0, 0.18); /* سایه‌های ملایم‌تر برای تیره */
+            --header-height-desktop: 90px; /* هدر کمی کوتاه‌تر */
+            --header-height-mobile: 60px; /* هدر موبایل کوتاه‌تر */
+            --content-padding-desktop: 30px; /* پدینگ کمتر محتوا */
+            --content-padding-mobile: 18px; /* پدینگ خیلی کمتر محتوا موبایل */
+            --logo-desktop-width: 120px; /* لوگوی کوچک‌تر */
+            --logo-mobile-width: 100px; /* لوگوی موبایل کوچک‌تر */
+        }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+        /* ========================= Global Styles ========================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
 
-    body {
-      background-color: var(--dark-background);
-      color: #fff;
-      font-family: 'Vazirmatn', 'Montserrat', sans-serif;
-      margin: 0;
-      transition: background-color var(--transition-speed) ease;
-      overflow-x: hidden;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+        body {
+            background-color: var(--dark-background);
+            color: var(--text-color-dark);
+            font-family: 'Vazirmatn', 'Montserrat', sans-serif;
+            margin: 0;
+            transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            font-weight: 400;
+            line-height: 1.65; /* خطوط کمی بسته‌تر */
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
 
-    body.dark-mode {
-      background-color: var(--light-background);
-      color: var(--dark-background);
-    }
+        body.dark-mode {
+            background-color: var(--light-background);
+            color: var(--text-color-light);
+        }
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
-      width: 100%;
-    }
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color var(--transition-speed) ease;
+        }
+        a:hover {
+            color: var(--accent-color);
+        }
 
-    header {
-      background-color: rgba(20, 20, 20, 0.95);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    }
+        .container {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: var(--content-padding-desktop);
+            width: 100%;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: var(--content-padding-mobile);
+            }
+        }
 
-    .header-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 0;
-    }
+        /* ========================= Header Styles ========================= */
+        header {
+            background-color: rgba(5, 5, 5, 0.97); /* مشکی خیلی عمیق */
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(18px); /* بلور نرم و زیاد */
+            box-shadow: var(--box-shadow-dark);
+            height: var(--header-height-desktop);
+            transition: height var(--transition-speed) ease;
+            border-bottom: 4px solid var(--primary-color); /* خط پهن‌تر و برجسته‌تر */
+        }
 
-    .logo {
-      width: 120px;
-      height: auto;
-      transition: transform var(--transition-speed) ease;
-    }
+        header.dark-mode {
+            background-color: rgba(253, 253, 253, 0.97);
+            box-shadow: var(--box-shadow-light);
+            border-bottom: 4px solid var(--primary-color);
+        }
 
-    .logo:hover {
-      transform: scale(1.1);
-    }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 var(--content-padding-desktop);
+            height: 100%;
+        }
+        @media (max-width: 768px) {
+            .header-content {
+                padding: 0 var(--content-padding-mobile);
+            }
+        }
 
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-    }
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1rem;
-      margin: 0;
-      padding: 0;
-    }
+        .logo {
+            width: var(--logo-desktop-width);
+            height: auto;
+            transition: transform var(--transition-speed) ease;
+        }
+        @media (max-width: 768px) {
+            .logo {
+                width: var(--logo-mobile-width);
+            }
+        }
 
-    nav a {
-      text-decoration: none;
-      color: #fff;
-      font-weight: 600;
-      font-size: 1.1rem;
-      padding: 0.8rem 1.5rem;
-      border-radius: var(--border-radius);
-      transition: all var(--transition-speed) ease;
-      position: relative;
-      overflow: hidden;
-    }
+        .logo:hover {
+            transform: scale(1.03); /* تغییر مقیاس خیلی ظریف */
+        }
 
-    nav a::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-      opacity: 0;
-      transition: opacity var(--transition-speed) ease;
-      z-index: -1;
-      border-radius: var(--border-radius);
-    }
+        .site-title {
+            color: var(--text-color-dark);
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem; /* کمی کوچکتر */
+            margin-right: 0.9rem;
+            letter-spacing: 0.6px; /* بسته‌تر */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.12); /* سایه ظریف‌تر */
+            transition: color var(--transition-speed) ease;
+        }
+        body.dark-mode .site-title {
+            color: var(--text-color-light);
+            text-shadow: none;
+        }
+        .site-title:hover {
+            color: var(--accent-color);
+        }
+        @media (max-width: 768px) {
+            .site-title {
+                display: none;
+            }
+        }
 
-    nav a:hover::before {
-      opacity: 1;
-    }
+        /* ========================= Navigation Styles ========================= */
+        nav {
+            display: flex;
+            align-items: center;
+        }
 
-    .search-container {
-      position: relative;
-    }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 26px; /* کمی بسته‌تر */
+            margin: 0;
+            padding: 0;
+        }
 
-    .search-input {
-      position: absolute;
-      right: 100%;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 0;
-      padding: 0.8rem;
-      border: none;
-      border-radius: var(--border-radius);
-      background: rgba(255, 255, 255, 0.1);
-      color: #fff;
-      transition: all var(--transition-speed) ease;
-      opacity: 0;
-    }
+        nav li a {
+            display: block;
+            font-weight: 500;
+            font-size: 1rem; /* باز هم کمی کوچکتر */
+            padding: 0.75rem 1.3rem; /* پدینگ کمتر */
+            border-radius: var(--border-radius);
+            transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+            box-shadow: none;
+        }
 
-    .search-input.active {
-      width: 250px;
-      opacity: 1;
-      margin-right: 1rem;
-    }
+        nav li a:hover,
+        nav li a.active {
+            background-color: var(--primary-color);
+            color: var(--text-color-dark);
+            box-shadow: var(--box-shadow-dark);
+        }
+        body.dark-mode nav li a:hover,
+        body.dark-mode nav li a.active {
+            box-shadow: var(--box-shadow-light);
+            color: var(--text-color-light);
+        }
+        nav li a.active {
+            color: var(--text-color-dark);
+        }
+        body.dark-mode nav li a.active {
+            color: var(--text-color-light);
+        }
 
-    .search-input::placeholder {
-      color: rgba(255, 255, 255, 0.7);
-    }
+        /* ========================= Search Styles ========================= */
+        .search-container {
+            position: relative;
+        }
 
-    .search-icon {
-      font-size: 1.5rem;
-      cursor: pointer;
-      transition: transform var(--transition-speed) ease;
-      color: #fff;
-    }
+        .search-icon {
+            font-size: 1.2rem; /* باز هم کمی کوچکتر */
+            cursor: pointer;
+            transition: transform var(--transition-speed) ease, opacity var(--transition-speed) ease, color var(--transition-speed) ease;
+            color: var(--text-color-dark);
+            opacity: 0.65; /* کمی کم‌رنگ‌تر */
+        }
+        body.dark-mode .search-icon {
+            color: var(--text-color-light);
+        }
 
-    .search-icon:hover {
-      transform: scale(1.1);
-    }
+        .search-icon:hover {
+            transform: scale(1.06); /* تغییر مقیاس خیلی ظریف */
+            opacity: 1;
+            color: var(--accent-color);
+        }
 
-    .intro {
-      position: relative;
-      padding: 4rem 0;
-      text-align: center;
-      background: linear-gradient(rgba(20, 20, 20, 0.8), rgba(20, 20, 20, 0.8)),
-                  url('background.jpg') center/cover no-repeat fixed;
-      border-radius: 20px;
-      margin: 2rem 0;
-    }
+        .search-input {
+            position: absolute;
+            right: 100%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            padding: 0.65rem 1.1rem; /* پدینگ خیلی کمتر */
+            border: none;
+            border-radius: var(--border-radius);
+            background-color: rgba(255, 255, 255, 0.015); /* خیلی کم‌رنگ‌تر */
+            color: var(--text-color-dark);
+            transition: all var(--transition-speed) ease;
+            opacity: 0;
+            font-size: 0.95rem; /* فونت خیلی کوچکتر */
+            box-shadow: none;
+        }
+        body.dark-mode .search-input {
+            background-color: rgba(0, 0, 0, 0.01);
+            color: var(--text-color-light);
+        }
 
-    .intro h1 {
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      margin-bottom: 2rem;
-      background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: gradientFlow 3s ease infinite;
-    }
+        .search-input.active {
+            width: 240px; /* کمی باریکتر */
+            opacity: 1;
+            margin-right: 1rem; /* مارجین کمتر */
+            box-shadow: var(--box-shadow-dark);
+        }
+        body.dark-mode .search-input.active {
+            box-shadow: var(--box-shadow-light);
+        }
 
-    @keyframes gradientFlow {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
+        .search-input::placeholder {
+            color: rgba(255, 255, 255, 0.45); /* کم‌رنگ‌تر */
+            font-weight: 300;
+            font-style: italic;
+        }
+        body.dark-mode .search-input::placeholder {
+            color: rgba(0, 0, 0, 0.35);
+        }
 
-    .platform {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      padding: 2rem;
-    }
+        /* ========================= Intro Section Styles ========================= */
+        .intro {
+            position: relative;
+            padding: 8rem 0;
+            text-align: center;
+            background: linear-gradient(rgba(5, 5, 5, 0.7), rgba(5, 5, 5, 0.7)), /* مشکی عمیق‌تر */
+            url('background5.jpg') center/cover no-repeat fixed; /* تصویر جدید و تیره‌تر */
+            border-radius: var(--border-radius);
+            margin: 2.5rem 0;
+            box-shadow: var(--box-shadow-dark);
+            color: var(--text-color-dark);
+            overflow: hidden;
+            background-image: linear-gradient(to bottom, rgba(5, 5, 5, 0.4) 0%, rgba(5, 5, 5, 0.6) 50%, rgba(5, 5, 5, 0.8) 100%), url('background5.jpg'); /* گرادینت تیره‌تر */
+        }
+        body.dark-mode .intro {
+            background: linear-gradient(rgba(253, 253, 253, 0.7), rgba(253, 253, 253, 0.7)), /* سفید کرمی‌تر */
+            url('background-light5.jpg') center/cover no-repeat fixed; /* تصویر روشن جدید */
+            box-shadow: var(--box-shadow-light);
+            color: var(--text-color-light);
+            background-image: linear-gradient(to bottom, rgba(253, 253, 253, 0.2) 0%, rgba(253, 253, 253, 0.4) 50%, rgba(253, 253, 253, 0.6) 100%), url('background-light5.jpg'); /* گرادینت روشن‌تر */
+        }
 
-    .platform-item {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 15px;
-      padding: 2rem;
-      transition: transform var(--transition-speed) ease,
-                  box-shadow var(--transition-speed) ease;
-      animation: fadeInUp 0.8s ease backwards;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
+        .intro h1 {
+            font-size: clamp(3.6rem, 7vw, 5.8rem); /* باز هم کمی کوچکتر */
+            margin-bottom: 2rem;
+            color: var(--accent-color);
+            -webkit-text-fill-color: inherit;
+            animation: fadeInUp 0.85s ease-out; /* باز هم سریع‌تر */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.35); /* سایه ظریف‌تر */
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 2.2px; /* بسته‌تر */
+            text-transform: uppercase;
+        }
+        body.dark-mode .intro h1 {
+            color: var(--primary-color);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.12); /* سایه خیلی ظریف */
+        }
 
-    .platform-item:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-    }
+        .intro p {
+            font-size: clamp(1.2rem, 2.2vw, 1.5rem); /* باز هم کمی کوچکتر */
+            color: rgba(255, 255, 255, 0.85); /* کمی کم‌رنگ‌تر */
+            max-width: 900px;
+            margin: 0 auto 3rem;
+            text-shadow: 1.2px 1.2px 2.3px rgba(0, 0, 0, 0.3); /* سایه خیلی ظریف */
+            animation: fadeIn 1.05s ease-out 0.12s backwards; /* باز هم سریع‌تر */
+            font-weight: 300;
+        }
+        body.dark-mode .intro p {
+            color: rgba(0, 0, 0, 0.6);
+            text-shadow: none;
+        }
 
-    .platform-item i {
-      font-size: 3rem;
-      color: var(--primary-color);
-      margin-bottom: 1rem;
-      transition: transform var(--transition-speed) ease;
-    }
+        .intro-content-wrapper {
+            position: relative;
+            z-index: 1;
+            padding: 2.5rem; /* پدینگ کمتر */
+        }
 
-    .platform-item:hover i {
-      transform: scale(1.1);
-    }
+        .intro-circle {
+            position: absolute;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+            opacity: 0.4; /* خیلی شفاف‌تر */
+            filter: blur(50px); /* بلور کمتر */
+            z-index: 0;
+        }
 
-    .platform-item h2 {
-      font-size: 1.8rem;
-      margin: 1rem 0;
-      color: var(--primary-color);
-    }
+        .intro-circle-1 {
+            width: 210px; /* خیلی کوچکتر */
+            height: 210px;
+            top: -55px;
+            left: 10%;
+        }
 
-    .platform-item a {
-      color: var(--primary-color);
-      text-decoration: none;
-      font-weight: bold;
-      transition: color var(--transition-speed) ease;
-      display: inline-block;
-      margin-top: 1rem;
-    }
+        .intro-circle-2 {
+            width: 300px; /* کوچکتر */
+            height: 300px;
+            bottom: -100px;
+            right: 14%;
+        }
 
-    .platform-item a:hover {
-      color: var(--secondary-color);
-    }
+        /* ========================= Download Section Styles ========================= */
+        .download-section {
+            background-color: rgba(255, 255, 255, 0.02); /* خیلی کم‌رنگ - مینیمال */
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            box-shadow: var(--box-shadow-dark);
+            margin-bottom: 2.5rem;
+        }
+        body.dark-mode .download-section {
+            background-color: rgba(0, 0, 0, 0.015);
+            box-shadow: var(--box-shadow-light);
+        }
 
-    footer {
-      background-color: #181818;
-      color: #fff;
-      text-align: center;
-      padding: 2rem;
-      margin-top: auto;
-    }
+        .download-section-header {
+            color: var(--accent-color); /* زرد لیمویی - جذاب و بولد */
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.8rem; /* بزرگ و خوانا */
+            text-align: center;
+            letter-spacing: 1.5px;
+            margin-bottom: 1.8rem; /* فاصله بیشتر */
+        }
 
-    .controls {
-      position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      z-index: 1000;
-    }
+        .download-section-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
 
-    .control-button {
-      width: 45px;
-      height: 45px;
-      border-radius: 50%;
-      border: none;
-      background: var(--primary-color);
-      color: #fff;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all var(--transition-speed) ease;
-      opacity: 0;
-      transform: translateY(20px);
-    }
+        .download-section-list li {
+            color: rgba(255, 255, 255, 0.8); /* کم‌رنگ‌تر */
+            font-size: 1.1rem; /* خوانا */
+            margin-bottom: 0.9rem; /* فاصله کمتر */
+            text-align: center;
+            line-height: 1.7; /* خطوط بازتر */
+        }
+        body.dark-mode .download-section-list li {
+            color: rgba(0, 0, 0, 0.6);
+        }
 
-    .control-button.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
 
-    .control-button:hover {
-      transform: scale(1.1);
-      background: var(--secondary-color);
-    }
+        /* ========================= Platform Section Styles ========================= */
+        .platform {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* باز هم کمی باریکتر */
+            gap: 3rem; /* کمی کمتر */
+            padding: 3.5rem 0; /* باز هم کمتر */
+        }
 
-    .login-button {
-      text-decoration: none;
-      color: #fff;
-      font-weight: 600;
-      font-size: 1.1rem;
-      padding: 0.8rem 1.5rem;
-      border-radius: var(--border-radius);
-      transition: all var(--transition-speed) ease;
-      position: relative;
-      overflow: hidden;
-      margin-left: 1rem;
-    }
+        .platform-item {
+            background-color: rgba(255, 255, 255, 0.02); /* خیلی کم‌رنگ */
+            border-radius: var(--border-radius);
+            padding: 2.2rem; /* باز هم کمی کمتر */
+            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+            animation: fadeInUp 0.6s ease backwards; /* سریع‌ترین انیمیشن */
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05); /* خیلی کم‌رنگ‌تر */
+            box-shadow: var(--box-shadow-dark);
+            border-top: 3px solid var(--primary-color); /* باز هم باریکتر */
+        }
+        body.dark-mode .platform-item {
+            background-color: rgba(0, 0, 0, 0.012);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            box-shadow: var(--box-shadow-light);
+            border-top: 3px solid var(--primary-color);
+        }
 
-    .login-button::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-      opacity: 0;
-      transition: opacity var(--transition-speed) ease;
-      z-index: -1;
-      border-radius: var(--border-radius);
-    }
+        .platform-item:hover {
+            transform: translateY(-12px); /* کمتر */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35); /* سایه کمی ملایم‌تر */
+        }
 
-    .login-button:hover::before {
-      opacity: 1;
-    }
+        .platform-item i {
+            font-size: 2.8rem; /* کمی کوچکتر */
+            color: var(--primary-color);
+            margin-bottom: 1rem; /* کمتر */
+            transition: transform var(--transition-speed) ease, color var(--transition-speed) ease;
+            opacity: 0.8; /* کم‌رنگ‌تر */
+        }
 
-    .hamburger-menu {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-    }
+        .platform-item:hover i {
+            transform: scale(1.08); /* خیلی ظریف */
+            color: var(--accent-color);
+            opacity: 1;
+        }
 
-    .hamburger-menu div {
-      width: 25px;
-      height: 3px;
-      background-color: #fff;
-      margin: 5px 0;
-      transition: all 0.3s ease;
-    }
+        .platform-item h2 {
+            font-size: 1.7rem; /* کمی کوچکتر */
+            margin: 0.9rem 0; /* کمتر */
+            color: var(--text-color-dark);
+            transition: color var(--transition-speed) ease;
+            font-weight: 600;
+        }
+        body.dark-mode .platform-item h2 {
+            color: var(--text-color-light);
+        }
+        .platform-item:hover h2 {
+            color: var(--accent-color);
+        }
 
-    .hamburger-menu.active .line1 {
-      transform: rotate(-45deg) translate(-5px, 6px);
-    }
+        .platform-item p {
+            font-size: 1.05rem; /* باز هم کمی کوچکتر */
+            color: rgba(255, 255, 255, 0.75); /* کم‌رنگ‌تر */
+            margin-bottom: 1.3rem; /* کمتر */
+            line-height: 1.75; /* کمی بسته‌تر */
+            font-weight: 300;
+        }
+        body.dark-mode .platform-item p {
+            color: rgba(0, 0, 0, 0.6);
+        }
 
-    .hamburger-menu.active .line2 {
-      opacity: 0;
-    }
+        .platform-item a {
+            color: var(--text-color-dark);
+            text-decoration: none;
+            font-weight: 550;
+            transition: color var(--transition-speed) ease, background-color var(--transition-speed) ease, border-color var(--transition-speed) ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem; /* کمتر */
+            font-size: 1rem; /* کمی کوچکتر */
+            padding: 0.7rem 1.3rem; /* کمتر */
+            border-radius: var(--border-radius);
+            border: 1.6px solid var(--primary-color); /* خیلی باریکتر */
+            background-color: transparent;
+        }
+        .platform-item a:hover {
+            color: var(--accent-color);
+            border-color: var(--accent-color);
+            background-color: rgba(var(--accent-color-rgb), 0.07); /* خیلی کم‌رنگ‌تر */
+        }
 
-    .hamburger-menu.active .line3 {
-      transform: rotate(45deg) translate(-5px, -6px);
-    }
+        /* ========================= Footer Styles ========================= */
+        footer {
+            background-color: #101010; /* تیره‌تر */
+            color: rgba(255, 255, 255, 0.7); /* کم‌رنگ‌تر */
+            text-align: center;
+            padding: 2rem; /* کمتر */
+            margin-top: auto;
+            font-size: 0.9rem; /* خیلی کوچکتر */
+            border-top: 1px solid rgba(255, 255, 255, 0.03); /* خیلی ظریف */
+            opacity: 0.8; /* کم‌رنگ‌تر */
+        }
+        body.dark-mode footer {
+            background-color: #ededed; /* روشن‌تر */
+            color: rgba(0, 0, 0, 0.55); /* تیره‌تر */
+            border-top: 1px solid rgba(0, 0, 0, 0.025);
+            opacity: 0.85; /* کمی پررنگ‌تر در روشن */
+        }
 
-    .mobile-menu {
-      display: none;
-      flex-direction: column;
-      position: absolute;
-      top: 100%;
-      right: 0;
-      width: 100%;
-      background-color: rgba(20, 20, 20, 0.95);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-      z-index: 999;
-    }
+        /* ========================= Controls Styles ========================= */
+        .controls {
+            position: fixed;
+            bottom: 2rem; /* کمتر */
+            right: 2rem; /* کمتر */
+            display: flex;
+            flex-direction: column;
+            gap: 0.9rem; /* کمتر */
+            z-index: 1000;
+        }
 
-    .mobile-menu a {
-      padding: 1rem;
-      text-align: center;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
+        .control-button {
+            width: 45px; /* باز هم کمی کوچکتر */
+            height: 45px;
+            border-radius: 50%;
+            border: none;
+            background: var(--primary-color);
+            color: var(--text-color-dark);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition-speed) ease;
+            opacity: 0;
+            transform: translateY(20px); /* کمتر */
+            font-size: 1.1rem; /* کمی کوچکتر */
+            box-shadow: var(--box-shadow-dark);
+            opacity: 0.75; /* کم‌رنگ‌تر */
+        }
+        body.dark-mode .control-button {
+            box-shadow: var(--box-shadow-light);
+            opacity: 0.8; /* کمی پررنگ‌تر در روشن */
+        }
 
-    .mobile-menu a:hover {
-      background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-      color: #fff;
-    }
+        .control-button.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-    @media (max-width: 768px) {
-      .header-content {
-        flex-direction: column;
-        gap: 1rem;
-      }
+        .control-button:hover {
+            transform: scale(1.08); /* خیلی ظریف */
+            background: var(--accent-color);
+            color: var(--dark-background);
+        }
 
-      nav {
-        display: none;
-      }
+        /* ========================= Login Button Styles ========================= */
+        .login-button {
+            display: none;
+            color: var(--text-color-dark);
+            font-weight: 500;
+            font-size: 0.95rem; /* باز هم کمی کوچکتر */
+            padding: 0.7rem 1.3rem; /* کمتر */
+            border-radius: var(--border-radius);
+            transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, box-shadow var(--transition-speed) ease, border-color var(--transition-speed) ease;
+            background-color: transparent;
+            border: 1.6px solid var(--primary-color); /* خیلی باریکتر */
+            white-space: nowrap;
+            box-shadow: none;
+            opacity: 0.8; /* کم‌رنگ‌تر */
+        }
+        body.dark-mode .login-button {
+            color: var(--text-color-light);
+            border-color: var(--primary-color);
+            opacity: 0.85; /* کمی پررنگ‌تر در روشن */
+        }
 
-      .hamburger-menu {
-        display: flex;
-      }
+        .login-button:hover {
+            background-color: var(--primary-color);
+            color: var(--text-color-dark);
+            box-shadow: var(--box-shadow-dark);
+            border-color: var(--secondary-color);
+        }
+        body.dark-mode .login-button:hover {
+            box-shadow: var(--box-shadow-light);
+            color: var(--text-color-light);
+        }
 
-      .search-input.active {
-        position: relative;
-        right: 0;
-        width: 100%;
-        margin: 1rem 0;
-      }
+        /* ========================= Hamburger Menu Styles ========================= */
+        .hamburger-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 6px; /* کمتر */
+            padding: 0.6rem; /* کمتر */
+        }
 
-      .platform {
-        grid-template-columns: 1fr;
-      }
+        .hamburger-menu div {
+            width: 22px; /* کمی کوچکتر */
+            height: 2.6px; /* خیلی باریک */
+            background-color: var(--text-color-dark);
+            transition: all 0.3s ease;
+        }
+        body.dark-mode .hamburger-menu div {
+            background-color: var(--text-color-light);
+        }
 
-      .mobile-menu {
-        display: flex;
-      }
-    }
+        .hamburger-menu.active .hamburger-line-top {
+            transform: rotate(-45deg) translate(-5px, 5px); /* ترجمه دقیق‌تر */
+        }
 
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-  </style>
+        .hamburger-menu.active .hamburger-line-middle {
+            opacity: 0;
+        }
+
+        .hamburger-menu.active .hamburger-line-bottom {
+            transform: rotate(45deg) translate(-5px, -5px); /* ترجمه دقیق‌تر */
+        }
+
+        /* ========================= Mobile Menu Styles ========================= */
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: var(--header-height-mobile);
+            right: 0;
+            width: 100%;
+            background-color: rgba(5, 5, 5, 0.98); /* خیلی مشکی‌تر */
+            backdrop-filter: blur(18px);
+            box-shadow: var(--box-shadow-dark);
+            z-index: 999;
+            padding: 1.2rem 0; /* خیلی کمتر */
+        }
+        body.dark-mode .mobile-menu {
+            background-color: rgba(253, 253, 253, 0.98);
+            box-shadow: var(--box-shadow-light);
+        }
+
+        .mobile-menu a {
+            padding: 1.1rem var(--content-padding-mobile); /* کمتر */
+            text-align: right;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.035); /* خیلی ظریف */
+            font-size: 0.95rem; /* باز هم کوچکتر */
+            font-weight: 500;
+            transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+        }
+        body.dark-mode .mobile-menu a {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.025);
+        }
+
+        .mobile-menu a:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-menu a:hover {
+            background-color: var(--primary-color);
+            color: var(--text-color-dark);
+        }
+        body.dark-mode .mobile-menu a:hover {
+            color: var(--text-color-light);
+        }
+
+        /* ========================= 404 Page Styles ========================= */
+        .error-404 {
+            text-align: center;
+            padding: 5rem 2rem;
+        }
+
+        .error-404 h1 {
+            font-size: 4rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .error-404 p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .error-404-link {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            transition: background-color var(--transition-speed) ease;
+        }
+
+        .error-404-link:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* ========================= About & Contact Page Styles ========================= */
+        .about-contact-page {
+            padding: 3rem 2rem;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: var(--border-radius);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .about-contact-page h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .about-contact-page p {
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info {
+            margin-top: 2rem;
+        }
+
+        .contact-info p {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.7rem;
+        }
+
+        .contact-info i {
+            color: var(--primary-color);
+        }
+
+        /* ========================= Watch Later Page Styles ========================= */
+        #watch-later-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .watch-later-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 1.5rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        .watch-later-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .watch-later-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .watch-later-item p {
+            font-size: 1rem;
+            color: #ccc;
+            margin-bottom: 1rem;
+        }
+
+        .remove-watch-later {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 0.7rem 1.2rem;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: background-color var(--transition-speed) ease;
+        }
+
+        .remove-watch-later:hover {
+            background-color: var(--primary-color);
+        }
+
+        /* ========================= Media Queries ========================= */
+        @media (max-width: 768px) {
+            header {
+                height: var(--header-height-mobile);
+                border-bottom-width: 3px; /* خط باریکتر در موبایل */
+            }
+            .header-content {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0 var(--content-padding-mobile);
+            }
+
+            nav {
+                display: none;
+            }
+            .login-button {
+                display: block;
+            }
+
+            .hamburger-menu {
+                display: flex;
+                order: 1; /* همبرگر اول */
+            }
+
+            .search-container {
+                order: 3; /* جستجو آخر */
+                margin-left: auto;
+                margin-right: 0;
+            }
+            .search-icon {
+                margin-left: 0.6rem; /* فاصله کمتر */
+            }
+
+            .search-input.active {
+                position: relative;
+                right: auto;
+                top: auto;
+                transform: none;
+                width: 100%;
+                margin: 0.6rem 0 0; /* کمتر */
+                order: 4; /* جستجو زیر همه */
+                margin-right: 0;
+            }
+            .logo-container {
+                order: 2; /* لوگو وسط */
+                margin: 0 auto; /* وسط چین شود */
+            }
+
+
+            .platform {
+                grid-template-columns: 1fr;
+                padding: 2.5rem 0; /* کمتر */
+                gap: 2rem; /* کمتر */
+            }
+            .platform-item {
+                padding: 1.8rem; /* کمتر */
+                border-top-width: 2.5px; /* خیلی باریکتر */
+            }
+            .platform-item i {
+                font-size: 2.6rem; /* کمی کوچکتر */
+                margin-bottom: 0.8rem; /* خیلی کمتر */
+            }
+            .platform-item h2 {
+                font-size: 1.6rem; /* کمی کوچکتر */
+                margin: 0.7rem 0; /* خیلی کمتر */
+            }
+            .platform-item p {
+                font-size: 0.95rem; /* باز هم خیلی کوچکتر */
+                line-height: 1.7; /* کمی بسته‌تر */
+                margin-bottom: 1.1rem; /* خیلی کمتر */
+            }
+            .platform-item a {
+                font-size: 0.9rem; /* خیلی کوچکتر */
+                padding: 0.6rem 1.1rem; /* خیلی کمتر */
+            }
+
+
+            .mobile-menu {
+                display: none;
+                top: var(--header-height-mobile);
+            }
+        }
+
+        /* ========================= Animations ========================= */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px); /* باز هم کمتر */
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
 </head>
 
 <body>
-  <header>
+<header>
     <div class="container">
-      <div class="header-content">
-        <img src="logo.png" alt="لوگو هامووی" class="logo">
-        <nav>
-          <ul>
-            <li><a href="animation.html">انیمیشن</a></li>
-            <li><a href="movies.html">فیلم</a></li>
-            <li><a href="series.html">سریال</a></li>
-          </ul>
-          <div class="search-container">
-            <input type="search" class="search-input" placeholder="جستجو...">
-            <i class="fas fa-search search-icon"></i>
-          </div>
-          <a href="login.html" class="login-button">ورود/ثبت نام</a>
-        </nav>
-        <div class="hamburger-menu">
-          <div class="line1"></div>
-          <div class="line2"></div>
-          <div class="line3"></div>
+        <div class="header-content">
+            <div class="hamburger-menu" id="hamburger-menu">
+                <div class="hamburger-line-top"></div>
+                <div class="hamburger-line-middle"></div>
+                <div class="hamburger-line-bottom"></div>
+            </div>
+            <div class="logo-container">
+                <a href="index.html">
+                    <img src="logo.png" alt="لوگو هامووی" class="logo">
+                </a>
+                <a href="index.html" class="site-title">هامووی</a>
+            </div>
+            <div class="search-container">
+                <i class="fas fa-search search-icon" id="search-icon"></i>
+                <input type="search" class="search-input" placeholder="جستجو..." id="search-box">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">صفحه اصلی</a></li>
+                    <li><a href="animation.html">انیمیشن</a></li>
+                    <li><a href="movies.html">فیلم</a></li>
+                    <li><a href="series.html">سریال</a></li>
+                    <li><a href="about.html">درباره ما</a></li>
+                    <li><a href="contact.html">تماس با ما</a></li>
+                </ul>
+                <a href="login.html" class="login-button">ورود/ثبت نام</a>
+            </nav>
         </div>
-        <div class="mobile-menu">
-          <a href="animation.html">انیمیشن</a>
-          <a href="movies.html">فیلم</a>
-          <a href="series.html">سریال</a>
-          <a href="account.html">حساب کاربری</a>
-          <a href="login.html" class="login-button">ورود/ثبت نام</a>
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="index.html">صفحه اصلی</a>
+            <a href="animation.html">انیمیشن</a>
+            <a href="movies.html">فیلم</a>
+            <a href="series.html">سریال</a>
+            <a href="about.html">درباره ما</a>
+            <a href="contact.html">تماس با ما</a>
+            <a href="profile.html">حساب کاربری</a>
+            <a href="login.html" class="login-button mobile-login-button">ورود/ثبت نام</a>
         </div>
-      </div>
     </div>
-  </header>
+</header>
 
-  <main class="container">
+<main class="container">
     <section class="intro">
-      <h1>به دنیای فیلم و سریال خوش آمدید! 🎉</h1>
-      <p>با هامووی، مرجع دانلود فیلم و سریال با بهترین کیفیت و بدون سانسور، همراه باشید. 🚀</p>
+        <div class="intro-circle intro-circle-1"></div>
+        <div class="intro-circle intro-circle-2"></div>
+        <div class="intro-content-wrapper">
+            <h1>به هامووی خوش آمدید</h1>
+            <p>به جمع فلیمبازا خوش آمدی 🎉.هامووی مرجع دانلود فیلمو سریال های رایگان و بدون سانسور</p>
 
-      <div class="platform">
-        <div class="platform-item">
-          <i class="fab fa-instagram"></i>
-          <h2>اینستاگرام</h2>
-          <p>ما را در اینستاگرام دنبال کنید تا از جدیدترین فیلم‌ها و سریال‌ها، نقد و بررسی‌ها، اخبار و حواشی دنیای سینما باخبر شوید.</p>
-          <a href="https://www.instagram.com/hamvimoe/profilecard/?igsh=MTQ2dmdpNndsam51bw==" target="_blank" rel="noopener noreferrer">
-            اینستاگرام هامووی <i class="fas fa-external-link-alt"></i>
-          </a>
-        </div>
+            <div class="platform" id="platform-container">
+                <div class="platform-item" data-title="اینستاگرام">
+                    <i class="fab fa-instagram"></i>
+                    <h2>اینستاگرام هامووی</h2>
+                    <p>هر روز با جدیدترین اخبار سینما، معرفی فیلم و سریال‌های جذاب، پشت صحنه‌ها و محتوای اختصاصی سینمایی در اینستاگرام هامووی همراه شما هستیم.</p>
+                    <a href="https://www.instagram.com/hamvimoe/" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-external-link-alt"></i>  صفحه اینستاگرام هامووی
+                    </a>
+                </div>
 
-        <div class="platform-item">
-          <i class="fab fa-telegram"></i>
-          <h2>تلگرام</h2>
-          <p>به کانال تلگرام ما بپیوندید تا به راحتی و بدون سانسور، فیلم‌ها و سریال‌های معرفی شده در پیج اینستاگرام را دانلود کنید.</p>
-          <a href="https://t.me/Hamoviefilmdo" target="_blank" rel="noopener noreferrer">
-            کانال تلگرام هامووی <i class="fas fa-external-link-alt"></i>
-          </a>
-        </div>
+                <div class="platform-item" data-title="تلگرام">
+                    <i class="fab fa-telegram"></i>
+                    <h2>کانال تلگرام هامووی</h2>
+                    <p>با عضویت در کانال تلگرام هامووی، به راحتی و با سرعت بالا به آرشیو کاملی از فیلم و سریال‌های روز دنیا دسترسی پیدا کنید و بدون سانسور دانلود کنید.</p>
+                    <a href="https://t.me/Hamoviefilmdo" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-external-link-alt"></i>  کانال تلگرام هامووی
+                    </a>
+                </div>
 
-        <div class="platform-item">
-          <i class="fab fa-youtube"></i>
-          <h2>یوتوب</h2>
-          <p>کانال یوتوب ما به زودی افتتاح می‌شود. در این کانال می‌توانید بررسی‌های کامل، پوشش اخبار سینما به صورت هفتگی یا ماهانه را تماشا کنید.</p>
-          <a href="#" class="coming-soon">
-            به زودی <i class="fas fa-clock"></i>
-          </a>
+                <div class="platform-item" data-title="یوتوب">
+                    <i class="fab fa-youtube"></i>
+                    <h2>یوتیوب هامووی - به زودی</h2>
+                    <p>در کانال یوتیوب هامووی، منتظر ویدیوهای جذاب بررسی فیلم و سریال، مصاحبه‌های اختصاصی، پشت صحنه‌ها و کلی محتوای ویدیویی جذاب باشید.</p>
+                    <a href="javascript:void(0);" class="coming-soon">
+                        <i class="fas fa-clock"></i>  یوتیوب هامووی به‌زودی
+                    </a>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
-  </main>
 
-  <footer>
-    <p>&copy; ۲۰۲۴ هامووی - تمامی حقوق محفوظ است</p>
-  </footer>
+     <!-- ========================= Download Section ========================= -->
+    <section class="download-section">
+        <h2 class="download-section-header">📺 دانلود فیلم و سریال رایگان و بی‌دردسر با کیفیت خفن!</h2>
+        <ul class="download-section-list">
+            <li>🍿 دیگه لازم نیست دنبالِ دانلود فیلم و سریال با کیفیت بگردی! هامووی همه‌چی‌رو رایگانه و بدونِ سانسور داره! 😉</li>
+            <li>😎 هدفِ ما اینه که بهترین فیلمای روزِ دنیارو راحت و بدونِ دردسر در اختیارتون بذاریم. </li>
+            <li>💥 پس منتظر چی هستی؟! بیا توی دسته‌بندی هایِ ما و از دنیایِ فیلم و سریال لذت ببر! 😉</li>
+            <li>👇 با هامووی فیلم یا سریالِ موردنظرِ خودتو توی نوارِ بالا جستجو کن 👇</li>
+        </ul>
+    </section>
+</main>
 
-  <div class="controls">
-    <button class="control-button theme-toggle" title="تغییر حالت شب/روز">
-      <i class="fas fa-moon"></i>
+<footer>
+    <p>© ۲۰۲۴ هامووی - دانلود فیلم و سریال با بهترین کیفیت و بدون سانسور </p>
+</footer>
+
+<div class="controls">
+    <button class="control-button theme-toggle" id="theme-toggle-button" title="تغییر حالت شب/روز">
+        <i class="fas fa-adjust"></i>
     </button>
-    <button class="control-button scroll-top" title="بازگشت به بالا">
-      <i class="fas fa-arrow-up"></i>
+    <button class="control-button scroll-top" id="scroll-top-button" title="بازگشت به بالا">
+        <i class="fas fa-arrow-up"></i>
     </button>
-  </div>
-  <script>
+</div>
+
+<script>
     document.addEventListener('DOMContentLoaded', () => {
-      const controls = {
-        themeToggle: document.querySelector('.theme-toggle'),
-        scrollTop: document.querySelector('.scroll-top'),
-        searchIcon: document.querySelector('.search-icon'),
-        searchInput: document.querySelector('.search-input'),
-        hamburgerMenu: document.querySelector('.hamburger-menu'),
-        mobileMenu: document.querySelector('.mobile-menu')
-      };
-
-      // Theme Toggle
-      controls.themeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
-        const icon = controls.themeToggle.querySelector('i');
-        icon.className = document.body.classList.contains('dark-mode')
-          ? 'fas fa-sun'
-          : 'fas fa-moon';
-
-        // Save theme preference
-        localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
-      });
-
-      // Load saved theme
-      const savedTheme = localStorage.getItem('theme');
-      if (savedTheme === 'dark') {
-        document.body.classList.add('dark-mode');
-        controls.themeToggle.querySelector('i').className = 'fas fa-sun';
-      }
-
-      // Scroll to Top
-      window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 300) {
-          controls.scrollTop.classList.add('visible');
-        } else {
-          controls.scrollTop.classList.remove('visible');
-        }
-      });
-
-      controls.scrollTop.addEventListener('click', () => {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-        });
-      });
-
-      // Search functionality
-      controls.searchIcon.addEventListener('click', () => {
-        controls.searchInput.classList.toggle('active');
-        if (controls.searchInput.classList.contains('active')) {
-          controls.searchInput.focus();
-        }
-      });
-
-      // Close search on escape key
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && controls.searchInput.classList.contains('active')) {
-          controls.searchInput.classList.remove('active');
-        }
-      });
-
-      // Close search when clicking outside
-      document.addEventListener('click', (e) => {
-        if (!e.target.closest('.search-container') && controls.searchInput.classList.contains('active')) {
-          controls.searchInput.classList.remove('active');
-        }
-      });
-
-      // Hamburger menu toggle
-      controls.hamburgerMenu.addEventListener('click', () => {
-        controls.hamburgerMenu.classList.toggle('active');
-        controls.mobileMenu.classList.toggle('active');
-      });
-
-      // Platform items animation
-      const platformItems = document.querySelectorAll('.platform-item');
-      const observerOptions = {
-        threshold: 0.2,
-        rootMargin: '0px'
-      };
-
-      const platformObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-            platformObserver.unobserve(entry.target);
-          }
-        });
-      }, observerOptions);
-
-      platformItems.forEach((item, index) => {
-        item.style.opacity = '0';
-        item.style.transform = 'translateY(30px)';
-        item.style.transitionDelay = `${index * 0.2}s`;
-        platformObserver.observe(item);
-      });
-
-      // Lazy loading for images
-      const lazyImages = document.querySelectorAll('img[loading="lazy"]');
-      const imageObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const img = entry.target;
-            img.src = img.dataset.src;
-            img.removeAttribute('data-src');
-            imageObserver.unobserve(img);
-          }
-        });
-      });
-
-      lazyImages.forEach((img) => imageObserver.observe(img));
-
-      // Add smooth scrolling to all anchor links
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', (e) => {
-          e.preventDefault();
-          const targetId = anchor.getAttribute('href');
-          if (targetId !== '#') {
-            document.querySelector(targetId).scrollIntoView({
-              behavior: 'smooth'
-            });
-          }
-        });
-      });
-
-      // Performance optimization: Debounce scroll event
-      function debounce(func, wait) {
-        let timeout;
-        return function executedFunction(...args) {
-          const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-          };
-          clearTimeout(timeout);
-          timeout = setTimeout(later, wait);
+        const controls = {
+            themeToggle: document.getElementById('theme-toggle-button'),
+            scrollTop: document.getElementById('scroll-top-button'),
+            searchIcon: document.getElementById('search-icon'),
+            searchInput: document.getElementById('search-box'),
+            hamburgerMenu: document.getElementById('hamburger-menu'),
+            mobileMenu: document.getElementById('mobile-menu'),
+            platformContainer: document.getElementById('platform-container'),
+            platformItems: document.querySelectorAll('.platform-item'),
+            navLinks: document.querySelectorAll('nav ul li a')
         };
-      }
 
-      // Debounced scroll handler
-      const debouncedScroll = debounce(() => {
-        if (window.pageYOffset > 300) {
-          controls.scrollTop.classList.add('visible');
-        } else {
-          controls.scrollTop.classList.remove('visible');
+        /* ========================= Theme Toggle ========================= */
+        controls.themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            const icon = controls.themeToggle.querySelector('i');
+            icon.className = document.body.classList.contains('dark-mode')
+                ? 'fas fa-sun'
+                : 'fas fa-adjust';
+            localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+        });
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.body.classList.add('dark-mode');
+            controls.themeToggle.querySelector('i').className = 'fas fa-sun';
         }
-      }, 150);
 
-      window.addEventListener('scroll', debouncedScroll);
+        /* ========================= Scroll to Top ========================= */
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                controls.scrollTop.classList.add('visible');
+            } else {
+                controls.scrollTop.classList.remove('visible');
+            }
+        });
+        controls.scrollTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        /* ========================= Search Functionality ========================= */
+        controls.searchIcon.addEventListener('click', () => {
+            controls.searchInput.classList.toggle('active');
+            if (controls.searchInput.classList.contains('active')) {
+                controls.searchInput.focus();
+            }
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && controls.searchInput.classList.contains('active')) {
+                controls.searchInput.classList.remove('active');
+            }
+        });
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.search-container') && controls.searchInput.classList.contains('active')) {
+                controls.searchInput.classList.remove('active');
+            }
+        });
+
+        /* ========================= Hamburger Menu Toggle ========================= */
+        controls.hamburgerMenu.addEventListener('click', () => {
+            controls.hamburgerMenu.classList.toggle('active');
+            controls.mobileMenu.classList.toggle('active');
+        });
+
+        /* ========================= Platform Items Animation ========================= */
+        const platformObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    platformObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.15,
+            rootMargin: '0px'
+        });
+        controls.platformItems.forEach((item, index) => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(20px)';
+            item.style.transitionDelay = `${index * 0.06}s`; /* سریع‌ترین */
+            platformObserver.observe(item);
+        });
+
+        /* ========================= Lazy Loading for Images ========================= */
+        const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+        const imageObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.removeAttribute('data-src');
+                    imageObserver.unobserve(img);
+                }
+            });
+        });
+        lazyImages.forEach((img) => imageObserver.observe(img));
+
+        /* ========================= Smooth Scrolling for Anchor Links ========================= */
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = anchor.getAttribute('href');
+                if (targetId !== '#') {
+                    document.querySelector(targetId).scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        /* ========================= Debounced Scroll Event ========================= */
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+        const debouncedScroll = debounce(() => {
+            if (window.pageYOffset > 300) {
+                controls.scrollTop.classList.add('visible');
+            } else {
+                controls.scrollTop.classList.remove('visible');
+            }
+        }, 60); // سریع‌ترین debounce
+        window.addEventListener('scroll', debouncedScroll);
+
+        /* ========================= Basic Client-Side Search (Platform Items) ========================= */
+        controls.searchInput.addEventListener('input', () => {
+            const searchTerm = controls.searchInput.value.toLowerCase();
+            controls.platformItems.forEach(item => {
+                const title = item.dataset.title.toLowerCase();
+                const textContent = item.textContent.toLowerCase();
+                if (title.includes(searchTerm) || textContent.includes(searchTerm)) {
+                    item.style.display = '';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+
+        /* ========================= 404 Client-Side Redirect (Basic) ========================= */
+        if (document.title === '404 Not Found') {
+            window.location.href = '404.html';
+        }
+
+        /* ========================= Active Page Indicator ========================= */
+        controls.navLinks.forEach(link => {
+            if (link.getAttribute('href') === 'index.html') {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
     });
-  </script>
+</script>
 </body>
 </html>
