@@ -509,20 +509,218 @@
 
         /* ========================= Footer Styles ========================= */
         footer {
-            background-color: #101010;
-            color: rgba(255, 255, 255, 0.6);
-            text-align: center;
-            padding: 1.6rem;
+            background-color: #0a0a0a; /* Darker background */
+            color: rgba(255, 255, 255, 0.8); /* Lighter, more opaque text */
+            padding: 50px 0; /* Increased padding */
             margin-top: auto;
-            font-size: 0.8rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.02);
-            opacity: 0.75;
+            font-size: 0.95rem; /* Slightly larger font size */
+            border-top: 1px solid rgba(255, 255, 255, 0.08); /* More visible border */
+            opacity: 1;
+            position: relative; /* For background overlay */
+            overflow: hidden; /* Clip background overlay */
         }
         body.dark-mode footer {
-            background-color: #ededed;
-            color: rgba(0, 0, 0, 0.45);
-            border-top: 1px solid rgba(0, 0, 0, 0.015);
-            opacity: 0.8;
+            background-color: #f0f0f0; /* Lighter background in dark mode */
+            color: rgba(0, 0, 0, 0.6); /* Darker text in dark mode */
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        /* Footer Background Overlay (Optional - for visual interest) */
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at bottom left, rgba(var(--primary-color-rgb, 229, 9, 20), 0.08), transparent 40%),
+                        radial-gradient(circle at top right, rgba(var(--secondary-color-rgb, 255, 112, 88), 0.06), transparent 40%);
+            pointer-events: none; /* Make sure overlay doesn't interfere with clicks */
+        }
+        body.dark-mode footer::before {
+            background: radial-gradient(circle at bottom left, rgba(var(--primary-color-rgb, 229, 9, 20), 0.04), transparent 40%),
+                        radial-gradient(circle at top right, rgba(var(--secondary-color-rgb, 255, 112, 88), 0.03), transparent 40%);
+        }
+
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Slightly wider minmax */
+            gap: 35px; /* Increased gap */
+            position: relative; /* Ensure content is above overlay */
+            z-index: 1;
+        }
+        @media (max-width: 768px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+                text-align: center; /* Center text on mobile */
+                gap: 40px; /* Increased gap on mobile */
+            }
+        }
+
+        .footer-section {
+            padding: 0 25px; /* Slightly more padding */
+        }
+        @media (max-width: 768px) {
+            .footer-section {
+                padding: 0; /* No side padding on mobile */
+            }
+        }
+
+        .footer-section h3 {
+            color: var(--accent-color);
+            font-size: 1.4rem; /* Slightly larger heading */
+            margin-bottom: 20px; /* Increased margin */
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 0.9px;
+            text-transform: uppercase;
+        }
+        body.dark-mode .footer-section h3 {
+            color: var(--primary-color);
+        }
+
+        .footer-section p,
+        .footer-section ul {
+            margin-bottom: 25px; /* Increased margin */
+            line-height: 1.8; /* Slightly increased line height */
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section li {
+            margin-bottom: 12px; /* Increased margin */
+        }
+
+        .footer-section a {
+            color: inherit;
+            opacity: 0.9; /* Slightly more opaque links */
+            transition: opacity var(--transition-speed) ease, color var(--transition-speed) ease;
+            display: block;
+            padding: 6px 0; /* Increased link padding */
+            font-weight: 400; /* Regular font-weight for links */
+        }
+        .footer-section a:hover {
+            opacity: 1;
+            color: var(--accent-color);
+        }
+        body.dark-mode .footer-section a:hover {
+            color: var(--primary-color);
+        }
+
+
+        .footer-social-icons {
+            display: flex;
+            gap: 18px; /* Increased gap */
+            justify-content: start; /* Align left on desktop */
+            margin-top: 10px; /* Added top margin */
+        }
+        @media (max-width: 768px) {
+            .footer-social-icons {
+                justify-content: center; /* Center on mobile */
+            }
+        }
+
+        .footer-social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px; /* Slightly larger icons */
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.08); /* Slightly more visible background */
+            color: rgba(255, 255, 255, 0.8); /* More opaque icon color */
+            font-size: 1.1rem; /* Slightly larger icon size */
+            transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, transform var(--transition-speed) ease;
+            opacity: 1;
+        }
+        .footer-social-icons a:hover {
+            background-color: var(--primary-color);
+            color: var(--text-color-dark);
+            transform: scale(1.15); /* Slightly larger scale on hover */
+        }
+        body.dark-mode .footer-social-icons a:hover {
+            color: var(--text-color-light);
+        }
+
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 35px; /* Increased padding */
+            border-top: 1px solid rgba(255, 255, 255, 0.15); /* More visible bottom border */
+            margin-top: 35px; /* Increased margin */
+            font-size: 0.9rem;
+            opacity: 0.95; /* More opaque copyright text */
+            font-weight: 400; /* Regular font-weight for copyright */
+        }
+        body.dark-mode .footer-bottom {
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+
+        /* ========================= Newsletter Form Styles ========================= */
+        .footer-section-newsletter .newsletter-form {
+            display: flex;
+            gap: 8px; /* Gap between input and button */
+            max-width: 100%; /* Ensure form doesn't overflow container */
+        }
+        @media (max-width: 768px) {
+            .footer-section-newsletter .newsletter-form {
+                flex-direction: column; /* Stack input and button on mobile */
+                align-items: stretch; /* Stretch items to full width on mobile */
+                gap: 10px; /* Increased gap on mobile */
+            }
+        }
+
+        .footer-section-newsletter input[type="email"] {
+            padding: 0.7rem 1rem;
+            border-radius: var(--border-radius);
+            border: none;
+            background-color: rgba(255, 255, 255, 0.05); /* Soft input background */
+            color: var(--text-color-dark);
+            font-size: 0.9rem;
+            font-family: inherit;
+            width: 100%; /* Input takes full available width */
+            box-shadow: none;
+            outline: none;
+            transition: background-color var(--transition-speed) ease, border-color var(--transition-speed) ease;
+        }
+        body.dark-mode .footer-section-newsletter input[type="email"] {
+            background-color: rgba(0, 0, 0, 0.03); /* Dark mode input background */
+            color: var(--text-color-light);
+        }
+        .footer-section-newsletter input[type="email"]:focus {
+            background-color: rgba(255, 255, 255, 0.1); /* Slightly brighter on focus */
+            border-color: var(--accent-color);
+        }
+        body.dark-mode .footer-section-newsletter input[type="email"]:focus {
+            background-color: rgba(0, 0, 0, 0.05); /* Dark mode focus background */
+            border-color: var(--accent-color);
+        }
+
+
+        .footer-section-newsletter button[type="submit"] {
+            padding: 0.7rem 1.5rem;
+            border-radius: var(--border-radius);
+            border: none;
+            background-color: var(--primary-color);
+            color: var(--text-color-dark);
+            font-size: 0.9rem;
+            font-family: 'Vazirmatn', sans-serif; /* Use Vazirmatn for button text */
+            cursor: pointer;
+            transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, transform var(--transition-speed) ease;
+            box-shadow: var(--box-shadow-dark);
+            white-space: nowrap; /* Prevent text from wrapping */
+        }
+        .footer-section-newsletter button[type="submit"]:hover {
+            background-color: var(--secondary-color);
+            transform: scale(1.03);
+            box-shadow: var(--box-shadow-dark), 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+        body.dark-mode .footer-section-newsletter button[type="submit"]:hover {
+             box-shadow: var(--box-shadow-light), 0 4px 8px rgba(0, 0, 0, 0.08);
         }
 
         /* ========================= Controls Styles ========================= */
@@ -875,127 +1073,6 @@
             from { transform: translateY(100%); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
-
-        /* ========================= New Footer Styles ========================= */
-        footer {
-            background-color: #0a0a0a; /* Slightly darker background */
-            color: rgba(255, 255, 255, 0.7); /* Lighter text color */
-            padding: 40px 0;
-            margin-top: auto;
-            font-size: 0.9rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.05); /* More visible border */
-            opacity: 1; /* Full opacity */
-        }
-        body.dark-mode footer {
-            background-color: #f2f2f2; /* Slightly lighter background in dark mode */
-            color: rgba(0, 0, 0, 0.5);
-            border-top: 1px solid rgba(0, 0, 0, 0.03);
-        }
-
-        .footer-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-        @media (max-width: 768px) {
-            .footer-container {
-                grid-template-columns: 1fr; /* Stack sections on mobile */
-                text-align: center;
-            }
-        }
-
-        .footer-section {
-            padding: 0 20px;
-        }
-
-        .footer-section h3 {
-            color: var(--accent-color);
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            font-family: 'Bebas Neue', sans-serif;
-            letter-spacing: 0.8px;
-            text-transform: uppercase;
-        }
-        body.dark-mode .footer-section h3 {
-            color: var(--primary-color);
-        }
-
-        .footer-section p,
-        .footer-section ul {
-            margin-bottom: 20px;
-            line-height: 1.7;
-        }
-
-        .footer-section ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .footer-section li {
-            margin-bottom: 10px;
-        }
-
-        .footer-section a {
-            color: inherit;
-            opacity: 0.8;
-            transition: opacity var(--transition-speed) ease, color var(--transition-speed) ease;
-            display: block; /* Make links block for easier click area */
-            padding: 5px 0; /* Add some padding to links */
-        }
-        .footer-section a:hover {
-            opacity: 1;
-            color: var(--accent-color);
-        }
-        body.dark-mode .footer-section a:hover {
-            color: var(--primary-color);
-        }
-
-
-        .footer-social-icons {
-            display: flex;
-            gap: 15px;
-            justify-content: start; /* Align icons to start in desktop view */
-        }
-        @media (max-width: 768px) {
-            .footer-social-icons {
-                justify-content: center; /* Center icons on mobile */
-            }
-        }
-
-        .footer-social-icons a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.05); /* Soft background for icons */
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 1rem;
-            transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, transform var(--transition-speed) ease;
-            opacity: 1; /* Ensure social icons are fully opaque */
-        }
-        .footer-social-icons a:hover {
-            background-color: var(--primary-color);
-            color: var(--text-color-dark);
-            transform: scale(1.1);
-        }
-        body.dark-mode .footer-social-icons a:hover {
-            color: var(--text-color-light);
-        }
-
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1); /* More visible bottom border */
-            margin-top: 30px;
-            font-size: 0.85rem;
-            opacity: 0.9; /* Slightly less transparent copyright text */
-        }
-        body.dark-mode .footer-bottom {
-            border-top: 1px solid rgba(0, 0, 0, 0.05);
-        }
     </style>
 </head>
 
@@ -1095,33 +1172,45 @@
 <footer>
     <div class="footer-container container">
         <div class="footer-section footer-section-about">
-            <h3>هامووی</h3>
-            <p>هامووی، مرجع دانلود فیلم و سریال با کیفیت بالا و بدون سانسور. با ما، لذت سینما را در هر لحظه تجربه کنید. آرشیو بی‌نظیر از جدیدترین فیلم‌ها و سریال‌های روز دنیا، همراه با دوبله و زیرنویس فارسی منتظر شماست.</p>
+            <h3>هامووی 🎬</h3>
+            <p>هامووی، پلتفرم شما برای دانلود بی‌دردسر فیلم و سریال با بالاترین کیفیت و بدون سانسور.  ماموریت ما ارائه بهترین تجربه تماشای آنلاین و دانلود رایگان فیلم و سریال برای فارسی‌زبانان است. سینما، هر لحظه با شما.</p>
             <div class="footer-social-icons">
                 <a href="https://www.instagram.com/hamvimoe/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
                 <a href="https://t.me/Hamoviefilm" target="_blank" rel="noopener noreferrer"><i class="fab fa-telegram"></i></a>
                 <a href="javascript:void(0);"><i class="fab fa-youtube"></i></a>
+                <a href="javascript:void(0);"><i class="fab fa-twitter"></i></a>
+                <a href="javascript:void(0);"><i class="fab fa-facebook"></i></a>
             </div>
         </div>
-        <div class="footer-section footer-section-explore">
-            <h3>کاوش</h3>
+
+        <div class="footer-section footer-section-links">
+            <h3>دسترسی سریع</h3>
             <ul>
-                <li><a href="index.html">صفحه اصلی</a></li>
-                <li><a href="movies.html">فیلم‌ها</a></li>
-                <li><a href="series.html">سریال‌ها</a></li>
-                <li><a href="animation.html">انیمیشن</a></li>
-                <li><a href="about.html">درباره ما</a></li>
-                <li><a href="contact.html">تماس با ما</a></li>
+                <li><a href="index.html"><i class="fas fa-home" style="margin-left: 0.3rem;"></i> صفحه اصلی</a></li>
+                <li><a href="movies.html"><i class="fas fa-film" style="margin-left: 0.3rem;"></i> فیلم‌ها</a></li>
+                <li><a href="series.html"><i class="fas fa-tv" style="margin-left: 0.3rem;"></i> سریال‌ها</a></li>
+                <li><a href="animation.html"><i class="fas fa-masks-theater" style="margin-left: 0.3rem;"></i> انیمیشن</a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle" style="margin-left: 0.3rem;"></i> درباره ما</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope" style="margin-left: 0.3rem;"></i> تماس با ما</a></li>
+                <li><a href="#"><i class="fas fa-sitemap" style="margin-left: 0.3rem;"></i> نقشه سایت</a></li>
+                <li><a href="#"><i class="fas fa-file-contract" style="margin-left: 0.3rem;"></i> قوانین و مقررات</a></li>
             </ul>
         </div>
+
+
+        <div class="footer-section footer-section-newsletter">
+            <h3>خبرنامه هامووی</h3>
+            <p>برای دریافت آخرین اخبار فیلم‌ها و سریال‌ها، آدرس ایمیل خود را وارد کنید:</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="ایمیل شما" required>
+                <button type="submit">عضویت</button>
+            </form>
+        </div>
+
         <div class="footer-section footer-section-contact">
-            <h3>ارتباط با ما</h3>
-            <p>همیشه خوشحال میشیم از طرف شما بشنویم! هرگونه سوال، پیشنهاد یا انتقادی دارید با ما در ارتباط باشید.</p>
-            <ul>
-                <li><a href="contact.html"><i class="fas fa-envelope" style="margin-left: 0.3rem;"></i> فرم تماس با ما</a></li>
-                <li><a href="mailto:info@hamovie.com"><i class="fas fa-envelope" style="margin-left: 0.3rem;"></i> info@hamovie.com</a></li>
-                <li><a href="#"><i class="fas fa-phone" style="margin-left: 0.3rem;"></i> به زودی</a></li>
-            </ul>
+            <h3>اطلاعات تماس</h3>
+            <p><a href="mailto:info@hamovie.com"><i class="fas fa-envelope" style="margin-left: 0.3rem;"></i> info@hamovie.com</a></p>
+            <p><i class="fas fa-phone" style="margin-left: 0.3rem;"></i> به زودی</p>
         </div>
     </div>
     <div class="footer-bottom">
