@@ -36,7 +36,6 @@
             --site-title-mobile-size: 1.5rem; /* Mobile site title size */
             --nav-link-padding-desktop: 0.7rem 1.4rem; /* Increased nav link padding */
             --nav-link-font-size-desktop: 0.95rem; /* Slightly larger nav link font */
-            --search-icon-size: 1.2rem; /* Slightly larger search icon */
         }
 
         /* ========================= Global Styles ========================= */
@@ -127,6 +126,7 @@
         .logo-container {
             display: flex;
             align-items: center;
+            margin-right: auto; /* Push logo container to the right */
         }
 
 
@@ -183,6 +183,7 @@
         nav {
             display: flex;
             align-items: center;
+            margin-right: 2rem; /* Increased margin to separate from logo */
         }
 
         nav ul {
@@ -237,78 +238,6 @@
             color: var(--text-color-light);
         }
 
-        /* ========================= Search Styles ========================= */
-        .search-container {
-            position: relative;
-            display: flex;
-            align-items: center;
-        }
-
-        .search-icon {
-            font-size: var(--search-icon-size);
-            cursor: pointer;
-            transition: transform var(--transition-speed) ease, opacity var(--transition-speed) ease, color var(--transition-speed) ease;
-            color: var(--text-color-dark);
-            opacity: 0.7; /* Slightly less opaque search icon */
-        }
-        body.dark-mode .search-icon {
-            color: var(--text-color-light);
-            opacity: 0.65;
-        }
-
-        .search-icon:hover {
-            transform: scale(1.08); /* Slightly more pronounced hover scale */
-            opacity: 1;
-            color: var(--accent-color);
-        }
-
-        .search-input {
-            position: absolute; /* Changed to absolute positioning for dropdown effect */
-            top: 100%; /* Position input below the icon */
-            right: 0; /* Align to the right of the icon */
-            width: 0; /* Initially hidden */
-            padding: 0;
-            border: none;
-            border-radius: var(--border-radius);
-            background-color: rgba(255, 255, 255, 0.01);
-            color: var(--text-color-dark);
-            transition: all var(--transition-speed) ease;
-            opacity: 0;
-            font-size: 0.85rem; /* Slightly larger search input font */
-            box-shadow: none;
-            z-index: -1; /* Initially behind other elements */
-            transform-origin: top right; /* Set transform origin for scaling */
-            transform: scaleY(0); /* Initially scaled down vertically */
-        }
-        body.dark-mode .search-input {
-            background-color: rgba(0, 0, 0, 0.005);
-            color: var(--text-color-light);
-        }
-
-        .search-input.active {
-            width: 240px; /* Slightly wider active search input */
-            opacity: 1;
-            margin-top: 0.5rem; /* Slightly more margin to separate from icon */
-            box-shadow: var(--box-shadow-dark);
-            padding: 0.7rem 1.2rem; /* Slightly increased padding when active */
-            transform: scaleY(1); /* Scale up to show input */
-            z-index: 1; /* Bring to front when active */
-            border: 1px solid rgba(255, 255, 255, 0.05); /* Subtle border when active */
-        }
-        body.dark-mode .search-input.active {
-            box-shadow: var(--box-shadow-light);
-            border: 1px solid rgba(0, 0, 0, 0.03); /* Subtle border in dark mode */
-        }
-
-        .search-input::placeholder {
-            color: rgba(255, 255, 255, 0.4); /* Slightly less transparent placeholder text */
-            font-weight: 300;
-            font-style: italic;
-        }
-        body.dark-mode .search-input::placeholder {
-            color: rgba(0, 0, 0, 0.3); /* Slightly less transparent placeholder text in dark mode */
-        }
-
         /* ========================= Login Button Styles ========================= */
         .login-button {
             display: block; /* Always display login button on desktop */
@@ -324,6 +253,7 @@
             box-shadow: none;
             opacity: 0.85; /* Slightly less transparent login button */
             margin-right: 1.2rem; /* Slightly more right margin */
+            margin-left: auto; /* Push login button to the left */
         }
         body.dark-mode .login-button {
             color: var(--text-color-light);
@@ -844,29 +774,6 @@
                 margin: 0;
             }
 
-            .search-container {
-                order: 3;
-                margin-left: auto;
-                margin-right: 0;
-            }
-            .search-icon {
-                margin-left: 0.4rem;
-                font-size: calc(var(--search-icon-size) * 0.95);
-            }
-            .search-input {
-                top: 100%;
-                right: 0;
-            }
-
-            .search-input.active {
-                position: absolute;
-                width: 100%;
-                margin: 0.4rem 0 0;
-                order: 4;
-                margin-right: 0;
-                padding: 0.6rem var(--content-padding-mobile);
-            }
-
 
             .platform {
                 grid-template-columns: 1fr;
@@ -954,11 +861,6 @@
             </a>
 
 
-            <div class="search-container">
-                <i class="fas fa-search search-icon" id="search-icon"></i>
-                <input type="search" class="search-input" placeholder="جستجو..." id="search-box">
-            </div>
-
             <div class="hamburger-menu" id="hamburger-menu">
                 <div class="hamburger-line-top"></div>
                 <div class="hamburger-line-middle"></div>
@@ -1038,8 +940,6 @@
         const controls = {
             themeToggle: document.getElementById('theme-toggle-button'),
             scrollTop: document.getElementById('scroll-top-button'),
-            searchIcon: document.getElementById('search-icon'),
-            searchInput: document.getElementById('search-box'),
             hamburgerMenu: document.getElementById('hamburger-menu'),
             mobileMenu: document.getElementById('mobile-menu'),
             platformContainer: document.getElementById('platform-container'),
@@ -1073,24 +973,6 @@
         });
         controls.scrollTop.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        /* ========================= Search Functionality ========================= */
-        controls.searchIcon.addEventListener('click', () => {
-            controls.searchInput.classList.toggle('active');
-            if (controls.searchInput.classList.contains('active')) {
-                controls.searchInput.focus();
-            }
-        });
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && controls.searchInput.classList.contains('active')) {
-                controls.searchInput.classList.remove('active');
-            }
-        });
-        document.addEventListener('click', (e) => {
-            if (!e.target.closest('.search-container') && controls.searchInput.classList.contains('active')) {
-                controls.searchInput.classList.remove('active');
-            }
         });
 
         /* ========================= Hamburger Menu Toggle ========================= */
@@ -1168,7 +1050,7 @@
 
             // Header shrink/reveal logic
             const currentScrollY = window.pageYOffset;
-            const headerHeightDesktop = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-height-desktop'));
+            const headerHeightDesktop = 80; // Replace with the actual value of --header-height-desktop
             if (currentScrollY > lastScrollY && currentScrollY > headerHeightDesktop) { // Scrolling down, past initial header height
                 controls.header.classList.add('shrink');
             } else if (currentScrollY < lastScrollY) { // Scrolling up
@@ -1178,21 +1060,6 @@
 
         }, 60);
         window.addEventListener('scroll', debouncedScroll);
-
-
-        /* ========================= Basic Client-Side Search (Platform Items) ========================= */
-        controls.searchInput.addEventListener('input', () => {
-            const searchTerm = controls.searchInput.value.toLowerCase();
-            controls.platformItems.forEach(item => {
-                const title = item.dataset.title.toLowerCase();
-                const textContent = item.textContent.toLowerCase();
-                if (title.includes(searchTerm) || textContent.includes(searchTerm)) {
-                    item.style.display = '';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        });
 
         /* ========================= 404 Client-Side Redirect (Basic) ========================= */
         if (document.title === '404 Not Found') {
