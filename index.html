@@ -21,20 +21,22 @@
             --text-color-dark: #f2f2f2;
             --text-color-light: #2e2e2e;
             --accent-color: #ffd83d;
-            --transition-speed: 0.16s;
+            --transition-speed: 0.2s; /* Slightly smoother transition */
             --border-radius: 12px;
             --box-shadow-light: 0 1px 6px rgba(0, 0, 0, 0.05);
             --box-shadow-dark: 0 2px 8px rgba(0, 0, 0, 0.15);
-            --header-height-desktop: 70px; /* Increased header height for better spacing */
-            --header-height-mobile: 60px; /* Increased mobile header height */
+            --header-height-desktop: 80px; /* Increased desktop header height */
+            --header-height-mobile: 70px; /* Increased mobile header height */
+            --header-shrink-height: 60px; /* Shrink height on scroll */
             --content-padding-desktop: 20px;
             --content-padding-mobile: 12px;
-            --logo-desktop-width: 80px; /* Slightly larger logo */
-            --logo-mobile-width: 70px; /* Slightly larger mobile logo */
-            --site-title-desktop-size: 1.6rem;
-            --nav-link-padding-desktop: 0.6rem 1.2rem; /* Increased nav link padding */
-            --nav-link-font-size-desktop: 0.9rem; /* Slightly larger nav link font */
-            --search-icon-size: 1.1rem; /* Slightly larger search icon */
+            --logo-desktop-width: 90px; /* Slightly larger logo */
+            --logo-mobile-width: 80px; /* Slightly larger mobile logo */
+            --site-title-desktop-size: 1.1rem; /* Smaller desktop site title, more like tagline */
+            --site-title-mobile-size: 1.5rem; /* Mobile site title size */
+            --nav-link-padding-desktop: 0.7rem 1.4rem; /* Increased nav link padding */
+            --nav-link-font-size-desktop: 0.95rem; /* Slightly larger nav link font */
+            --search-icon-size: 1.2rem; /* Slightly larger search icon */
         }
 
         /* ========================= Global Styles ========================= */
@@ -99,6 +101,9 @@
             transition: height var(--transition-speed) ease;
             /* border-bottom: 2px solid var(--primary-color);  Removed bottom border from header */
         }
+        header.shrink {
+            height: var(--header-shrink-height); /* Smaller header on scroll */
+        }
 
         header.dark-mode {
             background-color: rgba(253, 253, 253, 0.97);
@@ -142,29 +147,35 @@
 
         .site-title {
             color: var(--text-color-dark);
-            font-family: 'Bebas Neue', sans-serif;
+            font-family: 'Vazirmatn', sans-serif; /* Changed font to Vazirmatn for desktop title */
             font-size: var(--site-title-desktop-size);
-            margin-right: 0.5rem;
-            letter-spacing: 0.5px;
+            margin-right: 0.6rem; /* Slightly increased margin */
+            letter-spacing: 0.3px; /* Tighter letter spacing */
             text-shadow: none;
             transition: color var(--transition-speed) ease;
-            /* display: none;  Hidden by default in desktop, showing in mobile */
+            opacity: 0.7; /* Slightly less opaque desktop title */
+            font-weight: 400; /* Regular font weight */
         }
         body.dark-mode .site-title {
             color: var(--text-color-light);
+            opacity: 0.65; /* Slightly less opaque in dark mode */
         }
         .site-title:hover {
             color: var(--accent-color);
+            opacity: 1; /* Full opacity on hover */
         }
         @media (min-width: 992px) {
             .site-title {
-                display: none; /* Hide site title on larger desktops */
+                display: inline-block; /* Show site title on larger desktops */
             }
         }
         @media (max-width: 768px) {
             .site-title {
                 display: inline-block; /* Show site title on mobile */
-                margin-right: 0.8rem; /* Increased margin for mobile title */
+                margin-right: 0.8rem;
+                font-size: var(--site-title-mobile-size); /* Larger mobile title */
+                font-family: 'Bebas Neue', sans-serif; /* Reverted to Bebas Neue for mobile title */
+                opacity: 1; /* Full opacity mobile title */
             }
         }
 
@@ -177,7 +188,7 @@
         nav ul {
             list-style: none;
             display: flex;
-            gap: 20px; /* Increased gap for better spacing */
+            gap: 25px; /* Increased gap for better spacing */
             margin: 0;
             padding: 0;
         }
@@ -190,15 +201,35 @@
             border-radius: var(--border-radius);
             transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
             box-shadow: none;
+            position: relative; /* For hover underline animation */
+            overflow: hidden; /* Clip underline animation */
         }
 
         nav li a:hover {
             color: var(--accent-color);
         }
+
+        nav li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--accent-color);
+            transform: translateX(100%); /* Start underline off-screen */
+            transition: transform var(--transition-speed) ease; /* Underline animation */
+        }
+
+        nav li a:hover::after,
+        nav li a.active::after {
+            transform: translateX(0); /* Slide underline in on hover and active */
+        }
+
+
         nav li a.active {
             color: var(--text-color-dark);
-            text-decoration: underline;
-            text-underline-offset: 4px;
+            text-decoration: none; /* Removed underline for active - using animated underline now */
             background-color: transparent;
             box-shadow: none;
         }
@@ -209,7 +240,7 @@
         /* ========================= Search Styles ========================= */
         .search-container {
             position: relative;
-            display: flex; /* Use flex to align icon and input */
+            display: flex;
             align-items: center;
         }
 
@@ -218,14 +249,15 @@
             cursor: pointer;
             transition: transform var(--transition-speed) ease, opacity var(--transition-speed) ease, color var(--transition-speed) ease;
             color: var(--text-color-dark);
-            opacity: 0.65;
+            opacity: 0.7; /* Slightly less opaque search icon */
         }
         body.dark-mode .search-icon {
             color: var(--text-color-light);
+            opacity: 0.65;
         }
 
         .search-icon:hover {
-            transform: scale(1.06);
+            transform: scale(1.08); /* Slightly more pronounced hover scale */
             opacity: 1;
             color: var(--accent-color);
         }
@@ -242,7 +274,7 @@
             color: var(--text-color-dark);
             transition: all var(--transition-speed) ease;
             opacity: 0;
-            font-size: 0.8rem;
+            font-size: 0.85rem; /* Slightly larger search input font */
             box-shadow: none;
             z-index: -1; /* Initially behind other elements */
             transform-origin: top right; /* Set transform origin for scaling */
@@ -254,25 +286,27 @@
         }
 
         .search-input.active {
-            width: 220px; /* Slightly wider active search input */
+            width: 240px; /* Slightly wider active search input */
             opacity: 1;
-            margin-top: 0.4rem; /* Add a little margin to separate from icon */
+            margin-top: 0.5rem; /* Slightly more margin to separate from icon */
             box-shadow: var(--box-shadow-dark);
-            padding: 0.6rem 1rem; /* Add padding when active */
+            padding: 0.7rem 1.2rem; /* Slightly increased padding when active */
             transform: scaleY(1); /* Scale up to show input */
             z-index: 1; /* Bring to front when active */
+            border: 1px solid rgba(255, 255, 255, 0.05); /* Subtle border when active */
         }
         body.dark-mode .search-input.active {
             box-shadow: var(--box-shadow-light);
+            border: 1px solid rgba(0, 0, 0, 0.03); /* Subtle border in dark mode */
         }
 
         .search-input::placeholder {
-            color: rgba(255, 255, 255, 0.35);
+            color: rgba(255, 255, 255, 0.4); /* Slightly less transparent placeholder text */
             font-weight: 300;
             font-style: italic;
         }
         body.dark-mode .search-input::placeholder {
-            color: rgba(0, 0, 0, 0.25);
+            color: rgba(0, 0, 0, 0.3); /* Slightly less transparent placeholder text in dark mode */
         }
 
         /* ========================= Login Button Styles ========================= */
@@ -280,31 +314,31 @@
             display: block; /* Always display login button on desktop */
             color: var(--text-color-dark);
             font-weight: 500;
-            font-size: 0.9rem; /* Slightly larger login button font size */
-            padding: 0.7rem 1.3rem; /* Increased padding for login button */
+            font-size: 0.95rem; /* Slightly larger login button font size */
+            padding: 0.8rem 1.5rem; /* Increased padding for login button */
             border-radius: var(--border-radius);
             transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, box-shadow var(--transition-speed) ease, border-color var(--transition-speed) ease;
             background-color: transparent;
             border: 1.8px solid var(--primary-color); /* Slightly thicker border */
             white-space: nowrap;
             box-shadow: none;
-            opacity: 0.8; /* Slightly less transparent login button */
-            margin-right: 1rem; /* Add some right margin */
+            opacity: 0.85; /* Slightly less transparent login button */
+            margin-right: 1.2rem; /* Slightly more right margin */
         }
         body.dark-mode .login-button {
             color: var(--text-color-light);
             border-color: var(--primary-color);
-            opacity: 0.85; /* Slightly less transparent in dark mode */
+            opacity: 0.9; /* Slightly less transparent in dark mode */
         }
 
         .login-button:hover {
             background-color: var(--primary-color);
             color: var(--text-color-dark);
-            box-shadow: var(--box-shadow-dark);
+            box-shadow: var(--box-shadow-dark), 0 4px 8px rgba(0, 0, 0, 0.2); /* Added subtle shadow on hover */
             border-color: var(--secondary-color);
         }
         body.dark-mode .login-button:hover {
-            box-shadow: var(--box-shadow-light);
+            box-shadow: var(--box-shadow-light), 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow in dark mode */
             color: var(--text-color-light);
         }
 
@@ -778,7 +812,10 @@
         @media (max-width: 768px) {
             header {
                 height: var(--header-height-mobile);
-                border-bottom-width: 0px; /* Removed border on mobile header */
+                border-bottom-width: 0px;
+            }
+            header.shrink {
+                height: var(--header-height-mobile); /* No shrink on mobile */
             }
             .header-content {
                 flex-direction: row;
@@ -791,10 +828,10 @@
                 display: none;
             }
             .login-button {
-                display: none; /* Hide login button on mobile header */
+                display: none;
             }
             .mobile-login-button {
-                display: block !important; /* Show login button in mobile menu */
+                display: block !important;
             }
 
             .hamburger-menu {
@@ -817,17 +854,17 @@
                 font-size: calc(var(--search-icon-size) * 0.95);
             }
             .search-input {
-                top: 100%; /* Keep dropdown position in mobile */
-                right: 0; /* Align to right in mobile */
+                top: 100%;
+                right: 0;
             }
 
             .search-input.active {
-                position: absolute; /* Keep absolute for mobile dropdown */
-                width: 100%; /* Full width search in mobile */
+                position: absolute;
+                width: 100%;
                 margin: 0.4rem 0 0;
                 order: 4;
                 margin-right: 0;
-                padding: 0.6rem var(--content-padding-mobile); /* Adjust padding for mobile */
+                padding: 0.6rem var(--content-padding-mobile);
             }
 
 
@@ -882,6 +919,11 @@
             from { opacity: 0; }
             to { opacity: 1; }
         }
+
+        @keyframes slideInBottom { /* Underline animation */
+            from { transform: translateY(100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
     </style>
 </head>
 
@@ -923,19 +965,7 @@
                 <div class="hamburger-line-bottom"></div>
             </div>
         </div>
-        <div class="mobile-menu" id="mobile-menu">
-            <a href="index.html">صفحه اصلی</a>
-            <a href="animation.html">انیمیشن</a>
-            <a href="movies.html">فیلم</a>
-            <a href="series.html">سریال</a>
-            <a href="about.html">درباره ما</a>
-            <a href="contact.html">تماس با ما</a>
-            <a href="profile.html">حساب کاربری</a>
-            <a href="login.html" class="login-button mobile-login-button">
-                <i class="fas fa-user-circle" style="margin-left: 0.5rem;"></i> ورود/ثبت نام
-            </a>
-        </div>
-        <div style="border-bottom: 2px solid var(--primary-color);"></div> <!-- Red underline -->
+        <div style="border-bottom: 1.5px solid var(--primary-color); animation: slideInBottom 0.6s ease-out both;"></div> <!-- Thinner red underline with animation -->
     </div>
 </header>
 
@@ -961,7 +991,7 @@
                     <i class="fab fa-telegram"></i>
                     <h2>کانال تلگرام هامووی</h2>
                     <p>با عضویت در کانال تلگرام هامووی، به راحتی و با سرعت بالا به آرشیو کاملی از فیلم و سریال‌های روز دنیا دسترسی پیدا کنید و بدون سانسور دانلود کنید.</p>
-                    <a href="https://t.me/Hamoviefilm" target="_blank" rel="noopener noreferrer"> <!-- Corrected Telegram link -->
+                    <a href="https://t.me/Hamoviefilm" target="_blank" rel="noopener noreferrer">
                         <i class="fas fa-external-link-alt"></i>  کانال تلگرام هامووی
                     </a>
                 </div>
@@ -1014,7 +1044,8 @@
             mobileMenu: document.getElementById('mobile-menu'),
             platformContainer: document.getElementById('platform-container'),
             platformItems: document.querySelectorAll('.platform-item'),
-            navLinks: document.querySelectorAll('nav ul li a')
+            navLinks: document.querySelectorAll('nav ul li a'),
+            header: document.querySelector('header') // Added header element
         };
 
         /* ========================= Theme Toggle ========================= */
@@ -1113,7 +1144,9 @@
             });
         });
 
-        /* ========================= Debounced Scroll Event ========================= */
+        /* ========================= Debounced Scroll Event & Header Shrink/Reveal ========================= */
+        let lastScrollY = 0;
+
         function debounce(func, wait) {
             let timeout;
             return function executedFunction(...args) {
@@ -1122,10 +1155,9 @@
                     func(...args);
                     };
                 clearTimeout(timeout);
-                timeout = setTimeout(later, wait, ...args); // Pass arguments to later function
+                timeout = setTimeout(later, wait, ...args);
             };
         }
-
 
         const debouncedScroll = debounce(() => {
             if (window.pageYOffset > 300) {
@@ -1133,6 +1165,17 @@
             } else {
                 controls.scrollTop.classList.remove('visible');
             }
+
+            // Header shrink/reveal logic
+            const currentScrollY = window.pageYOffset;
+            const headerHeightDesktop = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-height-desktop'));
+            if (currentScrollY > lastScrollY && currentScrollY > headerHeightDesktop) { // Scrolling down, past initial header height
+                controls.header.classList.add('shrink');
+            } else if (currentScrollY < lastScrollY) { // Scrolling up
+                controls.header.classList.remove('shrink');
+            }
+            lastScrollY = currentScrollY;
+
         }, 60);
         window.addEventListener('scroll', debouncedScroll);
 
