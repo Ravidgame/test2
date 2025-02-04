@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
@@ -23,19 +22,19 @@
             --text-color-light: #2e2e2e;
             --accent-color: #ffd83d;
             --transition-speed: 0.16s;
-            --border-radius: 12px; /* Even less rounded corners */
-            --box-shadow-light: 0 1px 6px rgba(0, 0, 0, 0.05); /* Even subtler shadows */
-            --box-shadow-dark: 0 2px 8px rgba(0, 0, 0, 0.15); /* Even subtler shadows for dark mode */
-            --header-height-desktop: 60px; /* Even shorter header */
-            --header-height-mobile: 45px; /* Even shorter mobile header */
-            --content-padding-desktop: 20px; /* Less content padding */
-            --content-padding-mobile: 12px; /* Even less mobile content padding */
-            --logo-desktop-width: 70px; /* Even smaller logo */
-            --logo-mobile-width: 60px; /* Even smaller mobile logo */
-            --site-title-desktop-size: 1.5rem; /* Even smaller site title */
-            --nav-link-padding-desktop: 0.4rem 0.8rem; /* Minimal padding for nav links */
-            --nav-link-font-size-desktop: 0.85rem; /* Smaller font for nav links */
-            --search-icon-size: 1rem; /* Smaller search icon */
+            --border-radius: 12px;
+            --box-shadow-light: 0 1px 6px rgba(0, 0, 0, 0.05);
+            --box-shadow-dark: 0 2px 8px rgba(0, 0, 0, 0.15);
+            --header-height-desktop: 70px; /* Increased header height for better spacing */
+            --header-height-mobile: 60px; /* Increased mobile header height */
+            --content-padding-desktop: 20px;
+            --content-padding-mobile: 12px;
+            --logo-desktop-width: 80px; /* Slightly larger logo */
+            --logo-mobile-width: 70px; /* Slightly larger mobile logo */
+            --site-title-desktop-size: 1.6rem;
+            --nav-link-padding-desktop: 0.6rem 1.2rem; /* Increased nav link padding */
+            --nav-link-font-size-desktop: 0.9rem; /* Slightly larger nav link font */
+            --search-icon-size: 1.1rem; /* Slightly larger search icon */
         }
 
         /* ========================= Global Styles ========================= */
@@ -94,17 +93,17 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            backdrop-filter: blur(15px); /* Slightly less blur */
+            backdrop-filter: blur(15px);
             box-shadow: var(--box-shadow-dark);
             height: var(--header-height-desktop);
             transition: height var(--transition-speed) ease;
-            border-bottom: 2px solid var(--primary-color); /* Even thinner border */
+            /* border-bottom: 2px solid var(--primary-color);  Removed bottom border from header */
         }
 
         header.dark-mode {
             background-color: rgba(253, 253, 253, 0.97);
             box-shadow: var(--box-shadow-light);
-            border-bottom: 2px solid var(--primary-color);
+            /* border-bottom: 2px solid var(--primary-color); Removed bottom border from header */
         }
 
         .header-content {
@@ -123,14 +122,6 @@
         .logo-container {
             display: flex;
             align-items: center;
-            position: absolute; /* Absolute positioning for precise placement */
-            top: 0px; /* Align to the top */
-            right: var(--content-padding-desktop); /* Align to the right padding */
-        }
-        @media (max-width: 768px) {
-            .logo-container {
-                right: var(--content-padding-mobile); /* Mobile padding */
-            }
         }
 
 
@@ -153,11 +144,11 @@
             color: var(--text-color-dark);
             font-family: 'Bebas Neue', sans-serif;
             font-size: var(--site-title-desktop-size);
-            margin-right: 0.5rem; /* Even less margin */
-            letter-spacing: 0.5px; /* Tighter letter spacing */
-            text-shadow: none; /* Removed text shadow */
+            margin-right: 0.5rem;
+            letter-spacing: 0.5px;
+            text-shadow: none;
             transition: color var(--transition-speed) ease;
-            display: none; /* Hidden by default, will show only on larger desktops if needed */
+            /* display: none;  Hidden by default in desktop, showing in mobile */
         }
         body.dark-mode .site-title {
             color: var(--text-color-light);
@@ -165,14 +156,15 @@
         .site-title:hover {
             color: var(--accent-color);
         }
-        @media (min-width: 992px) { /* Example breakpoint to show site title on larger screens */
+        @media (min-width: 992px) {
             .site-title {
-                display: inline-block; /* Show site title on larger desktops */
+                display: none; /* Hide site title on larger desktops */
             }
         }
         @media (max-width: 768px) {
             .site-title {
-                display: none; /* Hidden on mobile */
+                display: inline-block; /* Show site title on mobile */
+                margin-right: 0.8rem; /* Increased margin for mobile title */
             }
         }
 
@@ -185,7 +177,7 @@
         nav ul {
             list-style: none;
             display: flex;
-            gap: 15px; /* Even less gap */
+            gap: 20px; /* Increased gap for better spacing */
             margin: 0;
             padding: 0;
         }
@@ -205,10 +197,10 @@
         }
         nav li a.active {
             color: var(--text-color-dark);
-            text-decoration: underline; /* Underline for active link, instead of background */
-            text-underline-offset: 4px; /* Adjust underline position for better readability */
-            background-color: transparent; /* No background for active link anymore */
-            box-shadow: none; /* No shadow for active link anymore */
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            background-color: transparent;
+            box-shadow: none;
         }
         body.dark-mode nav li a.active {
             color: var(--text-color-light);
@@ -217,10 +209,12 @@
         /* ========================= Search Styles ========================= */
         .search-container {
             position: relative;
+            display: flex; /* Use flex to align icon and input */
+            align-items: center;
         }
 
         .search-icon {
-            font-size: var(--search-icon-size); /* Using variable for search icon size */
+            font-size: var(--search-icon-size);
             cursor: pointer;
             transition: transform var(--transition-speed) ease, opacity var(--transition-speed) ease, color var(--transition-speed) ease;
             color: var(--text-color-dark);
@@ -237,54 +231,93 @@
         }
 
         .search-input {
-            position: absolute;
-            right: 100%;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 0;
-            padding: 0.4rem 0.8rem; /* Even less padding for search input */
+            position: absolute; /* Changed to absolute positioning for dropdown effect */
+            top: 100%; /* Position input below the icon */
+            right: 0; /* Align to the right of the icon */
+            width: 0; /* Initially hidden */
+            padding: 0;
             border: none;
             border-radius: var(--border-radius);
-            background-color: rgba(255, 255, 255, 0.01); /* Even more transparent background */
+            background-color: rgba(255, 255, 255, 0.01);
             color: var(--text-color-dark);
             transition: all var(--transition-speed) ease;
             opacity: 0;
-            font-size: 0.8rem; /* Even smaller font size for search input */
+            font-size: 0.8rem;
             box-shadow: none;
+            z-index: -1; /* Initially behind other elements */
+            transform-origin: top right; /* Set transform origin for scaling */
+            transform: scaleY(0); /* Initially scaled down vertically */
         }
         body.dark-mode .search-input {
-            background-color: rgba(0, 0, 0, 0.005); /* Even more transparent in dark mode */
+            background-color: rgba(0, 0, 0, 0.005);
             color: var(--text-color-light);
         }
 
         .search-input.active {
-            width: 180px; /* Even narrower active search input */
+            width: 220px; /* Slightly wider active search input */
             opacity: 1;
-            margin-right: 0.6rem; /* Even less right margin when active */
+            margin-top: 0.4rem; /* Add a little margin to separate from icon */
             box-shadow: var(--box-shadow-dark);
+            padding: 0.6rem 1rem; /* Add padding when active */
+            transform: scaleY(1); /* Scale up to show input */
+            z-index: 1; /* Bring to front when active */
         }
         body.dark-mode .search-input.active {
             box-shadow: var(--box-shadow-light);
         }
 
         .search-input::placeholder {
-            color: rgba(255, 255, 255, 0.35); /* Even lighter placeholder text */
+            color: rgba(255, 255, 255, 0.35);
             font-weight: 300;
             font-style: italic;
         }
         body.dark-mode .search-input::placeholder {
-            color: rgba(0, 0, 0, 0.25); /* Even lighter placeholder text in dark mode */
+            color: rgba(0, 0, 0, 0.25);
         }
+
+        /* ========================= Login Button Styles ========================= */
+        .login-button {
+            display: block; /* Always display login button on desktop */
+            color: var(--text-color-dark);
+            font-weight: 500;
+            font-size: 0.9rem; /* Slightly larger login button font size */
+            padding: 0.7rem 1.3rem; /* Increased padding for login button */
+            border-radius: var(--border-radius);
+            transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, box-shadow var(--transition-speed) ease, border-color var(--transition-speed) ease;
+            background-color: transparent;
+            border: 1.8px solid var(--primary-color); /* Slightly thicker border */
+            white-space: nowrap;
+            box-shadow: none;
+            opacity: 0.8; /* Slightly less transparent login button */
+            margin-right: 1rem; /* Add some right margin */
+        }
+        body.dark-mode .login-button {
+            color: var(--text-color-light);
+            border-color: var(--primary-color);
+            opacity: 0.85; /* Slightly less transparent in dark mode */
+        }
+
+        .login-button:hover {
+            background-color: var(--primary-color);
+            color: var(--text-color-dark);
+            box-shadow: var(--box-shadow-dark);
+            border-color: var(--secondary-color);
+        }
+        body.dark-mode .login-button:hover {
+            box-shadow: var(--box-shadow-light);
+            color: var(--text-color-light);
+        }
+
 
         /* ========================= Intro Section Styles ========================= */
         .intro {
              position: relative;
-            padding: 6rem 0; /* Even less intro padding */
+            padding: 6rem 0;
             text-align: center;
             background: linear-gradient(rgba(5, 5, 5, 0.7), rgba(5, 5, 5, 0.7)),
             url('background5.jpg') center/cover no-repeat fixed;
             border-radius: var(--border-radius);
-            margin: 1.5rem 0; /* Even less margin for intro section */
+            margin: 1.5rem 0;
             box-shadow: var(--box-shadow-dark);
             color: var(--text-color-dark);
             overflow: hidden;
@@ -299,59 +332,59 @@
         }
 
         .intro h1 {
-            font-size: clamp(2.8rem, 5vw, 4.5rem); /* Even smaller intro heading */
-            margin-bottom: 1.2rem; /* Even less margin bottom for intro heading */
+            font-size: clamp(2.8rem, 5vw, 4.5rem);
+            margin-bottom: 1.2rem;
             color: var(--accent-color);
             -webkit-text-fill-color: inherit;
             animation: fadeInUp 0.85s ease-out;
-            text-shadow: 1.5px 1.5px 3px rgba(0, 0, 0, 0.25); /* Even subtler text shadow */
+            text-shadow: 1.5px 1.5px 3px rgba(0, 0, 0, 0.25);
             font-family: 'Bebas Neue', sans-serif;
-            letter-spacing: 1.8px; /* Tighter letter spacing */
+            letter-spacing: 1.8px;
             text-transform: uppercase;
         }
         body.dark-mode .intro h1 {
             color: var(--primary-color);
-            text-shadow: 0.8px 0.8px 1.5px rgba(0, 0, 0, 0.08); /* Even subtler text shadow in dark mode */
+            text-shadow: 0.8px 0.8px 1.5px rgba(0, 0, 0, 0.08);
         }
 
         .intro p {
-            font-size: clamp(1rem, 1.8vw, 1.3rem); /* Even smaller intro paragraph */
-            color: rgba(255, 255, 255, 0.8); /* Even lighter text color */
+            font-size: clamp(1rem, 1.8vw, 1.3rem);
+            color: rgba(255, 255, 255, 0.8);
             max-width: 900px;
-            margin: 0 auto 2rem; /* Even less margin bottom for intro paragraph */
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Even subtler text shadow */
+            margin: 0 auto 2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
             animation: fadeIn 1.05s ease-out 0.12s backwards;
             font-weight: 300;
         }
         body.dark-mode .intro p {
-            color: rgba(0, 0, 0, 0.5); /* Even darker text color in dark mode */
+            color: rgba(0, 0, 0, 0.5);
             text-shadow: none;
         }
 
         .intro-content-wrapper {
             position: relative;
             z-index: 1;
-            padding: 1.8rem; /* Even less padding for intro content wrapper */
+            padding: 1.8rem;
         }
 
         .intro-circle {
             position: absolute;
             border-radius: 50%;
             background-color: var(--secondary-color);
-            opacity: 0.3; /* Even more transparent circles */
-            filter: blur(40px); /* Even less blur for circles */
+            opacity: 0.3;
+            filter: blur(40px);
             z-index: 0;
         }
 
         .intro-circle-1 {
-            width: 170px; /* Even smaller intro circle 1 */
+            width: 170px;
             height: 170px;
             top: -45px;
             left: 10%;
         }
 
         .intro-circle-2 {
-            width: 240px; /* Even smaller intro circle 2 */
+            width: 240px;
             height: 240px;
             bottom: -80px;
             right: 14%;
@@ -359,24 +392,24 @@
 
         /* ========================= Download Section Styles ========================= */
         .download-section {
-            background-color: rgba(255, 255, 255, 0.015); /* Even more transparent background */
+            background-color: rgba(255, 255, 255, 0.015);
             border-radius: var(--border-radius);
-            padding: 1.8rem; /* Even less padding for download section */
+            padding: 1.8rem;
             box-shadow: var(--box-shadow-dark);
-            margin-bottom: 1.8rem; /* Even less margin bottom for download section */
+            margin-bottom: 1.8rem;
         }
         body.dark-mode .download-section {
-            background-color: rgba(0, 0, 0, 0.01); /* Even more transparent in dark mode */
+            background-color: rgba(0, 0, 0, 0.01);
             box-shadow: var(--box-shadow-light);
         }
 
         .download-section-header {
             color: var(--accent-color);
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 2.2rem; /* Even smaller download section header */
+            font-size: 2.2rem;
             text-align: center;
-            letter-spacing: 1.2px; /* Tighter letter spacing */
-            margin-bottom: 1.2rem; /* Even less margin bottom for download section header */
+            letter-spacing: 1.2px;
+            margin-bottom: 1.2rem;
         }
 
         .download-section-list {
@@ -386,54 +419,54 @@
         }
 
         .download-section-list li {
-            color: rgba(255, 255, 255, 0.7); /* Even lighter text color */
-            font-size: 0.95rem; /* Even smaller font size for download section list items */
-            margin-bottom: 0.7rem; /* Even less margin bottom for download section list items */
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            margin-bottom: 0.7rem;
             text-align: center;
-            line-height: 1.65; /* Slightly tighter line height */
+            line-height: 1.65;
         }
         body.dark-mode .download-section-list li {
-            color: rgba(0, 0, 0, 0.45); /* Even darker text color in dark mode */
+            color: rgba(0, 0, 0, 0.45);
         }
 
 
         /* ========================= Platform Section Styles ========================= */
         .platform {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Even narrower platform items */
-            gap: 2rem; /* Even less gap for platform section */
-            padding: 2.5rem 0; /* Even less padding for platform section */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            padding: 2.5rem 0;
         }
 
         .platform-item {
-            background-color: rgba(255, 255, 255, 0.015); /* Even more transparent background */
+            background-color: rgba(255, 255, 255, 0.015);
             border-radius: var(--border-radius);
-            padding: 1.8rem; /* Even less padding for platform items */
+            padding: 1.8rem;
             transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
             animation: fadeInUp 0.6s ease backwards;
-            backdrop-filter: blur(8px); /* Even less blur for platform items */
-            border: 1px solid rgba(255, 255, 255, 0.03); /* Even more subtle border */
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.03);
             box-shadow: var(--box-shadow-dark);
-            border-top: 2.5px solid var(--primary-color); /* Even thinner border top */
+            border-top: 2.5px solid var(--primary-color);
         }
         body.dark-mode .platform-item {
-            background-color: rgba(0, 0, 0, 0.008); /* Even more transparent in dark mode */
-            border: 1px solid rgba(0, 0, 0, 0.02); /* Even more subtle border in dark mode */
+            background-color: rgba(0, 0, 0, 0.008);
+            border: 1px solid rgba(0, 0, 0, 0.02);
             box-shadow: var(--box-shadow-light);
             border-top: 2.5px solid var(--primary-color);
         }
 
         .platform-item:hover {
-            transform: translateY(-8px); /* Even less hover translateY */
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); /* Even subtler hover shadow */
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
         }
 
         .platform-item i {
-            font-size: 2.4rem; /* Even smaller platform item icon */
+            font-size: 2.4rem;
             color: var(--primary-color);
-            margin-bottom: 0.6rem; /* Even less margin bottom for platform item icon */
+            margin-bottom: 0.6rem;
             transition: transform var(--transition-speed) ease, color var(--transition-speed) ease;
-            opacity: 0.75; /* Even more transparent icon */
+            opacity: 0.75;
         }
 
         .platform-item:hover i {
@@ -443,8 +476,8 @@
         }
 
         .platform-item h2 {
-            font-size: 1.5rem; /* Even smaller platform item heading */
-            margin: 0.7rem 0; /* Even less margin for platform item heading */
+            font-size: 1.5rem;
+            margin: 0.7rem 0;
             color: var(--text-color-dark);
             transition: color var(--transition-speed) ease;
             font-weight: 600;
@@ -457,14 +490,14 @@
         }
 
         .platform-item p {
-            font-size: 0.95rem; /* Even smaller platform item paragraph */
-            color: rgba(255, 255, 255, 0.7); /* Even lighter text color */
-            margin-bottom: 1rem; /* Even less margin bottom for platform item paragraph */
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1rem;
             line-height: 1.7;
             font-weight: 300;
         }
         body.dark-mode .platform-item p {
-            color: rgba(0, 0, 0, 0.45); /* Even darker text color in dark mode */
+            color: rgba(0, 0, 0, 0.45);
         }
 
         .platform-item a {
@@ -474,50 +507,50 @@
             transition: color var(--transition-speed) ease, background-color var(--transition-speed) ease, border-color var(--transition-speed) ease;
             display: inline-flex;
             align-items: center;
-            gap: 0.4rem; /* Even less gap for platform item link */
-            font-size: 0.9rem; /* Even smaller font size for platform item link */
-            padding: 0.5rem 0.9rem; /* Even less padding for platform item link */
+            gap: 0.4rem;
+            font-size: 0.9rem;
+            padding: 0.5rem 0.9rem;
             border-radius: var(--border-radius);
-            border: 1.4px solid var(--primary-color); /* Even thinner border */
+            border: 1.4px solid var(--primary-color);
             background-color: transparent;
         }
         .platform-item a:hover {
             color: var(--accent-color);
             border-color: var(--accent-color);
-            background-color: rgba(var(--accent-color-rgb), 0.05); /* Even more transparent hover background */
+            background-color: rgba(var(--accent-color-rgb), 0.05);
         }
 
         /* ========================= Footer Styles ========================= */
         footer {
             background-color: #101010;
-            color: rgba(255, 255, 255, 0.6); /* Even lighter footer text color */
+            color: rgba(255, 255, 255, 0.6);
             text-align: center;
-            padding: 1.6rem; /* Even less footer padding */
+            padding: 1.6rem;
             margin-top: auto;
-            font-size: 0.8rem; /* Even smaller footer font size */
-            border-top: 1px solid rgba(255, 255, 255, 0.02); /* Even more subtle border */
-            opacity: 0.75; /* Even more transparent footer */
+            font-size: 0.8rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.02);
+            opacity: 0.75;
         }
         body.dark-mode footer {
             background-color: #ededed;
-            color: rgba(0, 0, 0, 0.45); /* Even darker footer text color in dark mode */
-            border-top: 1px solid rgba(0, 0, 0, 0.015); /* Even more subtle border in dark mode */
-            opacity: 0.8; /* Slightly less transparent in dark mode */
+            color: rgba(0, 0, 0, 0.45);
+            border-top: 1px solid rgba(0, 0, 0, 0.015);
+            opacity: 0.8;
         }
 
         /* ========================= Controls Styles ========================= */
         .controls {
             position: fixed;
-            bottom: 1.2rem; /* Even less bottom control position */
-            right: 1.2rem; /* Even less right control position */
+            bottom: 1.2rem;
+            right: 1.2rem;
             display: flex;
             flex-direction: column;
-            gap: 0.6rem; /* Even less gap for controls */
+            gap: 0.6rem;
             z-index: 1000;
         }
 
         .control-button {
-            width: 36px; /* Even smaller control buttons */
+            width: 36px;
             height: 36px;
             border-radius: 50%;
             border: none;
@@ -529,14 +562,14 @@
             justify-content: center;
             transition: all var(--transition-speed) ease;
             opacity: 0;
-            transform: translateY(12px); /* Even less translateY for controls */
-            font-size: 0.9rem; /* Even smaller control button font size */
+            transform: translateY(12px);
+            font-size: 0.9rem;
             box-shadow: var(--box-shadow-dark);
-            opacity: 0.7; /* Even more transparent control buttons */
+            opacity: 0.7;
         }
         body.dark-mode .control-button {
             box-shadow: var(--box-shadow-light);
-            opacity: 0.75; /* Slightly less transparent in dark mode */
+            opacity: 0.75;
         }
 
         .control-button.visible {
@@ -550,50 +583,18 @@
             color: var(--dark-background);
         }
 
-        /* ========================= Login Button Styles ========================= */
-        .login-button {
-            display: none;
-            color: var(--text-color-dark);
-            font-weight: 500;
-            font-size: 0.85rem; /* Even smaller login button font size */
-            padding: 0.5rem 0.9rem; /* Even less padding for login button */
-            border-radius: var(--border-radius);
-            transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, box-shadow var(--transition-speed) ease, border-color var(--transition-speed) ease;
-            background-color: transparent;
-            border: 1.4px solid var(--primary-color); /* Even thinner border */
-            white-space: nowrap;
-            box-shadow: none;
-            opacity: 0.75; /* Even more transparent login button */
-        }
-        body.dark-mode .login-button {
-            color: var(--text-color-light);
-            border-color: var(--primary-color);
-            opacity: 0.8; /* Slightly less transparent in dark mode */
-        }
-
-        .login-button:hover {
-            background-color: var(--primary-color);
-            color: var(--text-color-dark);
-            box-shadow: var(--box-shadow-dark);
-            border-color: var(--secondary-color);
-        }
-        body.dark-mode .login-button:hover {
-            box-shadow: var(--box-shadow-light);
-            color: var(--text-color-light);
-        }
-
         /* ========================= Hamburger Menu Styles ========================= */
         .hamburger-menu {
             display: none;
             flex-direction: column;
             cursor: pointer;
-            gap: 4px; /* Even less gap for hamburger menu lines */
-            padding: 0.4rem; /* Even less padding for hamburger menu */
+            gap: 4px;
+            padding: 0.4rem;
         }
 
         .hamburger-menu div {
-            width: 18px; /* Even smaller hamburger menu lines */
-            height: 2.2px; /* Even thinner hamburger menu lines */
+            width: 18px;
+            height: 2.2px;
             background-color: var(--text-color-dark);
             transition: all 0.3s ease;
         }
@@ -602,7 +603,7 @@
         }
 
         .hamburger-menu.active .hamburger-line-top {
-            transform: rotate(-45deg) translate(-4px, 4px); /* Even smaller translation */
+            transform: rotate(-45deg) translate(-4px, 4px);
         }
 
         .hamburger-menu.active .hamburger-line-middle {
@@ -610,7 +611,7 @@
         }
 
         .hamburger-menu.active .hamburger-line-bottom {
-            transform: rotate(45deg) translate(-4px, -4px); /* Even smaller translation */
+            transform: rotate(45deg) translate(-4px, -4px);
         }
 
         /* ========================= Mobile Menu Styles ========================= */
@@ -622,10 +623,10 @@
             right: 0;
             width: 100%;
             background-color: rgba(5, 5, 5, 0.98);
-            backdrop-filter: blur(15px); /* Slightly less blur */
+            backdrop-filter: blur(15px);
             box-shadow: var(--box-shadow-dark);
             z-index: 999;
-            padding: 0.8rem 0; /* Even less padding for mobile menu */
+            padding: 0.8rem 0;
         }
         body.dark-mode .mobile-menu {
             background-color: rgba(253, 253, 253, 0.98);
@@ -633,15 +634,15 @@
         }
 
         .mobile-menu a {
-            padding: 0.9rem var(--content-padding-mobile); /* Even less padding for mobile menu links */
+            padding: 0.9rem var(--content-padding-mobile);
             text-align: right;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.03); /* Even more subtle border */
-            font-size: 0.85rem; /* Even smaller font size for mobile menu links */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            font-size: 0.85rem;
             font-weight: 500;
             transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
         }
         body.dark-mode .mobile-menu a {
-            border-bottom: 1px solid rgba(0, 0, 0, 0.02); /* Even more subtle border in dark mode */
+            border-bottom: 1px solid rgba(0, 0, 0, 0.02);
         }
 
         .mobile-menu a:last-child {
@@ -659,23 +660,23 @@
         /* ========================= 404 Page Styles ========================= */
         .error-404 {
             text-align: center;
-            padding: 4rem 2rem; /* Less padding for 404 page */
+            padding: 4rem 2rem;
         }
 
         .error-404 h1 {
-            font-size: 3.5rem; /* Smaller 404 heading */
+            font-size: 3.5rem;
             color: var(--primary-color);
-            margin-bottom: 0.8rem; /* Less margin bottom for 404 heading */
+            margin-bottom: 0.8rem;
         }
 
         .error-404 p {
-            font-size: 1.3rem; /* Smaller 404 paragraph */
-            margin-bottom: 1.5rem; /* Less margin bottom for 404 paragraph */
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
         }
 
         .error-404-link {
             display: inline-block;
-            padding: 0.8rem 1.6rem; /* Less padding for 404 link */
+            padding: 0.8rem 1.6rem;
             background-color: var(--primary-color);
             color: white;
             text-decoration: none;
@@ -689,34 +690,34 @@
 
         /* ========================= About & Contact Page Styles ========================= */
         .about-contact-page {
-            padding: 2.5rem 2rem; /* Less padding for about/contact page */
-            background-color: rgba(255, 255, 255, 0.03); /* Even more transparent background */
+            padding: 2.5rem 2rem;
+            background-color: rgba(255, 255, 255, 0.03);
             border-radius: var(--border-radius);
-            backdrop-filter: blur(8px); /* Even less blur */
-            border: 1px solid rgba(255, 255, 255, 0.05); /* Even more subtle border */
-            margin-bottom: 1.8rem; /* Less margin bottom */
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin-bottom: 1.8rem;
         }
 
         .about-contact-page h2 {
             color: var(--primary-color);
-            margin-bottom: 1.2rem; /* Less margin bottom for heading */
+            margin-bottom: 1.2rem;
             text-align: center;
         }
 
         .about-contact-page p {
             line-height: 1.7;
-            margin-bottom: 0.8rem; /* Less margin bottom for paragraph */
+            margin-bottom: 0.8rem;
         }
 
         .contact-info {
-            margin-top: 1.8rem; /* Less margin top */
+            margin-top: 1.8rem;
         }
 
         .contact-info p {
             display: flex;
             align-items: center;
-            gap: 0.4rem; /* Even less gap */
-            margin-bottom: 0.6rem; /* Less margin bottom */
+            gap: 0.4rem;
+            margin-bottom: 0.6rem;
         }
 
         .contact-info i {
@@ -726,44 +727,44 @@
         /* ========================= Watch Later Page Styles ========================= */
         #watch-later-list {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Even narrower items */
-            gap: 1.8rem; /* Even less gap */
-            padding: 1.8rem; /* Even less padding */
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.8rem;
+            padding: 1.8rem;
         }
 
         .watch-later-item {
-            background: rgba(255, 255, 255, 0.03); /* Even more transparent background */
-            border-radius: 12px; /* Less rounded corners */
-            padding: 1.3rem; /* Less padding */
-            backdrop-filter: blur(8px); /* Even less blur */
-            border: 1px solid rgba(255, 255, 255, 0.05); /* Even more subtle border */
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 1.3rem;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
             text-align: center;
         }
 
         .watch-later-item img {
             max-width: 100%;
             height: auto;
-            border-radius: 6px; /* Less rounded image corners */
-            margin-bottom: 0.8rem; /* Less margin bottom */
+            border-radius: 6px;
+            margin-bottom: 0.8rem;
         }
 
         .watch-later-item h3 {
-            font-size: 1.1rem; /* Smaller heading */
-            margin-bottom: 0.4rem; /* Less margin bottom */
+            font-size: 1.1rem;
+            margin-bottom: 0.4rem;
             color: var(--primary-color);
         }
 
         .watch-later-item p {
-            font-size: 0.9rem; /* Smaller paragraph */
+            font-size: 0.9rem;
             color: #ccc;
-            margin-bottom: 0.8rem; /* Less margin bottom */
+            margin-bottom: 0.8rem;
         }
 
         .remove-watch-later {
             background-color: var(--secondary-color);
             color: white;
             border: none;
-            padding: 0.6rem 1rem; /* Less padding */
+            padding: 0.6rem 1rem;
             border-radius: var(--border-radius);
             cursor: pointer;
             transition: background-color var(--transition-speed) ease;
@@ -777,7 +778,7 @@
         @media (max-width: 768px) {
             header {
                 height: var(--header-height-mobile);
-                border-bottom-width: 1.8px; /* Even thinner border on mobile */
+                border-bottom-width: 0px; /* Removed border on mobile header */
             }
             .header-content {
                 flex-direction: row;
@@ -790,12 +791,20 @@
                 display: none;
             }
             .login-button {
-                display: block;
+                display: none; /* Hide login button on mobile header */
+            }
+            .mobile-login-button {
+                display: block !important; /* Show login button in mobile menu */
             }
 
             .hamburger-menu {
                 display: flex;
                 order: 1;
+            }
+
+            .logo-container {
+                order: 2;
+                margin: 0;
             }
 
             .search-container {
@@ -804,55 +813,50 @@
                 margin-right: 0;
             }
             .search-icon {
-                margin-left: 0.4rem; /* Even smaller margin */
-                font-size: calc(var(--search-icon-size) * 0.95); /* Slightly smaller search icon on mobile */
+                margin-left: 0.4rem;
+                font-size: calc(var(--search-icon-size) * 0.95);
+            }
+            .search-input {
+                top: 100%; /* Keep dropdown position in mobile */
+                right: 0; /* Align to right in mobile */
             }
 
             .search-input.active {
-                position: relative;
-                right: auto;
-                top: auto;
-                transform: none;
-                width: 100%;
-                margin: 0.4rem 0 0; /* Even less margin */
+                position: absolute; /* Keep absolute for mobile dropdown */
+                width: 100%; /* Full width search in mobile */
+                margin: 0.4rem 0 0;
                 order: 4;
                 margin-right: 0;
-            }
-            .logo-container {
-                order: 2;
-                margin: 0; /* Reset margins */
-                position: absolute; /* Keep absolute positioning */
-                top: 0px;      /* Align to top */
-                right: var(--content-padding-mobile); /* Align right padding */
+                padding: 0.6rem var(--content-padding-mobile); /* Adjust padding for mobile */
             }
 
 
             .platform {
                 grid-template-columns: 1fr;
-                padding: 1.8rem 0; /* Even less padding */
-                gap: 1.6rem; /* Even less gap */
+                padding: 1.8rem 0;
+                gap: 1.6rem;
             }
             .platform-item {
-                padding: 1.5rem; /* Even less padding */
-                border-top-width: 2px; /* Even thinner border top */
+                padding: 1.5rem;
+                border-top-width: 2px;
             }
             .platform-item i {
-                font-size: 2.2rem; /* Even smaller icon */
-                margin-bottom: 0.5rem; /* Even less margin bottom */
-                opacity: 0.7; /* Even more transparent icon */
+                font-size: 2.2rem;
+                margin-bottom: 0.5rem;
+                opacity: 0.7;
             }
             .platform-item h2 {
-                font-size: 1.4rem; /* Even smaller heading */
-                margin: 0.6rem 0; /* Even less margin */
+                font-size: 1.4rem;
+                margin: 0.6rem 0;
             }
             .platform-item p {
-                font-size: 0.9rem; /* Even smaller paragraph */
-                line-height: 1.6; /* Even tighter line height */
-                margin-bottom: 0.9rem; /* Even less margin bottom */
+                font-size: 0.9rem;
+                line-height: 1.6;
+                margin-bottom: 0.9rem;
             }
             .platform-item a {
-                font-size: 0.8rem; /* Even smaller font size */
-                padding: 0.45rem 0.8rem; /* Even less padding */
+                font-size: 0.8rem;
+                padding: 0.45rem 0.8rem;
             }
 
 
@@ -866,7 +870,7 @@
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(12px); /* Even less translateY */
+                transform: translateY(12px);
             }
             to {
                 opacity: 1;
@@ -885,10 +889,11 @@
 <header>
     <div class="container">
         <div class="header-content">
-            <div class="hamburger-menu" id="hamburger-menu">
-                <div class="hamburger-line-top"></div>
-                <div class="hamburger-line-middle"></div>
-                <div class="hamburger-line-bottom"></div>
+            <div class="logo-container">
+                <a href="index.html">
+                    <img src="logo.png" alt="لوگو هامووی" class="logo">
+                </a>
+                <a href="index.html" class="site-title">هامووی</a>
             </div>
 
             <nav>
@@ -902,19 +907,21 @@
                 </ul>
             </nav>
 
-            <div class="logo-container">
-                <a href="index.html">
-                    <img src="logo.png" alt="لوگو هامووی" class="logo">
-                </a>
-                <a href="index.html" class="site-title">هامووی</a>
-            </div>
+            <a href="login.html" class="login-button">
+                <i class="fas fa-user-circle" style="margin-left: 0.5rem;"></i> ورود/ثبت نام
+            </a>
 
 
             <div class="search-container">
                 <i class="fas fa-search search-icon" id="search-icon"></i>
                 <input type="search" class="search-input" placeholder="جستجو..." id="search-box">
             </div>
-             <a href="login.html" class="login-button">ورود/ثبت نام</a>
+
+            <div class="hamburger-menu" id="hamburger-menu">
+                <div class="hamburger-line-top"></div>
+                <div class="hamburger-line-middle"></div>
+                <div class="hamburger-line-bottom"></div>
+            </div>
         </div>
         <div class="mobile-menu" id="mobile-menu">
             <a href="index.html">صفحه اصلی</a>
@@ -924,8 +931,11 @@
             <a href="about.html">درباره ما</a>
             <a href="contact.html">تماس با ما</a>
             <a href="profile.html">حساب کاربری</a>
-            <a href="login.html" class="login-button mobile-login-button">ورود/ثبت نام</a>
+            <a href="login.html" class="login-button mobile-login-button">
+                <i class="fas fa-user-circle" style="margin-left: 0.5rem;"></i> ورود/ثبت نام
+            </a>
         </div>
+        <div style="border-bottom: 2px solid var(--primary-color);"></div> <!-- Red underline -->
     </div>
 </header>
 
@@ -951,7 +961,7 @@
                     <i class="fab fa-telegram"></i>
                     <h2>کانال تلگرام هامووی</h2>
                     <p>با عضویت در کانال تلگرام هامووی، به راحتی و با سرعت بالا به آرشیو کاملی از فیلم و سریال‌های روز دنیا دسترسی پیدا کنید و بدون سانسور دانلود کنید.</p>
-                    <a href="https://t.me/Hamoviefilmdo" target="_blank" rel="noopener noreferrer">
+                    <a href="https://t.me/Hamoviefilm" target="_blank" rel="noopener noreferrer"> <!-- Corrected Telegram link -->
                         <i class="fas fa-external-link-alt"></i>  کانال تلگرام هامووی
                     </a>
                 </div>
