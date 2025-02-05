@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
@@ -130,7 +129,6 @@
             margin-right: auto; /* Push logo container to the right */
         }
 
-
         .logo {
             width: var(--logo-desktop-width);
             height: auto;
@@ -228,7 +226,6 @@
             transform: translateX(0); /* Slide underline in on hover and active */
         }
 
-
         nav li a.active {
             color: var(--text-color-dark);
             text-decoration: none; /* Removed underline for active - using animated underline now */
@@ -273,10 +270,9 @@
             color: var(--text-color-light);
         }
 
-
         /* ========================= Intro Section Styles ========================= */
         .intro {
-             position: relative;
+            position: relative;
             padding: 6rem 0;
             text-align: center;
             background: linear-gradient(rgba(5, 5, 5, 0.7), rgba(5, 5, 5, 0.7)),
@@ -389,7 +385,6 @@
             flex: 1; /* به محتوای متنی اجازه میده فضای باقی‌مانده رو بگیره */
         }
 
-
         .download-section-header {
             color: var(--accent-color);
             font-family: 'Bebas Neue', sans-serif;
@@ -415,7 +410,6 @@
         body.dark-mode .download-section-list li {
             color: rgba(0, 0, 0, 0.45);
         }
-
 
         /* ========================= Platform Section Styles ========================= */
         .platform {
@@ -542,7 +536,6 @@
                         radial-gradient(circle at top right, rgba(var(--secondary-color-rgb, 255, 112, 88), 0.03), transparent 40%);
         }
 
-
         .footer-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Slightly wider minmax */
@@ -610,7 +603,6 @@
             color: var(--primary-color);
         }
 
-
         .footer-social-icons {
             display: flex;
             gap: 18px; /* Increased gap */
@@ -645,7 +637,6 @@
             color: var(--text-color-light);
         }
 
-
         .footer-bottom {
             text-align: center;
             padding-top: 35px; /* Increased padding */
@@ -658,7 +649,6 @@
         body.dark-mode .footer-bottom {
             border-top: 1px solid rgba(0, 0, 0, 0.08);
         }
-
 
         /* ========================= Newsletter Form Styles ========================= */
         .footer-section-newsletter .newsletter-form {
@@ -700,7 +690,6 @@
             border-color: var(--accent-color);
         }
 
-
         .footer-section-newsletter button[type="submit"] {
             padding: 0.7rem 1.5rem;
             border-radius: var(--border-radius);
@@ -720,7 +709,7 @@
             box-shadow: var(--box-shadow-dark), 0 4px 8px rgba(0, 0, 0, 0.15);
         }
         body.dark-mode .footer-section-newsletter button[type="submit"]:hover {
-             box-shadow: var(--box-shadow-light), 0 4px 8px rgba(0, 0, 0, 0.08);
+            box-shadow: var(--box-shadow-light), 0 4px 8px rgba(0, 0, 0, 0.08);
         }
 
         /* ========================= Controls Styles ========================= */
@@ -818,6 +807,16 @@
             box-shadow: var(--box-shadow-light);
         }
 
+        .mobile-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mobile-menu li {
+            margin: 0;
+        }
+
         .mobile-menu a {
             padding: 0.9rem var(--content-padding-mobile);
             text-align: right;
@@ -840,6 +839,10 @@
         }
         body.dark-mode .mobile-menu a:hover {
             color: var(--text-color-light);
+        }
+
+        .mobile-menu.active {
+            display: flex;
         }
 
         /* ========================= 404 Page Styles ========================= */
@@ -995,7 +998,6 @@
                 margin: 0;
             }
 
-
             .platform {
                 grid-template-columns: 1fr;
                 padding: 1.8rem 0;
@@ -1045,7 +1047,6 @@
                 text-align: center; /* مرکز چین کردن لیست در موبایل */
             }
 
-
             .mobile-menu {
                 display: none;
                 top: var(--header-height-mobile);
@@ -1075,7 +1076,6 @@
         }
     </style>
 </head>
-
 <body>
 <header>
     <div class="container">
@@ -1101,7 +1101,6 @@
             <a href="login.html" class="login-button">
                 <i class="fas fa-user-circle" style="margin-left: 0.5rem;"></i> ورود/ثبت نام
             </a>
-
 
             <div class="hamburger-menu" id="hamburger-menu">
                 <div class="hamburger-line-top"></div>
@@ -1152,7 +1151,7 @@
         </div>
     </section>
 
-     <!-- ========================= Download Section ========================= -->
+    <!-- ========================= Download Section ========================= -->
     <section class="download-section">
         <div class="download-section-container">  <!-- کانتینر جدید -->
             <img src="batmangemini.png" alt="عکس بتمن" class="download-section-image"> <!-- اضافه کردن عکس -->
@@ -1197,7 +1196,6 @@
             </ul>
         </div>
 
-
         <div class="footer-section footer-section-newsletter">
             <h3>خبرنامه هامووی</h3>
             <p>برای دریافت آخرین اخبار فیلم‌ها و سریال‌ها، آدرس ایمیل خود را وارد کنید:</p>
@@ -1225,6 +1223,20 @@
     <button class="control-button scroll-top" id="scroll-top-button" title="بازگشت به بالا">
         <i class="fas fa-arrow-up"></i>
     </button>
+</div>
+
+<div class="mobile-menu" id="mobile-menu">
+    <ul>
+        <li><a href="index.html" class="active">صفحه اصلی</a></li>
+        <li><a href="animation.html">انیمیشن</a></li>
+        <li><a href="movies.html">فیلم</a></li>
+        <li><a href="series.html">سریال</a></li>
+        <li><a href="about.html">درباره ما</a></li>
+        <li><a href="contact.html">تماس با ما</a></li>
+        <li><a href="login.html" class="mobile-login-button">
+            <i class="fas fa-user-circle" style="margin-left: 0.5rem;"></i> ورود/ثبت نام
+        </a></li>
+    </ul>
 </div>
 
 <script>
@@ -1327,7 +1339,7 @@
                 const later = () => {
                     clearTimeout(timeout);
                     func(...args);
-                    };
+                };
                 clearTimeout(timeout);
                 timeout = setTimeout(later, wait, ...args);
             };
