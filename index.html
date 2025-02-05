@@ -800,7 +800,7 @@
             backdrop-filter: blur(15px);
             box-shadow: var(--box-shadow-dark);
             z-index: 999;
-            padding: 0.8rem 0;
+            padding: 1.2rem 0; /* Increased padding for better spacing */
         }
         body.dark-mode .mobile-menu {
             background-color: rgba(253, 253, 253, 0.98);
@@ -815,13 +815,14 @@
 
         .mobile-menu li {
             margin: 0;
+            padding: 0.6rem 0; /* Added padding for better spacing between items */
         }
 
         .mobile-menu a {
             padding: 0.9rem var(--content-padding-mobile);
             text-align: right;
             border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-            font-size: 0.85rem;
+            font-size: 0.95rem; /* Slightly larger font size for better readability */
             font-weight: 500;
             transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
         }
@@ -1030,13 +1031,13 @@
             .download-section-container { /* استایل موبایل برای کانتینر */
                 flex-direction: column; /* چیدمان عمودی در موبایل */
                 text-align: center; /* مرکز چین کردن متن در موبایل */
-                gap: 1rem; /* فاصله کمتر در موبایل */
+                gap: 1.5rem; /* فاصله بیشتر در موبایل */
             }
 
             .download-section-image { /* استایل موبایل برای عکس */
                 width: 250px; /* سایز بزرگتر عکس در موبایل */
                 height: 250px; /* سایز بزرگتر عکس در موبایل */
-                margin-bottom: 1rem; /* فاصله پایین عکس در موبایل */
+                margin-bottom: 1.5rem; /* فاصله بیشتر پایین عکس در موبایل */
             }
 
             .download-section-header {
