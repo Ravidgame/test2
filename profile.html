@@ -1,310 +1,1018 @@
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>هامووی 🎬 | پروفایل کاربری</title>
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700&family=Vazirmatn:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <style>
-    :root {
-      --primary-color: #e50914;
-      --secondary-color: #f05053;
-      --dark-background: #141414;
-      --light-background: #f5f5f5;
-      --transition-speed: 0.3s;
-      --border-radius: 30px;
-      --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>هامووی 🎬 | پروفایل کاربری</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700&family=Vazirmatn:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* ========================= Root Variables ========================= */
+        :root {
+            --primary-color: #e50914;
+            --secondary-color: #ff7058;
+            --dark-background: #050505;
+            --light-background: #fdfdfd;
+            --text-color-dark: #f2f2f2;
+            --text-color-light: #2e2e2e;
+            --accent-color: #ffd83d;
+            --transition-speed: 0.2s;
+            --border-radius: 12px;
+            --box-shadow-light: 0 1px 6px rgba(0, 0, 0, 0.05);
+            --box-shadow-dark: 0 2px 8px rgba(0, 0, 0, 0.15);
+            --header-height-desktop: 80px;
+            --header-height-mobile: 70px;
+            --header-shrink-height: 60px;
+            --content-padding-desktop: 20px;
+            --content-padding-mobile: 12px;
+            --logo-desktop-width: 90px;
+            --logo-mobile-width: 80px;
+            --site-title-desktop-size: 1.1rem;
+            --site-title-mobile-size: 1.5rem;
+            --nav-link-padding-desktop: 0.7rem 1.4rem;
+            --nav-link-font-size-desktop: 0.95rem;
+        }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+        /* ========================= Global Styles ========================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
 
-    body {
-      background: linear-gradient(to bottom, var(--dark-background), #000);
-      color: #fff;
-      font-family: 'Vazirmatn', 'Montserrat', sans-serif;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
+        body {
+            background-color: var(--dark-background);
+            color: var(--text-color-dark);
+            font-family: 'Vazirmatn', 'Montserrat', sans-serif;
+            margin: 0;
+            transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            font-weight: 400;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
 
-    .header {
-      background-color: rgba(0, 0, 0, 0.8);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      backdrop-filter: blur(15px);
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-      width: 100%;
-    }
+        body.dark-mode {
+            background-color: var(--light-background);
+            color: var(--text-color-light);
+        }
 
-    .header-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 1rem 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color var(--transition-speed) ease;
+        }
+        a:hover {
+            color: var(--accent-color);
+        }
 
-    .logo {
-      width: 130px;
-      height: auto;
-      transition: transform var(--transition-speed) ease;
-    }
+        .container {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: var(--content-padding-desktop);
+            width: 100%;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: var(--content-padding-mobile);
+            }
+        }
 
-    .logo:hover {
-      transform: scale(1.1);
-    }
+        /* ========================= Header Styles ========================= */
+        header {
+            background-color: rgba(5, 5, 5, 0.97);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(15px);
+            box-shadow: var(--box-shadow-dark);
+            height: var(--header-height-desktop);
+            transition: height var(--transition-speed) ease;
+        }
+        header.shrink {
+            height: var(--header-shrink-height);
+        }
 
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-    }
+        header.dark-mode {
+            background-color: rgba(253, 253, 253, 0.97);
+            box-shadow: var(--box-shadow-light);
+        }
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1rem;
-      margin: 0;
-      padding: 0;
-    }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 var(--content-padding-desktop);
+            height: 100%;
+        }
+        @media (max-width: 768px) {
+            .header-content {
+                padding: 0 var(--content-padding-mobile);
+            }
+        }
 
-    nav a {
-      text-decoration: none;
-      color: #fff;
-      font-weight: 700;
-      font-size: 1.2rem;
-      padding: 0.8rem 1.5rem;
-      border-radius: var(--border-radius);
-      transition: all var(--transition-speed) ease;
-      position: relative;
-      overflow: hidden;
-    }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            margin-right: auto;
+        }
 
-    nav a::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-      opacity: 0;
-      transition: opacity var(--transition-speed) ease;
-      z-index: -1;
-      border-radius: var(--border-radius);
-    }
+        .logo {
+            width: var(--logo-desktop-width);
+            height: auto;
+            transition: transform var(--transition-speed) ease;
+        }
+        @media (max-width: 768px) {
+            .logo {
+                width: var(--logo-mobile-width);
+            }
+        }
 
-    nav a:hover::before {
-      opacity: 1;
-    }
+        .logo:hover {
+            transform: scale(1.03);
+        }
 
-    nav a.active {
-      background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-    }
+        .site-title {
+            color: var(--text-color-dark);
+            font-family: 'Vazirmatn', sans-serif;
+            font-size: var(--site-title-desktop-size);
+            margin-right: 0.6rem;
+            letter-spacing: 0.3px;
+            text-shadow: none;
+            transition: color var(--transition-speed) ease;
+            opacity: 0.7;
+            font-weight: 400;
+        }
+        body.dark-mode .site-title {
+            color: var(--text-color-light);
+            opacity: 0.65;
+        }
+        .site-title:hover {
+            color: var(--accent-color);
+            opacity: 1;
+        }
+        @media (min-width: 992px) {
+            .site-title {
+                display: inline-block;
+            }
+        }
+        @media (max-width: 768px) {
+            .site-title {
+                display: inline-block;
+                margin-right: 0.8rem;
+                font-size: var(--site-title-mobile-size);
+                font-family: 'Bebas Neue', sans-serif;
+                opacity: 1;
+            }
+        }
 
-    .main-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      padding: 20px;
-      min-height: calc(100vh - 130px); 
-      /*  فضای خالی برای header و footer  */
-    }
+        /* ========================= Navigation Styles ========================= */
+        nav {
+            display: flex;
+            align-items: center;
+            margin-right: 2rem;
+        }
 
-    .sidebar {
-      width: 250px;
-      background-color: rgba(255, 255, 255, 0.1);
-      border-radius: var(--border-radius);
-      padding: 20px;
-      box-shadow: var(--box-shadow);
-    }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+        }
 
-    .sidebar h3 {
-      color: var(--primary-color);
-      margin-bottom: 20px;
-    }
+        nav li a {
+            display: block;
+            font-weight: 500;
+            font-size: var(--nav-link-font-size-desktop);
+            padding: var(--nav-link-padding-desktop);
+            border-radius: var(--border-radius);
+            transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+            box-shadow: none;
+            position: relative;
+            overflow: hidden;
+        }
 
-    .sidebar ul {
-      list-style: none;
-      padding: 0;
-    }
+        nav li a:hover {
+            color: var(--accent-color);
+        }
 
-    .sidebar li {
-      margin-bottom: 15px;
-    }
+        nav li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--accent-color);
+            transform: translateX(100%);
+            transition: transform var(--transition-speed) ease;
+        }
 
-    .sidebar a {
-      text-decoration: none;
-      color: #fff;
-      display: block;
-      padding: 10px;
-      border-radius: 10px;
-      transition: all var(--transition-speed) ease; /*  transition برای همه  */
-      background-color: rgba(255, 255, 255, 0.1); /*  رنگ پس زمینه  */
-    }
+        nav li a:hover::after,
+        nav li a.active::after {
+            transform: translateX(0);
+        }
 
-    .sidebar a:hover {
-      background-color: rgba(255, 255, 255, 0.3); /*  رنگ پس زمینه در هنگام hover  */
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /*  اضافه کردن سایه  */
-      transform: translateY(-3px); /*  کمی بالا بردن  */
-    }
+        nav li a.active {
+            color: var(--text-color-dark);
+            text-decoration: none;
+            background-color: transparent;
+            box-shadow: none;
+        }
+        body.dark-mode nav li a.active {
+            color: var(--text-color-light);
+        }
 
-    .content {
-      flex-grow: 1;
-      margin-right: 20px;
-      text-align: center; /*  متن را در وسط قرار دهید  */
-    }
+        /* ========================= Login Button Styles ========================= */
+        .login-button {
+            display: block;
+            color: var(--text-color-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: 0.8rem 1.5rem;
+            border-radius: var(--border-radius);
+            transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, box-shadow var(--transition-speed) ease, border-color var(--transition-speed) ease;
+            background-color: transparent;
+            border: 1.8px solid var(--primary-color);
+            white-space: nowrap;
+            box-shadow: none;
+            opacity: 0.85;
+            margin-right: 1.2rem;
+            margin-left: auto;
+        }
+        body.dark-mode .login-button {
+            color: var(--text-color-light);
+            border-color: var(--primary-color);
+            opacity: 0.9;
+        }
 
-    .content h2 {
-      color: var(--primary-color);
-      margin-bottom: 20px;
-    }
+        .login-button:hover {
+            background-color: var(--primary-color);
+            color: var(--text-color-dark);
+            box-shadow: var(--box-shadow-dark), 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-color: var(--secondary-color);
+        }
+        body.dark-mode .login-button:hover {
+            box-shadow: var(--box-shadow-light), 0 4px 8px rgba(0, 0, 0, 0.1);
+            color: var(--text-color-light);
+        }
 
-    .profile-info {
-      margin-bottom: 30px;
-      display: inline-block; /*  برای اینکه margin-bottom  عمل کند  */
-      background-color: rgba(255, 255, 255, 0.1);
-      border-radius: var(--border-radius);
-      padding: 30px;
-      box-shadow: var(--box-shadow);
-    }
+        /* ========================= Hamburger Menu Styles ========================= */
+        .hamburger-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+            padding: 0.4rem;
+        }
 
-    .profile-info p {
-      margin: 15px 0;
-      font-size: 1.2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center; /*  وسط چین کردن  */
-    }
+        .hamburger-menu div {
+            width: 18px;
+            height: 2.2px;
+            background-color: var(--text-color-dark);
+            transition: all 0.3s ease;
+        }
+        body.dark-mode .hamburger-menu div {
+            background-color: var(--text-color-light);
+        }
 
-    .profile-info i {
-      color: var(--primary-color);
-      margin-right: 10px;
-      width: 25px;
-      text-align: center;
-    }
+        .hamburger-menu.active .hamburger-line-top {
+            transform: rotate(-45deg) translate(-4px, 4px);
+        }
 
-    .profile-info strong {
-      margin-right: 10px;
-    }
+        .hamburger-menu.active .hamburger-line-middle {
+            opacity: 0;
+        }
 
-    .profile-info img {
-      width: 150px; /*  تنظیم اندازه عکس پروفایل  */
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 20px;
-      border: 4px solid var(--primary-color); /*  اضافه کردن border  */
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /*  اضافه کردن سایه  */
-    }
+        .hamburger-menu.active .hamburger-line-bottom {
+            transform: rotate(45deg) translate(-4px, -4px);
+        }
 
-    .logout-btn {
-      background: linear-gradient(to right, #700000, #990000);
-      color: #fff;
-      padding: 10px 20px;
-      border: none;
-      border-radius: var(--border-radius);
-      cursor: pointer;
-      font-family: inherit;
-      font-size: 1.1rem;
-      transition: all var(--transition-speed) ease;
-      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    }
+        /* ========================= Mobile Menu Styles ========================= */
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: var(--header-height-mobile);
+            right: 0;
+            width: 100%;
+            background-color: rgba(5, 5, 5, 0.98);
+            backdrop-filter: blur(15px);
+            box-shadow: var(--box-shadow-dark);
+            z-index: 999;
+            padding: 1.2rem 0;
+        }
+        body.dark-mode .mobile-menu {
+            background-color: rgba(253, 253, 253, 0.98);
+            box-shadow: var(--box-shadow-light);
+        }
 
-    .logout-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
-    }
+        .mobile-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
 
-    footer {
-      background-color: rgba(0, 0, 0, 0.8);
-      color: #fff;
-      text-align: center;
-      padding: 2rem;
-      margin-top: auto;
-      width: 100%;
-      font-size: 1.1rem;
-      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
-    }
+        .mobile-menu li {
+            margin: 0;
+            padding: 0.6rem 0;
+        }
 
-    footer p {
-      margin: 0;
-    }
+        .mobile-menu a {
+            padding: 0.9rem var(--content-padding-mobile);
+            text-align: right;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+        }
+        body.dark-mode .mobile-menu a {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.02);
+        }
 
-    /* ... کدهای CSS برای حالت responsive ... */
-  </style>
+        .mobile-menu a:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-menu a:hover {
+            background-color: var(--primary-color);
+            color: var(--text-color-dark);
+        }
+        body.dark-mode .mobile-menu a:hover {
+            color: var(--text-color-light);
+        }
+
+        .mobile-menu.active {
+            display: flex;
+        }
+
+        /* ========================= Footer Styles ========================= */
+        footer {
+            background-color: #0a0a0a;
+            color: rgba(255, 255, 255, 0.8);
+            padding: 50px 0;
+            margin-top: auto;
+            font-size: 0.95rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            opacity: 1;
+            position: relative;
+            overflow: hidden;
+        }
+        body.dark-mode footer {
+            background-color: #f0f0f0;
+            color: rgba(0, 0, 0, 0.6);
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at bottom left, rgba(var(--primary-color-rgb, 229, 9, 20), 0.08), transparent 40%),
+                        radial-gradient(circle at top right, rgba(var(--secondary-color-rgb, 255, 112, 88), 0.06), transparent 40%);
+            pointer-events: none;
+        }
+        body.dark-mode footer::before {
+            background: radial-gradient(circle at bottom left, rgba(var(--primary-color-rgb, 229, 9, 20), 0.04), transparent 40%),
+                        radial-gradient(circle at top right, rgba(var(--secondary-color-rgb, 255, 112, 88), 0.03), transparent 40%);
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
+            position: relative;
+            z-index: 1;
+        }
+        @media (max-width: 768px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
+        }
+
+        .footer-section {
+            padding: 0 25px;
+        }
+        @media (max-width: 768px) {
+            .footer-section {
+                padding: 0;
+            }
+        }
+
+        .footer-section h3 {
+            color: var(--accent-color);
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 0.9px;
+            text-transform: uppercase;
+        }
+        body.dark-mode .footer-section h3 {
+            color: var(--primary-color);
+        }
+
+        .footer-section p,
+        .footer-section ul {
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section a {
+            color: inherit;
+            opacity: 0.9;
+            transition: opacity var(--transition-speed) ease, color var(--transition-speed) ease;
+            display: block;
+            padding: 6px 0;
+            font-weight: 400;
+        }
+        .footer-section a:hover {
+            opacity: 1;
+            color: var(--accent-color);
+        }
+        body.dark-mode .footer-section a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-social-icons {
+            display: flex;
+            gap: 18px;
+            justify-content: start;
+            margin-top: 10px;
+        }
+        @media (max-width: 768px) {
+            .footer-social-icons {
+                justify-content: center;
+            }
+        }
+
+        .footer-social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.08);
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.1rem;
+            transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, transform var(--transition-speed) ease;
+            opacity: 1;
+        }
+        .footer-social-icons a:hover {
+            background-color: var(--primary-color);
+            color: var(--text-color-dark);
+            transform: scale(1.15);
+        }
+        body.dark-mode .footer-social-icons a:hover {
+            color: var(--text-color-light);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 35px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            margin-top: 35px;
+            font-size: 0.9rem;
+            opacity: 0.95;
+            font-weight: 400;
+        }
+        body.dark-mode .footer-bottom {
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        /* ========================= Newsletter Form Styles ========================= */
+        .footer-section-newsletter .newsletter-form {
+            display: flex;
+            gap: 8px;
+            max-width: 100%;
+        }
+        @media (max-width: 768px) {
+            .footer-section-newsletter .newsletter-form {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 10px;
+            }
+        }
+
+        .footer-section-newsletter input[type="email"] {
+            padding: 0.7rem 1rem;
+            border-radius: var(--border-radius);
+            border: none;
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--text-color-dark);
+            font-size: 0.9rem;
+            font-family: inherit;
+            width: 100%;
+            box-shadow: none;
+            outline: none;
+            transition: background-color var(--transition-speed) ease, border-color var(--transition-speed) ease;
+        }
+        body.dark-mode .footer-section-newsletter input[type="email"] {
+            background-color: rgba(0, 0, 0, 0.03);
+            color: var(--text-color-light);
+        }
+        .footer-section-newsletter input[type="email"]:focus {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: var(--accent-color);
+        }
+        body.dark-mode .footer-section-newsletter input[type="email"]:focus {
+            background-color: rgba(0, 0, 0, 0.05);
+            border-color: var(--accent-color);
+        }
+
+        .footer-section-newsletter button[type="submit"] {
+            padding: 0.7rem 1.5rem;
+            border-radius: var(--border-radius);
+            border: none;
+            background-color: var(--primary-color);
+            color: var(--text-color-dark);
+            font-size: 0.9rem;
+            font-family: 'Vazirmatn', sans-serif;
+            cursor: pointer;
+            transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, transform var(--transition-speed) ease;
+            box-shadow: var(--box-shadow-dark);
+            white-space: nowrap;
+        }
+        .footer-section-newsletter button[type="submit"]:hover {
+            background-color: var(--secondary-color);
+            transform: scale(1.03);
+            box-shadow: var(--box-shadow-dark), 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+        body.dark-mode .footer-section-newsletter button[type="submit"]:hover {
+            box-shadow: var(--box-shadow-light), 0 4px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        /* ========================= Controls Styles ========================= */
+        .controls {
+            position: fixed;
+            bottom: 1.2rem;
+            right: 1.2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            z-index: 1000;
+        }
+
+        .control-button {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: none;
+            background: var(--primary-color);
+            color: var(--text-color-dark);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition-speed) ease;
+            opacity: 0;
+            transform: translateY(12px);
+            font-size: 0.9rem;
+            box-shadow: var(--box-shadow-dark);
+            opacity: 0.7;
+        }
+        body.dark-mode .control-button {
+            box-shadow: var(--box-shadow-light);
+            opacity: 0.75;
+        }
+
+        .control-button.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .control-button:hover {
+            transform: scale(1.06);
+            background: var(--accent-color);
+            color: var(--dark-background);
+        }
+
+
+        /* ========================= Profile Page Specific Styles ========================= */
+        .main-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 20px;
+            min-height: calc(100vh - var(--header-height-desktop) - 130px);
+            margin-top: var(--header-height-desktop);
+        }
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+                align-items: stretch;
+                margin-top: var(--header-height-mobile);
+                min-height: calc(100vh - var(--header-height-mobile) - 130px);
+                padding-top: var(--header-height-mobile); /* Prevent header overlap on mobile */
+            }
+        }
+
+        .sidebar {
+            width: 260px; /* Slightly wider sidebar */
+            background-color: rgba(255, 255, 255, 0.08);
+            border-radius: var(--border-radius);
+            padding: var(--content-padding-desktop);
+            box-shadow: var(--box-shadow-dark);
+        }
+        body.dark-mode .sidebar {
+            background-color: rgba(0, 0, 0, 0.04);
+            box-shadow: var(--box-shadow-light);
+        }
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                margin-bottom: 25px; /* More margin for mobile */
+                padding: var(--content-padding-mobile);
+            }
+        }
+
+        .sidebar h3 {
+            color: var(--accent-color);
+            margin-bottom: 25px; /* More margin below sidebar title */
+            font-size: 1.5rem; /* Slightly larger sidebar title */
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 0.8px;
+        }
+        body.dark-mode .sidebar h3 {
+            color: var(--primary-color);
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar li {
+            margin-bottom: 18px; /* More spacing between sidebar links */
+        }
+
+        .sidebar a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            padding: 0.85rem 1.1rem; /* Slightly larger padding for sidebar links */
+            border-radius: var(--border-radius);
+            transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, box-shadow var(--transition-speed) ease, transform var(--transition-speed) ease;
+            background-color: rgba(255, 255, 255, 0.05);
+            box-shadow: none;
+            font-weight: 500; /* Slightly bolder sidebar links */
+        }
+        body.dark-mode .sidebar a {
+            background-color: rgba(0, 0, 0, 0.03);
+        }
+
+        .sidebar a:hover {
+            background-color: var(--primary-color);
+            color: var(--text-color-dark);
+            box-shadow: var(--box-shadow-dark), 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+        }
+        body.dark-mode .sidebar a:hover {
+             box-shadow: var(--box-shadow-light), 0 4px 8px rgba(0, 0, 0, 0.1);
+            color: var(--text-color-light);
+        }
+
+
+        .content {
+            flex-grow: 1;
+            margin-right: 30px; /* More margin for content area */
+            text-align: center;
+        }
+        @media (max-width: 768px) {
+            .content {
+                margin-right: 0;
+            }
+        }
+
+        .content-hero {
+            padding: 40px 0;
+            margin-bottom: 35px; /* More margin below hero */
+        }
+
+        .content h2 {
+            color: var(--accent-color);
+            margin-bottom: 25px; /* More margin below content title */
+            font-size: 2.3rem; /* Larger content title */
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 1.2px;
+        }
+        body.dark-mode .content h2 {
+            color: var(--primary-color);
+        }
+        .content-hero p {
+            color: rgba(var(--text-color-dark-rgb, 242, 242, 242), 0.8); /* Lighter text in hero paragraph */
+            font-size: 1.1rem;
+            max-width: 750px;
+            margin: 0 auto 25px; /* Added margin below hero paragraph */
+            line-height: 1.7;
+        }
+        body.dark-mode .content-hero p {
+            color: rgba(var(--text-color-light-rgb, 46, 46, 46), 0.6);
+        }
+
+
+        .profile-info {
+            margin-bottom: 40px; /* Even more margin below profile info */
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.08);
+            border-radius: var(--border-radius);
+            padding: var(--content-padding-desktop);
+            box-shadow: var(--box-shadow-dark);
+            text-align: right;
+        }
+        body.dark-mode .profile-info {
+            background-color: rgba(0, 0, 0, 0.04);
+            box-shadow: var(--box-shadow-light);
+        }
+
+
+        .profile-info-header {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            margin-bottom: 25px; /* Margin below profile header */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08); /* Separator line */
+            padding-bottom: 20px; /* Padding below header content */
+        }
+        body.dark-mode .profile-info-header {
+             border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+
+        .profile-info-header h3 {
+            color: var(--text-color-dark);
+            font-size: 1.7rem; /* Larger profile info header */
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 0.9px;
+            margin-right: auto; /* Push title to the right */
+        }
+        body.dark-mode .profile-info-header h3 {
+            color: var(--text-color-light);
+        }
+
+
+        .profile-info img {
+            width: 140px; /* Larger profile image */
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-left: 25px; /* Margin to separate image and text */
+            margin-bottom: 0; /* Reset bottom margin */
+            border: 3px solid var(--primary-color);
+            box-shadow: var(--box-shadow-dark), 0 5px 10px rgba(0, 0, 0, 0.25); /* Stronger shadow */
+            transition: transform var(--transition-speed) ease; /* Hover effect */
+        }
+        .profile-info img:hover {
+            transform: scale(1.05); /* Slight scale up on hover */
+        }
+
+
+        .profile-info p {
+            margin: 18px 0; /* More margin for profile info paragraphs */
+            font-size: 1.05rem;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .profile-info i {
+            color: var(--primary-color);
+            margin-left: 12px; /* More margin for icons */
+            width: 22px; /* Slightly wider icons */
+            text-align: center;
+            font-size: 1.1rem; /* Slightly larger icons */
+        }
+
+        .profile-info strong {
+            margin-left: 12px;
+            font-weight: 600;
+        }
+
+        .logout-btn {
+            background-color: var(--primary-color);
+            color: var(--text-color-dark);
+            padding: 0.9rem 2rem; /* More padding for logout button */
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 1rem; /* Larger logout button text */
+            transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, box-shadow var(--transition-speed) ease, transform var(--transition-speed) ease;
+            box-shadow: var(--box-shadow-dark), 0 5px 10px rgba(0, 0, 0, 0.2); /* Stronger shadow for logout button */
+            white-space: nowrap;
+            opacity: 0.9; /* Slightly less opaque */
+        }
+
+        .logout-btn:hover {
+            background-color: var(--secondary-color);
+            color: var(--text-color-dark);
+            box-shadow: var(--box-shadow-dark), 0 6px 12px rgba(0, 0, 0, 0.3); /* Even stronger shadow on hover */
+            transform: scale(1.04); /* Slight scale up on hover */
+        }
+        body.dark-mode .logout-btn:hover {
+            box-shadow: var(--box-shadow-light), 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+
+        footer {
+            background-color: #0a0a0a;
+            color: rgba(255, 255, 255, 0.8);
+            padding: 35px 0; /* More padding for footer */
+            margin-top: auto;
+            font-size: 0.95rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            opacity: 1;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        body.dark-mode footer {
+            background-color: #f0f0f0;
+            color: rgba(0, 0, 0, 0.6);
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at bottom left, rgba(var(--primary-color-rgb, 229, 9, 20), 0.08), transparent 40%),
+                        radial-gradient(circle at top right, rgba(var(--secondary-color-rgb, 255, 112, 88), 0.06), transparent 40%);
+            pointer-events: none;
+        }
+        body.dark-mode footer::before {
+            background: radial-gradient(circle at bottom left, rgba(var(--primary-color-rgb, 229, 9, 20), 0.04), transparent 40%),
+                        radial-gradient(circle at top right, rgba(var(--secondary-color-rgb, 255, 112, 88), 0.03), transparent 40%);
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+
+        /* ========================= Controls Styles ========================= */
+        .controls {
+            position: fixed;
+            bottom: 1.2rem;
+            right: 1.2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            z-index: 1000;
+        }
+
+        .control-button {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: none;
+            background: var(--primary-color);
+            color: var(--text-color-dark);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition-speed) ease;
+            opacity: 0;
+            transform: translateY(12px);
+            font-size: 0.9rem;
+            box-shadow: var(--box-shadow-dark);
+            opacity: 0.7;
+        }
+        body.dark-mode .control-button {
+            box-shadow: var(--box-shadow-light);
+            opacity: 0.75;
+        }
+
+        .control-button.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .control-button:hover {
+            transform: scale(1.06);
+            background: var(--accent-color);
+            color: var(--dark-background);
+        }
+
+
+    </style>
 </head>
 <body>
-  <header class="header">
-    <div class="header-content">
-      <img src="logo.png" alt="لوگو هامووی" class="logo">
-      <nav>
-        <ul>
-          <li><a href="index.html" class="active">صفحه اصلی</a></li>
-          <li><a href="movies.html">فیلم</a></li>
-          <li><a href="series.html">سریال</a></li>
-          <li><a href="animation.html">انیمیشن</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <a href="index.html">
+                        <img src="logo.png" alt="لوگو هامووی" class="logo">
+                    </a>
+                    <a href="index.html" class="site-title">هامووی</a>
+                </div>
 
-  <main class="main-content">
-    <aside class="sidebar">
-        <h3>پروفایل کاربری</h3>
-        <ul>
-            <li><a href="Watch Later.html"><i class="fas fa-clock"></i> تماشا در زمان دیگر</a></li>
-      </aside>
+                <nav>
+                    <ul>
+                        <li><a href="index.html" class="active">صفحه اصلی</a></li>
+                        <li><a href="animation.html">انیمیشن</a></li>
+                        <li><a href="movies.html">فیلم</a></li>
+                        <li><a href="series.html">سریال</a></li>
+                    </ul>
+                </nav>
 
-    <div class="content">
-      <div class="profile-info">
-        <img id="profile-image" src="" alt="عکس پروفایل"> 
-        <p><i class="fas fa-user"></i> <strong>نام:</strong> <span id="profile-name"></span></p>
-        <p><i class="fas fa-envelope"></i> <strong>ایمیل:</strong> <span id="profile-email"></span></p>
-      </div>
-      <p id="welcome-message"></p> 
-      <button class="logout-btn" onclick="logout()">خروج</button>
-    </div>
-  </main>
 
-  <footer>
-    <p>&copy; ۲۰۲۴ هامووی - تمامی حقوق محفوظ است</p>
-  </footer>
+            </div>
+            <div style="border-bottom: 1.5px solid var(--primary-color); animation: slideInBottom 0.6s ease-out both;"></div>
+        </div>
+    </header>
 
-  <script>
-    function logout() {
-      localStorage.removeItem('user');
-      localStorage.removeItem('rememberedEmail');
-      window.location.href = 'login.html';
-    }
+    <main class="main-content container">
+        <aside class="sidebar">
+            <h3>پروفایل کاربری</h3>
+            <ul>
+                <li><a href="profile-settings.html"><i class="fas fa-cog"></i> تنظیمات پروفایل</a></li>
+                <li><a href="Watch Later.html"><i class="fas fa-clock"></i> تماشا در زمان دیگر</a></li>
+                <li><a href="favorites.html"><i class="fas fa-heart"></i> علاقه‌مندی‌ها</a></li>
+            </ul>
+        </aside>
 
-    document.addEventListener('DOMContentLoaded', () => {
-      const profileName = document.getElementById('profile-name');
-      const profileEmail = document.getElementById('profile-email');
-      const profileImage = document.getElementById('profile-image'); 
-      const welcomeMessage = document.getElementById('welcome-message'); //  اضافه شده
+        <div class="content">
+            <div class="content-hero">
+                <h2>پروفایل کاربری</h2>
+                <p>به پروفایل کاربری خود خوش آمدید! در اینجا می‌توانید اطلاعات حساب خود را مشاهده و مدیریت کنید.</p>
+            </div>
 
-      const storedUser = JSON.parse(localStorage.getItem('user'));
-      if (storedUser) {
-        profileName.textContent = storedUser.name;
-        profileEmail.textContent = storedUser.email;
-        profileImage.src = storedUser.profile; 
-        welcomeMessage.textContent = `سلام ${storedUser.name}، خوش آمدید!`; //  پیام خوشامدگویی
-      } else {
-        window.location.href = 'login.html';
-      }
-    });
-  </script>
+            <div class="profile-info">
+                <div class="profile-info-header">
+                    <img id="profile-image" src="path/to/profile-image.jpg" alt="عکس پروفایل">
+                    <h3>اطلاعات حساب</h3>
+                </div>
+
+                <p><i class="fas fa-user"></i> <strong>نام کاربری:</strong> <span id="profile-name"></span></p>
+                <p><i class="fas fa-envelope"></i> <strong>ایمیل:</strong> <span id="profile-email"></span></p>
+                <p><i class="fas fa-calendar-alt"></i> <strong>تاریخ عضویت:</strong> <span id="profile-joined">به زودی</span></p>
+            </div>
+
+            <button class="logout-btn" onclick="logout()">خروج از حساب</button>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-bottom">
+            <p>© ۲۰۲۴ هامووی - تمامی حقوق محفوظ است</p>
+        </div>
+    </footer>
+
+
+    <script>
+        function logout() {
+            localStorage.removeItem('user');
+            localStorage.removeItem('rememberedEmail');
+            window.location.href = 'login.html';
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const profileName = document.getElementById('profile-name');
+            const profileEmail = document.getElementById('profile-email');
+            const profileImage = document.getElementById('profile-image');
+            const profileJoined = document.getElementById('profile-joined'); // New element
+            const welcomeMessage = document.getElementById('welcome-message'); //  Removed from HTML
+
+            const storedUser = JSON.parse(localStorage.getItem('user'));
+            if (storedUser) {
+                profileName.textContent = storedUser.name;
+                profileEmail.textContent = storedUser.email;
+                profileImage.src = storedUser.profile;
+                // profileJoined.textContent = '...'; // You would set the join date here if available in storedUser
+            } else {
+                window.location.href = 'login.html';
+            }
+        });
+    </script>
 </body>
 </html>
