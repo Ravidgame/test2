@@ -1,0 +1,1093 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="هامووی - دسته‌بندی فیلم و سریال برای دانلود">
+    <meta name="theme-color" content="#e50914">
+    <title>دسته‌بندی‌ها | هامووی 🎬 دانلود فیلم و سریال</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700&family=Vazirmatn:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* ========================= Root Variables ========================= */
+        :root {
+            --primary-color: #e50914;
+            --secondary-color: #ff7058;
+            --dark-background: #050505;
+            --light-background: #fdfdfd;
+            --text-color-dark: #f2f2f2;
+            --text-color-light: #2e2e2e;
+            --accent-color: #ffd83d;
+            --transition-speed: 0.2s;
+            --border-radius: 12px;
+            --box-shadow-light: 0 1px 6px rgba(0, 0, 0, 0.05);
+            --box-shadow-dark: 0 2px 8px rgba(0, 0, 0, 0.15);
+            --header-height-desktop: 80px;
+            --header-height-mobile: 70px;
+            --header-shrink-height: 60px;
+            --content-padding-desktop: 20px;
+            --content-padding-mobile: 12px;
+            --logo-desktop-width: 90px;
+            --logo-mobile-width: 80px;
+            --site-title-desktop-size: 1.1rem;
+            --site-title-mobile-size: 1.5rem;
+            --nav-link-padding-desktop: 0.7rem 1.4rem;
+            --nav-link-font-size-desktop: 0.95rem;
+        }
+
+        /* ========================= Global Styles ========================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--dark-background);
+            color: var(--text-color-dark);
+            font-family: 'Vazirmatn', 'Montserrat', sans-serif;
+            margin: 0;
+            transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            font-weight: 400;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        body.dark-mode {
+            background-color: var(--light-background);
+            color: var(--text-color-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color var(--transition-speed) ease;
+        }
+        a:hover {
+            color: var(--accent-color);
+        }
+
+        .container {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: var(--content-padding-desktop);
+            width: 100%;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: var(--content-padding-mobile);
+            }
+        }
+
+        /* ========================= Header Styles ========================= */
+        header {
+            background-color: rgba(5, 5, 5, 0.97);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(15px);
+            box-shadow: var(--box-shadow-dark);
+            height: var(--header-height-desktop);
+            transition: height var(--transition-speed) ease;
+        }
+        header.shrink {
+            height: var(--header-shrink-height);
+        }
+
+        header.dark-mode {
+            background-color: rgba(253, 253, 253, 0.97);
+            box-shadow: var(--box-shadow-light);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 var(--content-padding-desktop);
+            height: 100%;
+        }
+        @media (max-width: 768px) {
+            .header-content {
+                padding: 0 var(--content-padding-mobile);
+            }
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            margin-right: auto;
+        }
+
+        .logo {
+            width: var(--logo-desktop-width);
+            height: auto;
+            transition: transform var(--transition-speed) ease;
+        }
+        @media (max-width: 768px) {
+            .logo {
+                width: var(--logo-mobile-width);
+            }
+        }
+
+        .logo:hover {
+            transform: scale(1.03);
+        }
+
+        .site-title {
+            color: var(--text-color-dark);
+            font-family: 'Vazirmatn', sans-serif;
+            font-size: var(--site-title-desktop-size);
+            margin-right: 0.6rem;
+            letter-spacing: 0.3px;
+            text-shadow: none;
+            transition: color var(--transition-speed) ease;
+            opacity: 0.7;
+            font-weight: 400;
+        }
+        body.dark-mode .site-title {
+            color: var(--text-color-light);
+            opacity: 0.65;
+        }
+        .site-title:hover {
+            color: var(--accent-color);
+            opacity: 1;
+        }
+        @media (min-width: 992px) {
+            .site-title {
+                display: inline-block;
+            }
+        }
+        @media (max-width: 768px) {
+            .site-title {
+                display: inline-block;
+                margin-right: 0.8rem;
+                font-size: var(--site-title-mobile-size);
+                font-family: 'Bebas Neue', sans-serif;
+                opacity: 1;
+            }
+        }
+
+        /* ========================= Navigation Styles ========================= */
+        nav {
+            display: flex;
+            align-items: center;
+            margin-right: 2rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav li a {
+            display: block;
+            font-weight: 500;
+            font-size: var(--nav-link-font-size-desktop);
+            padding: var(--nav-link-padding-desktop);
+            border-radius: var(--border-radius);
+            transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+            box-shadow: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        nav li a:hover {
+            color: var(--accent-color);
+        }
+
+        nav li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--accent-color);
+            transform: translateX(100%);
+            transition: transform var(--transition-speed) ease;
+        }
+
+        nav li a:hover::after,
+        nav li a.active::after {
+            transform: translateX(0);
+        }
+
+        nav li a.active {
+            color: var(--text-color-dark);
+            text-decoration: none;
+            background-color: transparent;
+            box-shadow: none;
+        }
+        body.dark-mode nav li a.active {
+            color: var(--text-color-light);
+        }
+
+        /* ========================= Login Button Styles ========================= */
+        .login-button {
+            display: block;
+            color: var(--text-color-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: 0.8rem 1.5rem;
+            border-radius: var(--border-radius);
+            transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, box-shadow var(--transition-speed) ease, border-color var(--transition-speed) ease;
+            background-color: transparent;
+            border: 1.8px solid var(--primary-color);
+            white-space: nowrap;
+            box-shadow: none;
+            opacity: 0.85;
+            margin-right: 1.2rem;
+            margin-left: auto;
+        }
+        body.dark-mode .login-button {
+            color: var(--text-color-light);
+            border-color: var(--primary-color);
+            opacity: 0.9;
+        }
+
+        .login-button:hover {
+            background-color: var(--primary-color);
+            color: var(--text-color-dark);
+            box-shadow: var(--box-shadow-dark), 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-color: var(--secondary-color);
+        }
+        body.dark-mode .login-button:hover {
+            box-shadow: var(--box-shadow-light), 0 4px 8px rgba(0, 0, 0, 0.1);
+            color: var(--text-color-light);
+        }
+
+        /* ========================= Hamburger Menu Styles ========================= */
+        .hamburger-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+            padding: 0.4rem;
+        }
+
+        .hamburger-menu div {
+            width: 18px;
+            height: 2.2px;
+            background-color: var(--text-color-dark);
+            transition: all 0.3s ease;
+        }
+        body.dark-mode .hamburger-menu div {
+            background-color: var(--text-color-light);
+        }
+
+        .hamburger-menu.active .hamburger-line-top {
+            transform: rotate(-45deg) translate(-4px, 4px);
+        }
+
+        .hamburger-menu.active .hamburger-line-middle {
+            opacity: 0;
+        }
+
+        .hamburger-menu.active .hamburger-line-bottom {
+            transform: rotate(45deg) translate(-4px, -4px);
+        }
+
+        /* ========================= Mobile Menu Styles ========================= */
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: var(--header-height-mobile);
+            right: 0;
+            width: 100%;
+            background-color: rgba(5, 5, 5, 0.98);
+            backdrop-filter: blur(15px);
+            box-shadow: var(--box-shadow-dark);
+            z-index: 999;
+            padding: 1.2rem 0;
+        }
+        body.dark-mode .mobile-menu {
+            background-color: rgba(253, 253, 253, 0.98);
+            box-shadow: var(--box-shadow-light);
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mobile-menu li {
+            margin: 0;
+            padding: 0.6rem 0;
+        }
+
+        .mobile-menu a {
+            padding: 0.9rem var(--content-padding-mobile);
+            text-align: right;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+        }
+        body.dark-mode .mobile-menu a {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.02);
+        }
+
+        .mobile-menu a:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-menu a:hover {
+            background-color: var(--primary-color);
+            color: var(--text-color-dark);
+        }
+        body.dark-mode .mobile-menu a:hover {
+            color: var(--text-color-light);
+        }
+
+        .mobile-menu.active {
+            display: flex;
+        }
+
+        /* ========================= Footer Styles ========================= */
+        footer {
+            background-color: #0a0a0a;
+            color: rgba(255, 255, 255, 0.8);
+            padding: 50px 0;
+            margin-top: auto;
+            font-size: 0.95rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            opacity: 1;
+            position: relative;
+            overflow: hidden;
+        }
+        body.dark-mode footer {
+            background-color: #f0f0f0;
+            color: rgba(0, 0, 0, 0.6);
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at bottom left, rgba(var(--primary-color-rgb, 229, 9, 20), 0.08), transparent 40%),
+                        radial-gradient(circle at top right, rgba(var(--secondary-color-rgb, 255, 112, 88), 0.06), transparent 40%);
+            pointer-events: none;
+        }
+        body.dark-mode footer::before {
+            background: radial-gradient(circle at bottom left, rgba(var(--primary-color-rgb, 229, 9, 20), 0.04), transparent 40%),
+                        radial-gradient(circle at top right, rgba(var(--secondary-color-rgb, 255, 112, 88), 0.03), transparent 40%);
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
+            position: relative;
+            z-index: 1;
+        }
+        @media (max-width: 768px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
+        }
+
+        .footer-section {
+            padding: 0 25px;
+        }
+        @media (max-width: 768px) {
+            .footer-section {
+                padding: 0;
+            }
+        }
+
+        .footer-section h3 {
+            color: var(--accent-color);
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 0.9px;
+            text-transform: uppercase;
+        }
+        body.dark-mode .footer-section h3 {
+            color: var(--primary-color);
+        }
+
+        .footer-section p,
+        .footer-section ul {
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section a {
+            color: inherit;
+            opacity: 0.9;
+            transition: opacity var(--transition-speed) ease, color var(--transition-speed) ease;
+            display: block;
+            padding: 6px 0;
+            font-weight: 400;
+        }
+        .footer-section a:hover {
+            opacity: 1;
+            color: var(--accent-color);
+        }
+        body.dark-mode .footer-section a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-social-icons {
+            display: flex;
+            gap: 18px;
+            justify-content: start;
+            margin-top: 10px;
+        }
+        @media (max-width: 768px) {
+            .footer-social-icons {
+                justify-content: center;
+            }
+        }
+
+        .footer-social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.08);
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.1rem;
+            transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, transform var(--transition-speed) ease;
+            opacity: 1;
+        }
+        .footer-social-icons a:hover {
+            background-color: var(--primary-color);
+            color: var(--text-color-dark);
+            transform: scale(1.15);
+        }
+        body.dark-mode .footer-social-icons a:hover {
+            color: var(--text-color-light);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 35px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            margin-top: 35px;
+            font-size: 0.9rem;
+            opacity: 0.95;
+            font-weight: 400;
+        }
+        body.dark-mode .footer-bottom {
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        /* ========================= Newsletter Form Styles ========================= */
+        .footer-section-newsletter .newsletter-form {
+            display: flex;
+            gap: 8px;
+            max-width: 100%;
+        }
+        @media (max-width: 768px) {
+            .footer-section-newsletter .newsletter-form {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 10px;
+            }
+        }
+
+        .footer-section-newsletter input[type="email"] {
+            padding: 0.7rem 1rem;
+            border-radius: var(--border-radius);
+            border: none;
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--text-color-dark);
+            font-size: 0.9rem;
+            font-family: inherit;
+            width: 100%;
+            box-shadow: none;
+            outline: none;
+            transition: background-color var(--transition-speed) ease, border-color var(--transition-speed) ease;
+        }
+        body.dark-mode .footer-section-newsletter input[type="email"] {
+            background-color: rgba(0, 0, 0, 0.03);
+            color: var(--text-color-light);
+        }
+        .footer-section-newsletter input[type="email"]:focus {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: var(--accent-color);
+        }
+        body.dark-mode .footer-section-newsletter input[type="email"]:focus {
+            background-color: rgba(0, 0, 0, 0.05);
+            border-color: var(--accent-color);
+        }
+
+        .footer-section-newsletter button[type="submit"] {
+            padding: 0.7rem 1.5rem;
+            border-radius: var(--border-radius);
+            border: none;
+            background-color: var(--primary-color);
+            color: var(--text-color-dark);
+            font-size: 0.9rem;
+            font-family: 'Vazirmatn', sans-serif;
+            cursor: pointer;
+            transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, transform var(--transition-speed) ease;
+            box-shadow: var(--box-shadow-dark);
+            white-space: nowrap;
+        }
+        .footer-section-newsletter button[type="submit"]:hover {
+            background-color: var(--secondary-color);
+            transform: scale(1.03);
+            box-shadow: var(--box-shadow-dark), 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+        body.dark-mode .footer-section-newsletter button[type="submit"]:hover {
+            box-shadow: var(--box-shadow-light), 0 4px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        /* ========================= Controls Styles ========================= */
+        .controls {
+            position: fixed;
+            bottom: 1.2rem;
+            right: 1.2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            z-index: 1000;
+        }
+
+        .control-button {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: none;
+            background: var(--primary-color);
+            color: var(--text-color-dark);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition-speed) ease;
+            opacity: 0;
+            transform: translateY(12px);
+            font-size: 0.9rem;
+            box-shadow: var(--box-shadow-dark);
+            opacity: 0.7;
+        }
+        body.dark-mode .control-button {
+            box-shadow: var(--box-shadow-light);
+            opacity: 0.75;
+        }
+
+        .control-button.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .control-button:hover {
+            transform: scale(1.06);
+            background: var(--accent-color);
+            color: var(--dark-background);
+        }
+
+        /* ========================= Category Styles ========================= */
+        .categories-description {
+            padding: 3rem 0 2rem;
+            text-align: center;
+        }
+        .categories-description h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.5rem;
+            letter-spacing: 1.2px;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+            text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+        }
+        body.dark-mode .categories-description h1 {
+            color: var(--primary-color);
+            text-shadow: none;
+        }
+        .categories-description p {
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 1rem;
+            line-height: 1.8;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        body.dark-mode .categories-description p {
+            color: rgba(0, 0, 0, 0.6);
+        }
+
+
+        .categories-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            padding-bottom: 2rem;
+        }
+        @media (max-width: 768px) {
+            .categories-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .category-box {
+            background-color: rgba(255, 255, 255, 0.03);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--box-shadow-dark);
+            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, background-color var(--transition-speed) ease;
+            cursor: pointer;
+        }
+        body.dark-mode .category-box {
+            background-color: rgba(0, 0, 0, 0.02);
+            box-shadow: var(--box-shadow-light);
+        }
+
+        .category-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            background-color: rgba(255, 255, 255, 0.06);
+        }
+        body.dark-mode .category-box:hover {
+            background-color: rgba(0, 0, 0, 0.04);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .category-box a {
+            display: block;
+        }
+
+        .category-box i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            opacity: 0.8;
+            transition: color var(--transition-speed) ease;
+        }
+        .category-box:hover i {
+            color: var(--accent-color);
+            opacity: 1;
+        }
+
+        .category-box h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-color-dark);
+            transition: color var(--transition-speed) ease;
+        }
+        body.dark-mode .category-box h3 {
+            color: var(--text-color-light);
+        }
+        .category-box:hover h3 {
+            color: var(--text-color-dark);
+        }
+        body.dark-mode .category-box:hover h3 {
+            color: var(--text-color-light);
+        }
+
+
+        /* ========================= Media Queries ========================= */
+        @media (max-width: 768px) {
+            .categories-description {
+                padding: 2rem 0 1.5rem;
+            }
+            .categories-description h1 {
+                font-size: 2rem;
+                letter-spacing: 0.8px;
+                margin-bottom: 0.8rem;
+            }
+            .categories-description p {
+                font-size: 0.9rem;
+                line-height: 1.7;
+            }
+
+            header {
+                height: var(--header-height-mobile);
+                border-bottom-width: 0px;
+            }
+            header.shrink {
+                height: var(--header-height-mobile);
+            }
+            .header-content {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0 var(--content-padding-mobile);
+            }
+
+            nav {
+                display: none;
+            }
+            .login-button {
+                display: none;
+            }
+            .mobile-login-button {
+                display: block !important;
+            }
+
+            .hamburger-menu {
+                display: flex;
+                order: 1;
+            }
+
+            .logo-container {
+                order: 2;
+                margin: 0;
+            }
+
+
+            .mobile-menu {
+                display: none;
+                top: var(--header-height-mobile);
+            }
+        }
+
+        /* ========================= Animations ========================= */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInBottom {
+            from { transform: translateY(100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <div class="header-content">
+            <div class="logo-container">
+                <a href="index.html">
+                    <img src="logo.png" alt="لوگو هامووی" class="logo">
+                </a>
+                <a href="index.html" class="site-title">هامووی</a>
+            </div>
+
+            <nav aria-label="navigation">
+                <ul>
+                    <li><a href="index.html">صفحه اصلی</a></li>
+                    <li><a href="animation.html">انیمیشن</a></li>
+                    <li><a href="movies.html">فیلم</a></li>
+                    <li><a href="series.html">سریال</a></li>
+                    <li><a href="about.html">درباره ما</a></li>
+                    <li><a href="contact.html">تماس با ما</a></li>
+                </ul>
+            </nav>
+
+            <a href="login.html" class="login-button">
+                <i class="fas fa-user-circle" style="margin-left: 0.5rem;"></i> ورود/ثبت نام
+            </a>
+
+            <div class="hamburger-menu" id="hamburger-menu">
+                <div class="hamburger-line-top"></div>
+                <div class="hamburger-line-middle"></div>
+                <div class="hamburger-line-bottom"></div>
+            </div>
+        </div>
+        <div style="border-bottom: 1.5px solid var(--primary-color); animation: slideInBottom 0.6s ease-out both;"></div>
+    </div>
+</header>
+
+<section class="categories-description">
+    <div class="container">
+        <h1>دسته بندی فیلم و سریال</h1>
+        <p>به صفحه دسته‌بندی هامووی خوش آمدید! از اینجا می‌توانید به مجموعه‌ای از فیلم‌ها و سریال‌ها بر اساس ژانر، نوع، و دسته‌بندی‌های مختلف دسترسی پیدا کنید. با انتخاب هر دسته، وارد دنیای بی‌کران سینما و تلویزیون شوید و به دانلود و تماشای آثار مورد علاقه خود بپردازید.</p>
+    </div>
+</section>
+
+<div class="container categories-container">
+    <div class="category-box">
+        <a href="animation.html">
+            <i class="fas fa-masks-theater"></i>
+            <h3>انیمیشن</h3>
+        </a>
+    </div>
+    <div class="category-box">
+        <a href="movies.html">
+            <i class="fas fa-film"></i>
+            <h3>فیلم</h3>
+        </a>
+    </div>
+    <div class="category-box">
+        <a href="series.html">
+            <i class="fas fa-tv"></i>
+            <h3>سریال</h3>
+        </a>
+    </div>
+    <div class="category-box">
+        <a href="comedy.html">
+            <i class="fas fa-laugh-squint"></i>
+            <h3>کمدی</h3>
+        </a>
+    </div>
+    <div class="category-box">
+        <a href="action.html">
+            <i class="fas fa-gun"></i>
+            <h3>اکشن</h3>
+        </a>
+    </div>
+    <div class="category-box">
+        <a href="scifi.html">
+            <i class="fas fa-rocket"></i>
+            <h3>علمی تخیلی</h3>
+        </a>
+    </div>
+    <div class="category-box">
+        <a href="drama.html">
+            <i class="fas fa-heart-broken"></i>
+            <h3>درام</h3>
+        </a>
+    </div>
+    <div class="category-box">
+        <a href="romance.html">
+            <i class="fas fa-heart"></i>
+            <h3>عاشقانه</h3>
+        </a>
+    </div>
+    <div class="category-box">
+        <a href="anime.html">
+            <i class="fas fa-dragon"></i>
+            <h3>انیمه</h3>
+        </a>
+    </div>
+    <div class="category-box">
+        <a href="persians.html">
+            <i class="fas fa-theater-masks"></i>
+            <h3>ایرانی</h3>
+        </a>
+    </div>
+    <div class="category-box">
+        <a href="classic.html">
+            <i class="fas fa-history"></i>
+            <h3>کلاسیک</h3>
+        </a>
+    </div>
+    <div class="category-box">
+        <a href="family.html">
+            <i class="fas fa-users"></i>
+            <h3>خانوادگی</h3>
+        </a>
+    </div>
+    <div class="category-box">
+        <a href="documentary.html">
+            <i class="fas fa-file-video"></i>
+            <h3>مستند</h3>
+        </a>
+    </div>
+    <div class="category-box">
+        <a href="thebest.html">
+            <i class="fas fa-star"></i>
+            <h3>بهترین‌ها</h3>
+        </a>
+    </div>
+    <div class="category-box">
+        <a href="realityshow.html">
+            <i class="fas fa-video-camera"></i>
+            <h3>ریالیتی شو</h3>
+        </a>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-container container">
+        <div class="footer-section footer-section-about">
+            <h3>هامووی 🎬</h3>
+            <p>هامووی، پلتفرم شما برای دانلود بی‌دردسر فیلم و سریال با بالاترین کیفیت و بدون سانسور. ماموریت ما ارائه بهترین تجربه تماشای آنلاین و دانلود رایگان فیلم و سریال برای فارسی‌زبانان است. سینما، هر لحظه با شما.</p>
+            <div class="footer-social-icons">
+                <a href="https://www.instagram.com/hamvimoe/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                <a href="https://t.me/Hamoviefilmdo" target="_blank" rel="noopener noreferrer"><i class="fab fa-telegram"></i></a>
+                <a href="javascript:void(0);"><i class="fab fa-youtube"></i></a>
+                <a href="javascript:void(0);"><i class="fab fa-twitter"></i></a>
+                <a href="javascript:void(0);"><i class="fab fa-facebook"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-section footer-section-links">
+            <h3>دسترسی سریع</h3>
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home" style="margin-left: 0.3rem;"></i> صفحه اصلی</a></li>
+                <li><a href="movies.html"><i class="fas fa-film" style="margin-left: 0.3rem;"></i> فیلم‌ها</a></li>
+                <li><a href="series.html"><i class="fas fa-tv" style="margin-left: 0.3rem;"></i> سریال‌ها</a></li>
+                <li><a href="animation.html"><i class="fas fa-masks-theater" style="margin-left: 0.3rem;"></i> انیمیشن</a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle" style="margin-left: 0.3rem;"></i> درباره ما</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope" style="margin-left: 0.3rem;"></i> تماس با ما</a></li>
+                <li><a href="#"><i class="fas fa-sitemap" style="margin-left: 0.3rem;"></i> نقشه سایت</a></li>
+                <li><a href="#"><i class="fas fa-file-contract" style="margin-left: 0.3rem;"></i> قوانین و مقررات</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section footer-section-newsletter">
+            <h3>خبرنامه هامووی</h3>
+            <p>برای دریافت آخرین اخبار فیلم‌ها و سریال‌ها، آدرس ایمیل خود را وارد کنید:</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="ایمیل شما" required>
+                <button type="submit">عضویت</button>
+            </form>
+        </div>
+
+        <div class="footer-section footer-section-contact">
+            <h3>اطلاعات تماس</h3>
+            <p><a href="mailto:hamovie@gmail.com"><i class="fas fa-envelope" style="margin-left: 0.3rem;"></i>hamovie@gmail.com</a></p>
+            <p><i class="fas fa-phone" style="margin-left: 0.3rem;"></i> به زودی</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© ۲۰۲۴ هامووی - تمامی حقوق محفوظ است. | طراحی شده با <i class="fas fa-heart" style="color: var(--primary-color); font-size: 0.7rem; vertical-align: middle;"></i> توسط تیم هامووی</p>
+    </div>
+</footer>
+
+<div class="controls">
+    <button class="control-button theme-toggle" id="theme-toggle-button" title="تغییر حالت شب/روز">
+        <i class="fas fa-adjust"></i>
+    </button>
+    <button class="control-button scroll-top" id="scroll-top-button" title="بازگشت به بالا">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+</div>
+
+<div class="mobile-menu" id="mobile-menu">
+    <ul>
+        <li><a href="index.html">صفحه اصلی</a></li>
+        <li><a href="animation.html">انیمیشن</a></li>
+        <li><a href="movies.html">فیلم</a></li>
+        <li><a href="series.html">سریال</a></li>
+        <li><a href="about.html">درباره ما</a></li>
+        <li><a href="contact.html">تماس با ما</a></li>
+        <li><a href="login.html" class="mobile-login-button">
+            <i class="fas fa-user-circle" style="margin-left: 0.5rem;"></i> ورود/ثبت نام
+        </a></li>
+    </ul>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const controls = {
+            themeToggle: document.getElementById('theme-toggle-button'),
+            scrollTop: document.getElementById('scroll-top-button'),
+            hamburgerMenu: document.getElementById('hamburger-menu'),
+            mobileMenu: document.getElementById('mobile-menu'),
+            navLinks: document.querySelectorAll('nav ul li a'),
+            header: document.querySelector('header')
+        };
+
+        /* ========================= Theme Toggle ========================= */
+        controls.themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            const icon = controls.themeToggle.querySelector('i');
+            icon.className = document.body.classList.contains('dark-mode')
+                ? 'fas fa-sun'
+                : 'fas fa-adjust';
+            localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+        });
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.body.classList.add('dark-mode');
+            controls.themeToggle.querySelector('i').className = 'fas fa-sun';
+        }
+
+        /* ========================= Scroll to Top ========================= */
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                controls.scrollTop.classList.add('visible');
+            } else {
+                controls.scrollTop.classList.remove('visible');
+            }
+        });
+        controls.scrollTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        /* ========================= Hamburger Menu Toggle ========================= */
+        controls.hamburgerMenu.addEventListener('click', () => {
+            controls.hamburgerMenu.classList.toggle('active');
+            controls.mobileMenu.classList.toggle('active');
+        });
+
+        /* ========================= Debounced Scroll Event & Header Shrink/Reveal ========================= */
+        let lastScrollY = 0;
+
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait, ...args);
+            };
+        }
+
+        const debouncedScroll = debounce(() => {
+            if (window.pageYOffset > 300) {
+                controls.scrollTop.classList.add('visible');
+            } else {
+                controls.scrollTop.classList.remove('visible');
+            }
+
+            // Header shrink/reveal logic
+            const currentScrollY = window.pageYOffset;
+            const headerHeightDesktop = 80;
+            if (currentScrollY > lastScrollY && currentScrollY > headerHeightDesktop) {
+                controls.header.classList.add('shrink');
+            } else if (currentScrollY < lastScrollY) {
+                controls.header.classList.remove('shrink');
+            }
+            lastScrollY = currentScrollY;
+
+        }, 60);
+        window.addEventListener('scroll', debouncedScroll);
+
+        /* ========================= Active Page Indicator ========================= */
+        controls.navLinks.forEach(link => {
+            if (link.getAttribute('href') === 'index.html') {
+                link.classList.remove('active');
+            }
+             if (window.location.pathname.includes(link.getAttribute('href'))) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+    });
+</script>
+</body>
+</html>
