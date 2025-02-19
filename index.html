@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
@@ -21,6 +22,7 @@
             --text-color-dark: #f2f2f2;
             --text-color-light: #2e2e2e;
             --accent-color: #ffd83d;
+            --accent-color-rgb: 255, 216, 61; /* Added for rgba() use if needed */
             --transition-speed: 0.2s; /* Slightly smoother transition */
             --border-radius: 12px;
             --box-shadow-light: 0 1px 6px rgba(0, 0, 0, 0.05);
@@ -90,7 +92,7 @@
 
         /* ========================= Header Styles ========================= */
         header {
-            background-color: rgba(5, 5, 5, 0.97);
+            background-color: #000; /* Changed to black */
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -411,6 +413,44 @@
             color: rgba(0, 0, 0, 0.45);
         }
 
+        /* Style for the new category button */
+        .download-category-button {
+            display: inline-block; /* To control width and height */
+            color: var(--text-color-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: 0.8rem 1.5rem;
+            border-radius: var(--border-radius);
+            transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, box-shadow var(--transition-speed) ease, border-color var(--transition-speed) ease;
+            background-color: var(--primary-color); /* Primary color background */
+            border: none; /* No border */
+            white-space: nowrap;
+            box-shadow: var(--box-shadow-dark);
+            opacity: 0.9;
+            cursor: pointer;
+            font-family: 'Vazirmatn', 'Montserrat', sans-serif; /* Match website font */
+            margin-top: 1.2rem; /* Space from the list above */
+            margin-right: auto; /* Push to the right in flex container if needed */
+            margin-left: auto; /* Center the button */
+            display: block; /* Make it full width on mobile if needed, otherwise adjust */
+            text-align: center; /* Center text inside button */
+        }
+        body.dark-mode .download-category-button {
+            color: var(--text-color-light);
+            box-shadow: var(--box-shadow-light);
+        }
+
+        .download-category-button:hover {
+            background-color: var(--secondary-color); /* Secondary color on hover */
+            color: var(--text-color-dark);
+            box-shadow: var(--box-shadow-dark), 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        body.dark-mode .download-category-button:hover {
+            box-shadow: var(--box-shadow-light), 0 4px 8px rgba(0, 0, 0, 0.1);
+            color: var(--text-color-light);
+        }
+
+
         /* ========================= Platform Section Styles ========================= */
         .platform {
             display: grid;
@@ -448,6 +488,13 @@
             margin-bottom: 0.6rem;
             transition: transform var(--transition-speed) ease, color var(--transition-speed) ease;
             opacity: 0.75;
+            display: flex; /* Make icon container a flex container */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+        }
+        .platform-item i img {
+            max-width: 100%; /* Ensure image doesn't exceed container width */
+            max-height: 100%; /* Ensure image doesn't exceed container height */
         }
 
         .platform-item:hover i {
@@ -841,6 +888,14 @@
         body.dark-mode .mobile-menu a:hover {
             color: var(--text-color-light);
         }
+        .mobile-menu a.active { /* Style for active link in mobile menu */
+            background-color: var(--primary-color);
+            color: var(--text-color-dark);
+        }
+        body.dark-mode .mobile-menu a.active {
+            color: var(--text-color-light);
+        }
+
 
         .mobile-menu.active {
             display: flex;
@@ -1090,12 +1145,12 @@
 
             <nav>
                 <ul>
-                    <li><a href="index.html" class="active">صفحه اصلی</a></li>
-                    <li><a href="animation.html">انیمیشن</a></li>
-                    <li><a href="movies.html">فیلم</a></li>
-                    <li><a href="series.html">سریال</a></li>
-                    <li><a href="about.html">درباره ما</a></li>
-                    <li><a href="contact.html">تماس با ما</a></li>
+                    <li><a href="index.html" class="nav-link">صفحه اصلی</a></li>
+                    <li><a href="animation.html" class="nav-link">انیمیشن</a></li>
+                    <li><a href="movies.html" class="nav-link">فیلم</a></li>
+                    <li><a href="series.html" class="nav-link">سریال</a></li>
+                    <li><a href="about.html" class="nav-link">درباره ما</a></li>
+                    <li><a href="contact.html" class="nav-link">تماس با ما</a></li>
                 </ul>
             </nav>
 
@@ -1120,35 +1175,36 @@
         <div class="intro-content-wrapper">
             <h1>به هامووی خوش آمدید</h1>
             <p>به جمع فلیمبازا خوش آمدی 🎉.هامووی مرجع دانلود فیلمو سریال های رایگان و بدون سانسور</p>
+        </div>
+    </section>
 
-            <div class="platform" id="platform-container">
-                <div class="platform-item" data-title="اینستاگرام">
-                    <i class="fab fa-instagram"></i>
-                    <h2>اینستاگرام هامووی</h2>
-                    <p>هر روز با جدیدترین اخبار سینما، معرفی فیلم و سریال‌های جذاب، پشت صحنه‌ها و محتوای اختصاصی سینمایی در اینستاگرام هامووی همراه شما هستیم.</p>
-                    <a href="https://www.instagram.com/hamvimoe/" target="_blank" rel="noopener noreferrer">
-                        <i class="fas fa-external-link-alt"></i>  صفحه اینستاگرام هامووی
-                    </a>
-                </div>
+    <!-- ========================= Platform Section ========================= -->
+    <section class="platform" id="platform-container" style="margin-top: 1.5rem; margin-bottom: 1.8rem;">
+        <div class="platform-item" data-title="اینستاگرام">
+            <i><img src="instagram.png" alt="لوگو اینستاگرام"></i>
+            <h2>اینستاگرام هامووی</h2>
+            <p>هر روز با جدیدترین اخبار سینما، معرفی فیلم و سریال‌های جذاب، پشت صحنه‌ها و محتوای اختصاصی سینمایی در اینستاگرام هامووی همراه شما هستیم.</p>
+            <a href="https://www.instagram.com/hamvimoe/" target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-external-link-alt"></i>  صفحه اینستاگرام هامووی
+            </a>
+        </div>
 
-                <div class="platform-item" data-title="تلگرام">
-                    <i class="fab fa-telegram"></i>
-                    <h2>کانال تلگرام هامووی</h2>
-                    <p>با عضویت در کانال تلگرام هامووی، به راحتی و با سرعت بالا به آرشیو کاملی از فیلم و سریال‌های روز دنیا دسترسی پیدا کنید و بدون سانسور دانلود کنید.</p>
-                    <a href="https://t.me/Hamoviefilmdo" target="_blank" rel="noopener noreferrer">
-                        <i class="fas fa-external-link-alt"></i>  کانال تلگرام هامووی
-                    </a>
-                </div>
+        <div class="platform-item" data-title="تلگرام">
+            <i><img src="tel.png" alt="لوگو تلگرام"></i>
+            <h2>کانال تلگرام هامووی</h2>
+            <p>با عضویت در کانال تلگرام هامووی، به راحتی و با سرعت بالا به آرشیو کاملی از فیلم و سریال‌های روز دنیا دسترسی پیدا کنید و بدون سانسور دانلود کنید.</p>
+            <a href="https://t.me/Hamoviefilmdo" target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-external-link-alt"></i>  کانال تلگرام هامووی
+            </a>
+        </div>
 
-                <div class="platform-item" data-title="یوتوب">
-                    <i class="fab fa-youtube"></i>
-                    <h2>یوتیوب هامووی - به زودی</h2>
-                    <p>در کانال یوتیوب هامووی، منتظر ویدیوهای جذاب بررسی فیلم و سریال، مصاحبه‌های اختصاصی، پشت صحنه‌ها و کلی محتوای ویدیویی جذاب باشید.</p>
-                    <a href="javascript:void(0);" class="coming-soon">
-                        <i class="fas fa-clock"></i>  یوتیوب هامووی به‌زودی
-                    </a>
-                </div>
-            </div>
+        <div class="platform-item" data-title="یوتوب">
+            <i><img src="youtube.png" alt="لوگو یوتیوب"></i>
+            <h2>یوتیوب هامووی - به زودی</h2>
+            <p>در کانال یوتیوب هامووی، منتظر ویدیوهای جذاب بررسی فیلم و سریال، مصاحبه‌های اختصاصی، پشت صحنه‌ها و کلی محتوای ویدیویی جذاب باشید.</p>
+            <a href="javascript:void(0);" class="coming-soon">
+                <i class="fas fa-clock"></i>  یوتیوب هامووی به‌زودی
+            </a>
         </div>
     </section>
 
@@ -1164,6 +1220,7 @@
                     <li>💥 پس منتظر چی هستی؟! بیا توی دسته‌بندی هایِ ما و از دنیایِ فیلم و سریال لذت ببر! 😉</li>
                     <li>از این دکمه ی پایین  ، اسم یا دسته بندی فیلم خودتو انتخاب کن👻</li>
                 </ul>
+                <a href="Category.html" class="download-category-button">دسته بندی</a>
             </div>
         </div>
     </section>
@@ -1192,8 +1249,6 @@
                 <li><a href="animation.html"><i class="fas fa-masks-theater" style="margin-left: 0.3rem;"></i> انیمیشن</a></li>
                 <li><a href="about.html"><i class="fas fa-info-circle" style="margin-left: 0.3rem;"></i> درباره ما</a></li>
                 <li><a href="contact.html"><i class="fas fa-envelope" style="margin-left: 0.3rem;"></i> تماس با ما</a></li>
-                <li><a href="#"><i class="fas fa-sitemap" style="margin-left: 0.3rem;"></i> نقشه سایت</a></li>
-                <li><a href="#"><i class="fas fa-file-contract" style="margin-left: 0.3rem;"></i> قوانین و مقررات</a></li>
             </ul>
         </div>
 
@@ -1228,12 +1283,12 @@
 
 <div class="mobile-menu" id="mobile-menu">
     <ul>
-        <li><a href="index.html" class="active">صفحه اصلی</a></li>
-        <li><a href="animation.html">انیمیشن</a></li>
-        <li><a href="movies.html">فیلم</a></li>
-        <li><a href="series.html">سریال</a></li>
-        <li><a href="about.html">درباره ما</a></li>
-        <li><a href="contact.html">تماس با ما</a></li>
+        <li><a href="index.html" class="mobile-nav-link">صفحه اصلی</a></li>
+        <li><a href="animation.html" class="mobile-nav-link">انیمیشن</a></li>
+        <li><a href="movies.html" class="mobile-nav-link">فیلم</a></li>
+        <li><a href="series.html" class="mobile-nav-link">سریال</a></li>
+        <li><a href="about.html" class="mobile-nav-link">درباره ما</a></li>
+        <li><a href="contact.html" class="mobile-nav-link">تماس با ما</a></li>
         <li><a href="login.html" class="mobile-login-button">
             <i class="fas fa-user-circle" style="margin-left: 0.5rem;"></i> ورود/ثبت نام
         </a></li>
@@ -1242,6 +1297,7 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
+        // Select all necessary elements for easier manipulation
         const controls = {
             themeToggle: document.getElementById('theme-toggle-button'),
             scrollTop: document.getElementById('scroll-top-button'),
@@ -1249,8 +1305,9 @@
             mobileMenu: document.getElementById('mobile-menu'),
             platformContainer: document.getElementById('platform-container'),
             platformItems: document.querySelectorAll('.platform-item'),
-            navLinks: document.querySelectorAll('nav ul li a'),
-            header: document.querySelector('header') // Added header element
+            navLinks: document.querySelectorAll('nav ul li a.nav-link'), // Select only desktop nav links with class 'nav-link'
+            mobileNavLinks: document.querySelectorAll('.mobile-menu ul li a.mobile-nav-link'), // Select mobile nav links with class 'mobile-nav-link'
+            header: document.querySelector('header')
         };
 
         /* ========================= Theme Toggle ========================= */
@@ -1262,6 +1319,7 @@
                 : 'fas fa-adjust';
             localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
         });
+        // Apply saved theme on page load
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme === 'dark') {
             document.body.classList.add('dark-mode');
@@ -1302,7 +1360,7 @@
         controls.platformItems.forEach((item, index) => {
             item.style.opacity = '0';
             item.style.transform = 'translateY(20px)';
-            item.style.transitionDelay = `${index * 0.06}s`; /* سریع‌ترین */
+            item.style.transitionDelay = `${index * 0.06}s`;
             platformObserver.observe(item);
         });
 
@@ -1366,19 +1424,31 @@
         }, 60);
         window.addEventListener('scroll', debouncedScroll);
 
-        /* ========================= 404 Client-Side Redirect (Basic) ========================= */
-        if (document.title === '404 Not Found') {
-            window.location.href = '404.html';
+        /* ========================= Active Page Indicator ========================= */
+        // Get current page filename (e.g., "index.html", "about.html")
+        const path = window.location.pathname;
+        const currentPage = path.substring(path.lastIndexOf('/') + 1);
+
+        // Function to set active class on navigation links
+        function setActiveNavLink(links) {
+            links.forEach(link => {
+                const linkHref = link.getAttribute('href');
+                if (currentPage === linkHref || (currentPage === '' && linkHref === 'index.html')) { // For homepage
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
         }
 
-        /* ========================= Active Page Indicator ========================= */
-        controls.navLinks.forEach(link => {
-            if (link.getAttribute('href') === 'index.html') {
-                link.classList.add('active');
-            } else {
-                link.classList.remove('active');
-            }
-        });
+        setActiveNavLink(controls.navLinks); // Set active class for desktop navigation
+        setActiveNavLink(controls.mobileNavLinks); // Set active class for mobile navigation
+
+        // ========================= 404 Client-Side Redirect (Removed) =========================
+        // Commenting out the 404 redirect as server-side handling is preferred.
+        // if (document.title === '404 Not Found') {
+        //     window.location.href = '404.html';
+        // }
     });
 </script>
 </body>
